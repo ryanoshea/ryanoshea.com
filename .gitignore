@@ -1,0 +1,9 @@
+*.psd
+*.ai
+wp/**/*
+archives/**/*
+posterous/**/*
+supercars/**/*
+/archives
+/3.0
+3.0/**/*

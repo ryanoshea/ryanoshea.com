@@ -1,0 +1,20 @@
+﻿{
+  "version": "1.0",
+  "name": "Ryan O'Shea",
+  "description": "Ryan O'Shea's homepage",
+  "icons": {
+    "16": "/images/logo/favicon.png",
+    "500": "/images/logo/RyanOShea_Logo_square_500.png",
+    "1660": "/images/logo/RyanOShea_Logo_square.png"
+  },
+  "developer": {
+    "name": "Ryan O'Shea",
+    "url": "http://ryanoshea.com/"
+  },
+  "installs_allowed_from": [
+    "https://appstore.mozillalabs.com",
+	"http://post.ryanoshea.com/",
+	"http://ryanoshea.com/"
+  ],
+  "default_locale": "en"
+}
