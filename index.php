@@ -15,7 +15,7 @@
 						<li>sometimes i <a href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">shout into the void</a></li>
 					</ul>
 					<ul>
-						<li>i go <a href="//devonprep.com" title="my high school" target="_blank">here</a></li>
+						<li>i went <a href="//devonprep.com" title="my high school" target="_blank">here</a></li>
 						<li>i&#8217;m going <a href="//princeton.edu" title="my college" target="_blank">here</a></li>
 						<li>i&#8217;m brothers with <a href="//djoshea.com" title="dan o'shea" target="_blank">this guy</a></li>
 					</ul>
