@@ -4,6 +4,7 @@ html, body {
 body {
 	font-family: "lato";
 	background: #f0f0f0;
+	overflow-x: hidden; 
 }
 #main {
 	display: inline-block;
@@ -137,7 +138,7 @@ h3 {
 .panels {
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: -80%;
 	width: 75%;
 	height: 100%;
 	background: black;

@@ -12,7 +12,7 @@
 					
 				<div id="profile-links"> 
 					<ul>
-						<li>sometimes i <a id="blog-link" href="#" title="my blog" target="_blank">write</a></li>
+						<li>sometimes i <a id="blog-link" href="#" title="my blog">write</a></li>
 						<li>sometimes i <a id="twitter-link" href="#" title="my twitter" target="_blank">babble</a></li>
 						<li>sometimes i <a id="github-link" href="#" title="my github" target="_blank">code</a></li>
 						<li>sometimes i <a id="flickr-link" href="#" title="my flickr" target="_blank">take photos</a></li>
