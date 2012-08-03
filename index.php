@@ -1,14 +1,41 @@
 <?php include('includes/includes.inc.php'); ?><?php echoPageHead("Home", "home"); ?>
 	
 	<div class="panels" id="blog-panel">
-		<iframe src="http://post.ryanoshea.com/"></iframe>
-		<a class="panel-closebutton" href="#">&times;</a>
+    	<a class="panel-closebutton" href="#">&times;</a>
 	</div>
-	<div class="panels" id="twitter-panel">
-		<iframe src="https://twitter.com/ryancoshea"></iframe>
-		<a class="panel-closebutton" href="#">&times;</a>
+	<div class="panels panels-small" id="twitter-panel">
+    	<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+		<script>
+        new TWTR.Widget({
+          version: 2,
+          type: 'profile',
+          rpp: 25,
+          interval: 30000,
+          width: 'auto',
+          height: ($('body').height()-90),
+          theme: {
+            shell: {
+              background: '#333333',
+              color: '#ffffff'
+            },
+            tweets: {
+              background: '#000000',
+              color: '#ffffff',
+              links: '#bb0054'
+            }
+          },
+          features: {
+            scrollbar: true,
+            loop: false,
+            live: true,
+            behavior: 'all'
+          }
+        }).render().setUser('ryancoshea').start();
+        </script>
+		<a class="panel-closebutton-small" href="#">&times;</a>
 	</div>
-	<div class="panels" id="github-panel">
+	<!--
+    <div class="panels" id="github-panel">
 		<iframe src="https://github.com/ryanoshea"></iframe>
 		<a class="panel-closebutton" href="#">&times;</a>
 	</div>
@@ -20,15 +47,16 @@
 		<iframe src="https://facebook.com/ryan.c.oshea"></iframe>
 		<a class="panel-closebutton" href="#">&times;</a>
 	</div>
+    -->
 	<div class="panels" id="delicious-panel">
-		<iframe src="//delicious.com/ryancoshea"></iframe>
 		<a class="panel-closebutton" href="#">&times;</a>
 	</div>
-	<div class="panels" id="google-panel">
+	<!--
+    <div class="panels" id="google-panel">
 		<iframe src="https://plus.google.com/106038738053849300832/posts"></iframe>
 		<a class="panel-closebutton" href="#">&times;</a>
 	</div>
-	
+	-->
 	
 	<?php echoPageHeader(); ?>
 	

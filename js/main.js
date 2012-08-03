@@ -3,8 +3,32 @@
 */
 
 $(document).ready(function() {
+	var loadedBlog = false;
+	var loadedDelicious = false;
 	
+	function closePanels(me) {
+		
+		$('.panels:not(.panels-small)').not(me).animate({
+			right : ($('body').width()*-0.8)
+		},250,
+		
+		function() {
+			$('.panels').not(me).hide();
+		});
+		
+		$('.panels-small').not(me).animate({
+			right : ($('body').width()*-0.3)
+		},250,
+		function() {
+			$('.panels-small').not(me).hide();
+		});		
+	}
+	
+
 	$('#blog-link').click(function() {
+		
+		closePanels('#blog-panel');
+		$('#blog-panel').show();
 		
 		$('#blog-panel').css(
 			'right', ($('body').width()*-0.8)
@@ -13,54 +37,27 @@ $(document).ready(function() {
 			right : '+='+($('body').width()*0.8)
 		},250);
 		
+		if(!loadedBlog) {		
+			$('#blog-panel').prepend('<iframe src="http://post.ryanoshea.com/"></iframe>');
+			loadedBlog = true;
+		}
 	});
 	
 	$('#twitter-link').click(function() {
-		
+		closePanels('#twitter-panel');
+		$('#twitter-panel').show();
 		$('#twitter-panel').css(
-			'right', ($('body').width()*-0.8)
+			'right', ($('body').width()*-0.3)
 		);
 		$('#twitter-panel').animate({
-			right : '+='+($('body').width()*0.8)
-		},250);
-		
-	});
-	
-	$('#github-link').click(function() {
-		
-		$('#github-panel').css(
-			'right', ($('body').width()*-0.8)
-		);
-		$('#github-panel').animate({
-			right : '+='+($('body').width()*0.8)
-		},250);
-		
-	});
-	
-	$('#flickr-link').click(function() {
-		
-		$('#flickr-panel').css(
-			'right', ($('body').width()*-0.8)
-		);
-		$('#flickr-panel').animate({
-			right : '+='+($('body').width()*0.8)
-		},250);
-		
-	});
-	
-	$('#facebook-link').click(function() {
-		
-		$('#facebook-panel').css(
-			'right', ($('body').width()*-0.8)
-		);
-		$('#facebook-panel').animate({
-			right : '+='+($('body').width()*0.8)
+			right : '+='+($('body').width()*0.3)
 		},250);
 		
 	});
 	
 	$('#delicious-link').click(function() {
-		
+		closePanels('#delicious-panel');
+		$('#delicious-panel').show();
 		$('#delicious-panel').css(
 			'right', ($('body').width()*-0.8)
 		);
@@ -68,24 +65,20 @@ $(document).ready(function() {
 			right : '+='+($('body').width()*0.8)
 		},250);
 		
+		if(!loadedDelicious) {		
+			$('#delicious-panel').prepend('<iframe src="http://delicious.com/ryancoshea/"></iframe>');
+			loadedDelicious = true;
+		}
+		
 	});
 	
-	$('#google-link').click(function() {
-		
-		$('#google-panel').css(
-			'right', ($('body').width()*-0.8)
-		);
-		$('#google-panel').animate({
-			right : '+='+($('body').width()*0.8)
-		},250);
-		
-	});
+	
 	
 	$('.panel-closebutton').click(function() {
+		closePanels();
+	});
 	
-		$('.panels').animate({
-			right : ($('body').width()*-0.8)
-		},250);
-		
+	$('.panel-closebutton-small').click(function() {
+		closePanels();
 	});
 });
