@@ -164,6 +164,7 @@ h3 {
 		/*background: rgba(0,0,0,0.75);*/
 		position: absolute;
 		top: -0.2em;
+		left: 0;
 		color: #ccc;
 		font-weight: bold;
 		/*padding: 0.5em 0.75em 0.75em 0.75em;*/
