@@ -66,11 +66,11 @@
 					<ul>
 						<li>sometimes i <a id="blog-link" href="#" title="my blog">write</a></li>
 						<li>sometimes i <a id="twitter-link" href="#" title="my twitter">babble</a></li>
-						<li>sometimes i <a id="github-link" href="#" title="my github">code</a></li>
-						<li>sometimes i <a id="flickr-link" href="#" title="my flickr">take photos</a></li>
-						<li>sometimes i <a id="facebook-link" href="#" title="my facebook">waste time</a></li>
+						<li>sometimes i <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank">code</a></li>
+						<li>sometimes i <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
+						<li>sometimes i <a id="facebook-link" href="https://facebook.com/ryan.c.oshea" title="my facebook" target="_blank">waste time</a></li>
 						<li>sometimes i <a id="delicious-link" href="#" title="my del.icio.us">save things i like</a></li>
-						<li>sometimes i <a id="google-link" href="#" title="my google+">shout into the void</a></li>
+						<li>sometimes i <a id="google-link" href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">shout into the void</a></li>
 						<!--
 						<li>sometimes i <a href="//post.ryanoshea.com/" title="my blog" target="_blank">write</a></li>
 						<li>sometimes i <a href="//twitter.com/ryancoshea" title="my twitter" target="_blank">babble</a></li>
