@@ -4,6 +4,30 @@
 		<iframe src="http://post.ryanoshea.com/"></iframe>
 		<a class="panel-closebutton" href="#">&times;</a>
 	</div>
+	<div class="panels" id="twitter-panel">
+		<iframe src="https://twitter.com/ryancoshea"></iframe>
+		<a class="panel-closebutton" href="#">&times;</a>
+	</div>
+	<div class="panels" id="github-panel">
+		<iframe src="https://github.com/ryanoshea"></iframe>
+		<a class="panel-closebutton" href="#">&times;</a>
+	</div>
+	<div class="panels" id="flickr-panel">
+		<iframe src="//flickr.com/rinoshea"></iframe>
+		<a class="panel-closebutton" href="#">&times;</a>
+	</div>
+	<div class="panels" id="facebook-panel">
+		<iframe src="https://facebook.com/ryan.c.oshea"></iframe>
+		<a class="panel-closebutton" href="#">&times;</a>
+	</div>
+	<div class="panels" id="delicious-panel">
+		<iframe src="//delicious.com/ryancoshea"></iframe>
+		<a class="panel-closebutton" href="#">&times;</a>
+	</div>
+	<div class="panels" id="google-panel">
+		<iframe src="https://plus.google.com/106038738053849300832/posts"></iframe>
+		<a class="panel-closebutton" href="#">&times;</a>
+	</div>
 	
 	
 	<?php echoPageHeader(); ?>
@@ -13,12 +37,12 @@
 				<div id="profile-links"> 
 					<ul>
 						<li>sometimes i <a id="blog-link" href="#" title="my blog">write</a></li>
-						<li>sometimes i <a id="twitter-link" href="#" title="my twitter" target="_blank">babble</a></li>
-						<li>sometimes i <a id="github-link" href="#" title="my github" target="_blank">code</a></li>
-						<li>sometimes i <a id="flickr-link" href="#" title="my flickr" target="_blank">take photos</a></li>
-						<li>sometimes i <a id="facebook-link" href="#" title="my facebook" target="_blank">waste time</a></li>
-						<li>sometimes i <a id="delicious-link" href="#" title="my del.icio.us" target="_blank">save things i like</a></li>
-						<li>sometimes i <a id="google-link" href="#" title="my google+" target="_blank">shout into the void</a></li>
+						<li>sometimes i <a id="twitter-link" href="#" title="my twitter">babble</a></li>
+						<li>sometimes i <a id="github-link" href="#" title="my github">code</a></li>
+						<li>sometimes i <a id="flickr-link" href="#" title="my flickr">take photos</a></li>
+						<li>sometimes i <a id="facebook-link" href="#" title="my facebook">waste time</a></li>
+						<li>sometimes i <a id="delicious-link" href="#" title="my del.icio.us">save things i like</a></li>
+						<li>sometimes i <a id="google-link" href="#" title="my google+">shout into the void</a></li>
 						<!--
 						<li>sometimes i <a href="//post.ryanoshea.com/" title="my blog" target="_blank">write</a></li>
 						<li>sometimes i <a href="//twitter.com/ryancoshea" title="my twitter" target="_blank">babble</a></li>
