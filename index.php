@@ -83,7 +83,7 @@
 					</ul>
 					<ul>
 						<li>i went <a href="//devonprep.com" title="my high school" target="_blank">here</a></li>
-						<li>i&#8217;m going <a href="//princeton.edu" title="my college" target="_blank">here</a></li>
+						<li>i go <a href="//princeton.edu" title="my college" target="_blank">here</a></li>
 						<li>i&#8217;m brothers with <a href="//djoshea.com" title="dan o'shea" target="_blank">this guy</a></li>
 					</ul>
 				</div>
