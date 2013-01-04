@@ -1,5 +1,4 @@
-/* Author:
-
+/* Author: Ryan O'Shea
 */
 
 $(document).ready(function() {
@@ -80,5 +79,17 @@ $(document).ready(function() {
 	
 	$('.panel-closebutton-small').click(function() {
 		closePanels();
+	});
+	
+	
+	$('#profiles li:first-child').css('color','inherit');
+	
+	$('#profiles li').hover(function() {
+		$('#profiles li').css(
+			'color','rgba(0,0,0,0)'
+		);
+		$(this).css(
+			'color','inherit'
+		);	
 	});
 });

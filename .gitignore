@@ -5,5 +5,8 @@ archives/**/*
 posterous/**/*
 supercars/**/*
 /archives
+/contact
 /3.0
 3.0/**/*
+contact.php
+/_notes

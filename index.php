@@ -63,7 +63,7 @@
 			<?php echoBio(); ?>
 					
 				<div id="profile-links"> 
-					<ul>
+					<ul id="profiles">
 						<li>sometimes i <a id="blog-link" href="#" title="my blog">write</a></li>
 						<li>sometimes i <a id="twitter-link" href="#" title="my twitter">babble</a></li>
 						<li>sometimes i <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank">code</a></li>
@@ -82,8 +82,8 @@
 						-->
 					</ul>
 					<ul>
+                    	<li>i go <a href="//princeton.edu" title="my college" target="_blank">here</a></li>
 						<li>i went <a href="//devonprep.com" title="my high school" target="_blank">here</a></li>
-						<li>i go <a href="//princeton.edu" title="my college" target="_blank">here</a></li>
 						<li>i&#8217;m brothers with <a href="//djoshea.com" title="dan o'shea" target="_blank">this guy</a></li>
 					</ul>
 				</div>

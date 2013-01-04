@@ -11,7 +11,7 @@ body {
 	text-align: left;
 	position: relative;
 	margin: 10% 15px 0 15px;
-	min-width: 780px;
+	/*min-width: 780px;*/
 }
 	#wrapper {
 		text-align: center;
@@ -50,10 +50,10 @@ h2 {
 	font-size: 1em;
 	margin-top: 20px;
 	font-weight: 900;
+	text-transform: uppercase;
 }
 	h2 p {
 		margin: 0;
-		text-transform: uppercase;
 	}
 		#line1 {
 			color: hsl(0,0%,30%);
@@ -73,9 +73,13 @@ h2 {
 		#line1:hover, #line2:hover, #line3:hover, #line4:hover, #line5:hover {
 			color: black;
 		}
-#profile-links li {
+#profile-links ul:first-child li {
 	text-transform: lowercase;
+	color: rgba(0,0,0,0);
 }
+/*#profile-links ul:first-child li:first-child {
+	color: inherit;
+}*/
 #profile-links ul {
 	list-style-type: none;
 	padding: 0;
@@ -92,17 +96,32 @@ h2 {
 		border-radius: 3px;
 		-webkit-border-radius: 3px;
 		-moz-border-radius: 3px;
-		color: inherit;
+		/*color: inherit;*/
 	}
 	#profile-links a, #profile-links a:active, #profile-links a:visited, #profile-links a:hover {
 		font-weight: 700;
 		color: #bb0055;
 	}
 	
-	#profile-links a:hover {
-		background: rgba(255,0,50,0.10);
-	}
-
+a {
+	color: #bb0055;
+}
+a:hover {
+	background: rgba(255,0,50,0.10);
+}
+a.nocolor {
+	color: inherit;
+}
+a.nohover, a.nohover:hover {
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-o-transition: none !important;
+	-ms-transition: none !important;
+	transition: none !important;
+	padding: 0;
+	margin: 0;
+	background: none;
+}
 footer {
 	text-align: right;
 	text-transform: uppercase;
@@ -131,7 +150,9 @@ h3 {
 	font-family: "open sans";
 }
 
-
+#content h2:first-child {
+	margin-top: 36px;
+}
 
 
 
@@ -179,6 +200,14 @@ h3 {
 .twtr-hd {
 	padding-left: 30px !important;
 }
+
+
+
+body#contact ul {
+	list-style: none;
+	padding: 0;
+}
+
 
 /* =============================================================================
    HTML5 Boilerplate CSS: h5bp.com/css

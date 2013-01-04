@@ -55,9 +55,6 @@
 					<p id="line1">
 						I&#8217;m a student from outside of Philly. 
 					</p>
-					<p id="line2">
-						I like things, so I spend my time trying to make more of them. 
-					</p>
 					<p id="line3">
 						I code, I build websites, I design, and I write.
 					</p>
@@ -81,7 +78,7 @@
 	<div id="wrapper">
 		<span id="main" role="main">
 			<h1>
-				Ryan<strong>O&#8217;Shea</strong>
+				<a href="//ryanoshea.com" class="nocolor nohover">Ryan<strong>O&#8217;Shea</strong></a>
 			</h1>
 			
 			<div id="content">
@@ -101,7 +98,7 @@
 	
 	<footer>
 		<p>
-			Copyright &copy; 2006&ndash;<?php echo date("Y"); ?> Ryan O'Shea. CC <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">BY-NC-SA</a>.
+			Copyright &copy; 2006&ndash;<?php echo date("Y"); ?> Ryan O'Shea. CC <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" class="nocolor" target="_blank">BY-NC-SA</a>.
 		</p>
 	</footer>
 <?php
