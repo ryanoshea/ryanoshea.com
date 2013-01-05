@@ -84,8 +84,8 @@
 								echo "http://delicious.com/ryancoshea";
 							else
 								echo "#";
-						?>" title="my del.icio.us">save things i like</a></li>
-						<li>sometimes i <a id="google-link" href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">shout into the void</a></li>
+						?>" title="my del.icio.us">save things</a></li>
+						<li>sometimes i <a id="google-link" href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">search for things</a></li>
 						<!--
 						<li>sometimes i <a href="//post.ryanoshea.com/" title="my blog" target="_blank">write</a></li>
 						<li>sometimes i <a href="//twitter.com/ryancoshea" title="my twitter" target="_blank">babble</a></li>
