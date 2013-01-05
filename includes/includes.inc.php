@@ -76,7 +76,7 @@
 ?>
 	
 	<div id="wrapper">
-		<span id="main" role="main">
+		<div id="main" role="main">
 			<h1>
 				<a href="//ryanoshea.com" class="nocolor nohover">Ryan<strong>O&#8217;Shea</strong></a>
 			</h1>
@@ -92,7 +92,7 @@
 	function echoFooter() {
 ?>
 			</div>	
-		</span>
+		</div>
 		<div id="push"></div>
 	</div>
 	

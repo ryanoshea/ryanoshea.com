@@ -1,7 +1,7 @@
-<?php include('includes/includes.inc.php'); ?><?php echoPageHead("Home", "home"); ?>
-	
+<?php include('includes/includes.inc.php'); ?><?php include 'includes/Mobile_Detect.php'; $detect = new Mobile_Detect();?><?php echoPageHead("Home", "home"); ?>
+
 	<div class="panels" id="blog-panel">
-    	<a class="panel-closebutton" href="#">&times;</a>
+    	<a class="panel-closebutton nohover" href="#">&times;</a>
 	</div>
 	<div class="panels panels-small" id="twitter-panel">
     	<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
@@ -64,12 +64,27 @@
 					
 				<div id="profile-links"> 
 					<ul id="profiles">
-						<li>sometimes i <a id="blog-link" href="#" title="my blog">write</a></li>
-						<li>sometimes i <a id="twitter-link" href="#" title="my twitter">babble</a></li>
+						<li>sometimes i <a id="blog-link" href="<?php 
+							if ($detect->isMobile())
+								echo "http://post.ryanoshea.com";
+							else
+								echo "#";
+						?>" title="my blog">write</a></li>
+						<li>sometimes i <a id="twitter-link" href="<?php 
+							if ($detect->isMobile())
+								echo "https://twitter.com/ryancoshea";
+							else
+								echo "#";
+						?>" title="my twitter">babble</a></li>
 						<li>sometimes i <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank">code</a></li>
 						<li>sometimes i <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
 						<li>sometimes i <a id="facebook-link" href="https://facebook.com/ryan.c.oshea" title="my facebook" target="_blank">waste time</a></li>
-						<li>sometimes i <a id="delicious-link" href="#" title="my del.icio.us">save things i like</a></li>
+						<li>sometimes i <a id="delicious-link" href="<?php 
+							if ($detect->isMobile())
+								echo "http://delicious.com/ryancoshea";
+							else
+								echo "#";
+						?>" title="my del.icio.us">save things i like</a></li>
 						<li>sometimes i <a id="google-link" href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">shout into the void</a></li>
 						<!--
 						<li>sometimes i <a href="//post.ryanoshea.com/" title="my blog" target="_blank">write</a></li>

@@ -15,5 +15,6 @@
 
 /* SITE */
 	Standards: HTML5, CSS3, PHP
+	Components: jQuery, Mobile_Detect (https://github.com/serbanghita/Mobile-Detect)
 	Software: Adobe Dreamweaver, Adobe Photoshop, Firebug
 	License: Creative Commons Attribution-NonCommercial-Share Alike 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/). 
