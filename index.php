@@ -32,7 +32,7 @@
           }
         }).render().setUser('ryancoshea').start();
         </script>
-		<a class="panel-closebutton-small" href="#">&times;</a>
+		<a class="panel-closebutton-small nohover" href="#">&times;</a>
 	</div>
 	<!--
     <div class="panels" id="github-panel">
@@ -49,7 +49,7 @@
 	</div>
     -->
 	<div class="panels" id="delicious-panel">
-		<a class="panel-closebutton" href="#">&times;</a>
+		<a class="panel-closebutton nohover" href="#">&times;</a>
 	</div>
 	<!--
     <div class="panels" id="google-panel">
