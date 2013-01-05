@@ -15,7 +15,7 @@
 				echo " // $title";
 			} ?>
 	</title>
-	<meta name="description" content="Ryan O'Shea.">
+	<meta name="description" content="Homepage of Ryan O'Shea: student, programmer, and web developer from Philadelphia, PA">
 	<meta name="viewport" content="width=device-width">
 	<meta name="author" content="Ryan O'Shea"> <!-- href="/humans.txt" --> 
 	<link rel="stylesheet" href="css/style.css">
