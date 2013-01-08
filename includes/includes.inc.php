@@ -18,7 +18,7 @@
 	<meta name="description" content="Homepage of Ryan O'Shea: student, programmer, and web developer from Philadelphia, PA">
 	<meta name="viewport" content="width=device-width">
 	<meta name="author" content="Ryan O'Shea"> <!-- href="/humans.txt" --> 
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 	
