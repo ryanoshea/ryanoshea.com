@@ -70,12 +70,13 @@
 							else
 								echo "#";
 						?>" title="my blog">write</a></li>
+                        <li>sometimes i <a id="linkedin-link" href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" title="my linkedin" target="_blank">work</a></li>
 						<li>sometimes i <a id="twitter-link" href="<?php 
 							if ($detect->isMobile())
 								echo "https://twitter.com/ryancoshea";
 							else
 								echo "#";
-						?>" title="my twitter">babble</a></li>
+						?>" title="my twitter">talk</a></li>
 						<li>sometimes i <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank">code</a></li>
 						<li>sometimes i <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
 						<li>sometimes i <a id="facebook-link" href="https://facebook.com/ryan.c.oshea" title="my facebook" target="_blank">waste time</a></li>
@@ -84,8 +85,8 @@
 								echo "http://delicious.com/ryancoshea";
 							else
 								echo "#";
-						?>" title="my del.icio.us">save things</a></li>
-						<li>sometimes i <a id="google-link" href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">search for things</a></li>
+						?>" title="my del.icio.us">save</a></li>
+						<li>sometimes i <a id="google-link" href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">search</a></li>
 						<!--
 						<li>sometimes i <a href="//post.ryanoshea.com/" title="my blog" target="_blank">write</a></li>
 						<li>sometimes i <a href="//twitter.com/ryancoshea" title="my twitter" target="_blank">babble</a></li>

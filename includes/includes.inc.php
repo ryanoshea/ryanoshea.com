@@ -65,6 +65,8 @@
 						And that&#8217;s about it.
 					</p>
 				</h2>
+                
+                <div id="resume"><a href="/contact/resume.pdf" class="nohover nocolor" target="_blank">resume &nbsp;<img src="/images/doc.d.png"></a></div>
 <?php
 	}
 ?>
@@ -77,10 +79,11 @@
 	
 	<div id="wrapper">
 		<div id="main" role="main">
-			<h1>
-				<a href="//ryanoshea.com" class="nocolor nohover">Ryan<strong>O&#8217;Shea</strong></a>
-			</h1>
-			
+        	<div id="left">
+                <h1>
+                    <a href="//ryanoshea.com" class="nocolor nohover">Ryan<strong>O&#8217;Shea</strong></a>
+                </h1>
+			</div>                
 			<div id="content">
 <?php
 	}
