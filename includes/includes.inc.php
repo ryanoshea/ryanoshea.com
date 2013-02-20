@@ -54,7 +54,7 @@
 ?>
 				<h2>
 					<p id="line1">
-						I&#8217;m a student from outside of Philly. 
+						I&#8217;m a student from outside of Philadelphia. 
 					</p>
 					<p id="line3">
 						I code, I build websites, I design, and I write.
