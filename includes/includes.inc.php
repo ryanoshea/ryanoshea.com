@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <!--[if lte IE 7]><script src="/images/elusive-iconfont-master/lte-ie7.js"></script><![endif]-->
 	
 	<script type="text/javascript">
 
@@ -101,7 +102,7 @@
 	
 	<footer>
 		<p>
-			Copyright &copy; 2006&ndash;<?php echo date("Y"); ?> Ryan O'Shea. CC <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" class="nocolor" target="_blank">BY-NC-SA</a>.
+			<a href="https://github.com/ryanoshea/ryanoshea.com" class="nocolor">see the code for this site on github <i id="icon-github-footer" class="icon-github"></i></a> &nbsp;// Copyright &copy; 2006&ndash;<?php echo date("Y"); ?> Ryan O'Shea. CC <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" class="nocolor" target="_blank">BY-NC-SA</a>.
 		</p>
 	</footer>
 <?php

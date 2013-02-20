@@ -1,3 +1,5 @@
+@import url("../images/elusive-iconfont-master/css/elusive-webfont.css");
+
 html, body {
 	height: 100%;
 }
@@ -172,6 +174,14 @@ h3 {
 #resume a:hover img {
 	opacity: 1.0;
 	filter:alpha(opacity=100);
+}
+
+#icon-github-footer {
+	font-size: 1.5em; 
+	line-height: 1em; 
+	vertical-align: -.15em;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
 }
 
 .panels {
