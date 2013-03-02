@@ -67,7 +67,7 @@
 					</p>
 				</h2>
                 
-                <div id="resume"><a href="/contact/resume.pdf" class="nohover nocolor" target="_blank">resume &nbsp;<img src="/images/doc.svg" height=20 width=17></a></div>
+                <div id="resume"><a href="/contact/resume.pdf" class="nohover nocolor" target="_blank">r&eacute;sum&eacute; &nbsp;<img src="/images/doc.svg" height=20 width=17></a></div>
 <?php
 	}
 ?>
