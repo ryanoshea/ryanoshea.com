@@ -227,10 +227,13 @@ h3 {
 	#delicious-panel {
 		background: white;
 	}
+	a.customisable-highlight {
+		padding-left: 20px;
+	}
 
-.twtr-hd {
+/*.twtr-hd {
 	padding-left: 30px !important;
-}
+}*/
 
 
 

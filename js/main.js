@@ -5,6 +5,8 @@ $(document).ready(function() {
 	var loadedBlog = false;
 	var loadedDelicious = false;
 	
+	$('#twitter-widget-0').css({'height':($(document).height())+'px'});
+	
 	function closePanels(me) {
 		
 		$('.panels:not(.panels-small)').not(me).animate({
@@ -43,6 +45,8 @@ $(document).ready(function() {
 	});
 	
 	$('#twitter-link').click(function() {
+		$('#twitter-widget-0').css({'height':($(document).height())+'px'});
+		$('div.root.timeline.ltr.customisable-border.twitter-timeline.not-touch.twitter-timeline-rendered.thm-dark').css({'height':($(document).height()+'px')});
 		closePanels('#twitter-panel');
 		$('#twitter-panel').show();
 		$('#twitter-panel').css(
