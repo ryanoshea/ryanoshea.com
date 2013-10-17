@@ -84,7 +84,8 @@
 							else
 								echo "#";
 						?>" title="my twitter">talk</a></li>
-						<li>sometimes i <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank">code</a></li>
+                        <li>sometimes i <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank">code</a></li>
+                        <li>sometimes i <a id="behance-link" href="http://www.behance.net/ryanoshea" title="my behance" target="_blank">design</a></li>
 						<li>sometimes i <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
 						<li>sometimes i <a id="facebook-link" href="https://facebook.com/ryan.c.oshea" title="my facebook" target="_blank">waste time</a></li>
 						<li>sometimes i <a id="delicious-link" href="<?php 
