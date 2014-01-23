@@ -104,6 +104,9 @@
 		<p>
 			<a href="https://github.com/ryanoshea/ryanoshea.com" class="nocolor">see the code for this site on github <i id="icon-github-footer" class="icon-github"></i></a> &nbsp;// Copyright &copy; 2006&ndash;<?php echo date("Y"); ?> Ryan O'Shea. CC <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" class="nocolor" target="_blank">BY-NC-SA</a>.
 		</p>
+		<p>
+			Contact me at <span class="dummy">asdfas</span>ry<span class="dummy">asdfas</span>an@<span class="dummy">7jt30h</span>ryanosh<span class="dummy">asdfas</span>ea.com (<a href="http://pgp.mit.edu/pks/lookup?op=get&search=0x3BE538A4E17D2A03" class="nocolor">PGP key</a>) or via <a href="/contact/bitmessage.txt" class="nocolor">Bitmessage</a>.
+		</p>
 	</footer>
 <?php
 	}

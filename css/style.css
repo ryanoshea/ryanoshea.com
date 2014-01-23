@@ -184,6 +184,10 @@ h3 {
 	filter:alpha(opacity=50);
 }
 
+.dummy {
+	display: none;
+}
+
 .panels {
 	display: none;
 	position: absolute;
