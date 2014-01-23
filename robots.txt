@@ -6,3 +6,6 @@ Disallow: /contact/
 
 User-agent: *
 Disallow: /contact.php
+
+User-agent: * 
+Disallow: /minecraft/
