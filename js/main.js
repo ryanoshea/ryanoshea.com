@@ -39,7 +39,7 @@ $(document).ready(function() {
 		},250);
 		
 		if(!loadedBlog) {		
-			$('#blog-panel').prepend('<iframe src="http://post.ryanoshea.com/"></iframe>');
+			$('#blog-panel').prepend('<iframe src="http://post.ryanoshea.com/tagged/originals"></iframe>');
 			loadedBlog = true;
 		}
 	});
