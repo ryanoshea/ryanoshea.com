@@ -18,7 +18,7 @@ body {
 	#wrapper {
 		text-align: center;
 		min-height: 100%;
-		margin: 0 auto -25px;
+		margin: 0 auto -35px;
 	}
 h1:hover, h2:hover, p:hover, li:hover {
 	cursor: default;
@@ -101,11 +101,15 @@ h2 {
 		-moz-border-radius: 3px;
 		/*color: inherit;*/
 	}
-	#profile-links a, #profile-links a:active, #profile-links a:visited, #profile-links a:hover {
+	/*#profile-links a, #profile-links a:active, #profile-links a:visited, #profile-links a:hover {*/
+	#content a {
 		font-weight: 700;
 		color: #bb0055;
 	}
-	
+	#resume a {
+		color: inherit;
+		font-weight: normal;
+	}
 a {
 	color: #bb0055;
 }
@@ -138,7 +142,7 @@ footer {
 	/*padding: 3px 3px 0 0;*/
 }
 	footer, #push {
-		height: 25px;
+		height: 35px;
 	}
 	footer p {
 		margin: 3px;

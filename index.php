@@ -68,7 +68,12 @@
 	<?php echoPageHeader(); ?>
 	
 			<?php echoBio(); ?>
-					
+
+                <p>
+                    this summer: i&#8217;m <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/">interning at comcast</a> doing product engineering for business voice
+                    <br>
+                    what i&#8217;ve done recently: <a href="http://www.ryanoshea.com/bitcoin">a site</a> about bitcoin for a final project, an <a href="http://ryanoshea.com/scheduler">employee scheduling tool</a> (in progress)
+    			</p>	
 				<div id="profile-links"> 
 					<ul id="profiles">
 						<li>sometimes i <a id="blog-link" href="<?php 
