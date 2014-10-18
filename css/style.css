@@ -6,7 +6,7 @@ html, body {
 body {
 	font-family: "lato";
 	background: #f0f0f0;
-	overflow-x: hidden; 
+	overflow-x: hidden;
 }
 #main {
 	display: inline-block;
@@ -18,13 +18,13 @@ body {
 	#wrapper {
 		text-align: center;
 		min-height: 100%;
-		margin: 0 auto -35px;
+		margin: 0 auto -3.5em;  // FOOTER ADJUSTMENT
 	}
 h1:hover, h2:hover, p:hover, li:hover {
 	cursor: default;
 }
 h1, h2, p, li {
-	-webkit-transition: color 300ms ease-in; 
+	-webkit-transition: color 300ms ease-in;
     -moz-transition: color 300ms ease-in;
     -o-transition: color 300ms ease-in;
 	-ms-transition: color 300ms ease-in;
@@ -77,7 +77,6 @@ h2 {
 			color: black;
 		}
 #profile-links ul:first-child li {
-	text-transform: lowercase;
 	color: rgba(0,0,0,0);
 }
 /*#profile-links ul:first-child li:first-child {
@@ -88,7 +87,7 @@ h2 {
 	padding: 0;
 }
 	a, a:active, a:visited, a:hover {
-		-webkit-transition: background 200ms ease-in; 
+		-webkit-transition: background 200ms ease-in;
 		-moz-transition: background 200ms ease-in;
 		-o-transition: background 200ms ease-in;
 		-ms-transition: background 200ms ease-in;
@@ -142,7 +141,7 @@ footer {
 	/*padding: 3px 3px 0 0;*/
 }
 	footer, #push {
-		height: 35px;
+		height: 6em;
 	}
 	footer p {
 		margin: 3px;
@@ -168,7 +167,7 @@ h3 {
 #resume img {
 	opacity: 0.5;
 	filter:alpha(opacity=50);
-	-webkit-transition: opacity 200ms ease-in; 
+	-webkit-transition: opacity 200ms ease-in;
 	-moz-transition: opacity 200ms ease-in;
 	-o-transition: opacity 200ms ease-in;
 	-ms-transition: opacity 200ms ease-in;
@@ -181,8 +180,8 @@ h3 {
 }
 
 #icon-github-footer {
-	font-size: 1.5em; 
-	line-height: 1em; 
+	font-size: 1.5em;
+	line-height: 1em;
 	vertical-align: -.15em;
 	opacity: 0.5;
 	filter:alpha(opacity=50);
@@ -362,7 +361,7 @@ td { vertical-align: top; }
 /* =============================================================================
    Print Styles
    ========================================================================== */
- 
+
 @media print {
   * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
   a, a:visited { text-decoration: underline; }
