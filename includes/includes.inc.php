@@ -54,10 +54,10 @@
 						I&#8217;m a student from outside of Philadelphia.
 					</p>
 					<p id="line3">
-						I code, I build websites, I design, and I write.
+						I build things, I code, I design, and I write.
 					</p>
 					<p id="line4">
-						I&#8217;m a big fan of science, so now I&#8217;m studying to be an engineer.
+						I&#8217;m a big fan of science, so now I&#8217;m studying to be an electrical engineer.
 					</p>
 					<p id="line5">
 						And that&#8217;s about it.

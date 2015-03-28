@@ -69,10 +69,20 @@
 
 			<?php echoBio(); ?>
 
-                <p>
-                    this summer: I <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/">interned at Comcast</a> building an AngularJS web app &amp; backend for Business Voice
-                    <br>
-                    what else I&#8217;ve done recently: <a href="http://www.ryanoshea.com/bitcoin">a site</a> about bitcoin for a final project
+          <p>
+              Last summer, I <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/">interned at Comcast</a> building a web app for their Business Voice division.
+          </p>
+          <p>
+              This semester, I&#8217;m building the control circuitry to make an <a href="https://www.flickr.com/photos/rinoshea/sets/72157651516510906/">electric hobby car</a> drive itself.
+          </p>
+          <p>
+              I&#8217;m also building a <a href="http://pollprinceton.com/">social polling network</a> for Princeton students for a course project.
+          </p>
+          <p>
+              This summer, I'll be in an electrical engineering internship at <a href="http://www.vecna.com/">Vecna Technologies</a> in Boston.
+          </p>
+          <p>
+              What else I&#8217;ve done recently: <a href="http://www.ryanoshea.com/bitcoin">an infosite</a> about Bitcoin for a final project
     			</p>
 				<div id="profile-links">
 					<ul id="profiles">
@@ -88,17 +98,17 @@
 								echo "https://twitter.com/ryancoshea";
 							else
 								echo "#";
-						?>" title="my twitter">talk</a></li>
+						?>" title="my twitter">tweet</a></li>
                         <li>sometimes I <a id="github-link" href="https://github.com/ryanoshea?tab=repositories" title="my github" target="_blank">code</a></li>
                         <li>sometimes I <a id="behance-link" href="http://www.behance.net/ryanoshea" title="my behance" target="_blank">design</a></li>
 						<li>sometimes I <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
 						<li>sometimes I <a id="facebook-link" href="https://facebook.com/ryan.c.oshea" title="my facebook" target="_blank">waste time</a></li>
-						<li>sometimes I <a id="delicious-link" href="<?php
+						<!--<li>sometimes I <a id="delicious-link" href="<?php
 							if ($detect->isMobile())
 								echo "http://delicious.com/ryancoshea";
 							else
 								echo "#";
-						?>" title="my del.icio.us">save</a></li>
+						?>" title="my del.icio.us">save</a></li>-->
 						<li>sometimes I <a id="google-link" href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">search</a></li>
 						<!--
 						<li>sometimes I <a href="//post.ryanoshea.com/" title="my blog" target="_blank">write</a></li>

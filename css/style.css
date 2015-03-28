@@ -164,6 +164,15 @@ h3 {
 	float:left;
 }
 
+#resume {
+	margin-bottom: 1em;
+}
+
+#content p {
+	margin-top: 0.1em;
+	margin-bottom: 0.4em;
+}
+
 #resume img {
 	opacity: 0.5;
 	filter:alpha(opacity=50);
