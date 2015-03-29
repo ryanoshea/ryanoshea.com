@@ -105,7 +105,7 @@
 			Contact me at <span class="dummy">asdfas</span>ry<span class="dummy">asdfas</span>an@<span class="dummy">7jt30h</span>ryanosh<span class="dummy">asdfas</span>ea.com (<a href="http://pgp.mit.edu/pks/lookup?op=get&search=0x3BE538A4E17D2A03" class="nocolor">PGP key</a>) or via <a href="/contact/bitmessage.txt" class="nocolor">Bitmessage</a>.
 		</p>
 		<p>
-			Bitcoin <span style="text-transform: none;">1KfUtrFCZEDnS7XDYnYd5bJgyP21FuA1yW</span>
+			<a href="https://cash.me/$ryanoshea">Donate</a>
 		</p>
 	</footer>
 <?php

@@ -79,7 +79,7 @@
               I&#8217;m also building a <a href="http://pollprinceton.com/">social polling network</a> for Princeton students for a course project.
           </p>
           <p>
-              This summer, I'll be in an electrical engineering internship at <a href="http://www.vecna.com/">Vecna Technologies</a> in Boston.
+              This summer, I'll be an electrical engineering intern at <a href="http://www.vecna.com/">Vecna Technologies</a> in Boston.
           </p>
           <p>
               What else I&#8217;ve done recently: <a href="http://www.ryanoshea.com/bitcoin">an infosite</a> about Bitcoin for a final project
@@ -121,7 +121,7 @@
 						-->
 					</ul>
 					<ul>
-                    	<li>I&#8217;m majoring in Electrical Engineering at <a href="//princeton.edu" title="my college" target="_blank">Princeton</a>.</li>
+                    	<li>I&#8217;m majoring in Electrical Engineering with a certificate in Computer Science at <a href="//princeton.edu" title="my college" target="_blank">Princeton</a>.</li>
 						<li>I went to <a href="//devonprep.com" title="my high school" target="_blank">Devon Prep</a> before that.</li>
 						<li><a href="//djoshea.com" title="dan o'shea" target="_blank">This guy</a> is my brother.</li>
 					</ul>

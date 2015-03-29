@@ -12,7 +12,7 @@ body {
 	display: inline-block;
 	text-align: left;
 	position: relative;
-	margin: 10% 15px 5% 15px;
+	margin: 10em 15px 5% 15px;
 	/*min-width: 780px;*/
 }
 	#wrapper {
