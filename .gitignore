@@ -11,3 +11,5 @@ supercars/**/*
 3.0/**/*
 contact.php
 /_notes
+*.sublime-project
+*.sublime-workspace
