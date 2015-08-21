@@ -86,9 +86,10 @@
           </p>
           <p>
               I&#8217;m also the Publicity Chair of <a href="http://tigermag.com" target="_blank"><em>The Princeton Tiger</em></a>, an illustrious humor magazine founded more than 130 years ago.
+          </p>
           <p>
               What else I&#8217;ve done recently: <a href="http://www.ryanoshea.com/bitcoin" target="_blank">an infosite</a> about Bitcoin for a final project
-    			</p>
+          </p>
 				<div id="profile-links">
 					<ul id="profiles">
 						<li>sometimes I <a id="blog-link" href="<?php
