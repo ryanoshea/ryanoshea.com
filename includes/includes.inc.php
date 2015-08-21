@@ -54,7 +54,7 @@
 						I&#8217;m a student from outside of Philadelphia.
 					</p>
 					<p id="line3">
-						I build things, I code, I design, and I write.
+						I build things, I code, I design, I write, and I take photos.
 					</p>
 					<p id="line4">
 						I&#8217;m a big fan of science, so now I&#8217;m studying to be an electrical engineer.

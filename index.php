@@ -70,19 +70,24 @@
 			<?php echoBio(); ?>
 
           <p>
-              Last summer, I <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/">interned at Comcast</a> building a web app for their Business Voice division.
+              Last Summer, I interned at <a href="http://vecna.com" target="_blank">Vecna Technologies</a> in Boston, writing firmware and designing electrical systems for their autonomous robots.
           </p>
           <p>
-              This semester, I&#8217;m building the control circuitry to make an <a href="https://www.flickr.com/photos/rinoshea/sets/72157651516510906/">electric hobby car</a> drive itself.
+              In Junior year, I built the control circuitry to make an <a href="https://www.flickr.com/photos/rinoshea/sets/72157651516510906/" target="_blank">electric hobby car</a> navigate an environment while avoiding obstacles.
           </p>
           <p>
-              I&#8217;m also building a <a href="http://pollprinceton.com/">social polling network</a> for Princeton students for a course project.
+              I also built a <a href="http://pollprinceton.com/" target="_blank">social polling network</a> for Princeton students for a course project.
           </p>
           <p>
-              This summer, I'll be an electrical engineering intern at <a href="http://www.vecna.com/">Vecna Technologies</a> in Boston.
+              In Summer 2014, I <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" target="_blank">interned at Comcast</a>, building an AngularJS web app for their Business Voice division.
           </p>
           <p>
-              What else I&#8217;ve done recently: <a href="http://www.ryanoshea.com/bitcoin">an infosite</a> about Bitcoin for a final project
+              I&#8217;m currently the Technology Chair of <a href="http://princetontowerclub.com" target="_blank">The Princeton Tower Club</a>, a <a href="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11235070_629291543867747_3728324995604621959_o.jpg" target="_blank">community</a> I&#8217;m very grateful to be a part of.
+          </p>
+          <p>
+              I&#8217;m also the Publicity Chair of <a href="http://tigermag.com" target="_blank"><em>The Princeton Tiger</em></a>, an illustrious humor magazine founded more than 130 years ago.
+          <p>
+              What else I&#8217;ve done recently: <a href="http://www.ryanoshea.com/bitcoin" target="_blank">an infosite</a> about Bitcoin for a final project
     			</p>
 				<div id="profile-links">
 					<ul id="profiles">
@@ -92,6 +97,7 @@
 							else
 								echo "#";
 						?>" title="my blog">write</a></li>
+            <li>sometimes I <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
                         <li>sometimes I <a id="linkedin-link" href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" title="my linkedin" target="_blank">work</a></li>
 						<li>sometimes I <a id="twitter-link" href="<?php
 							if ($detect->isMobile())
@@ -101,7 +107,6 @@
 						?>" title="my twitter">tweet</a></li>
                         <li>sometimes I <a id="github-link" href="https://github.com/ryanoshea?tab=repositories" title="my github" target="_blank">code</a></li>
                         <li>sometimes I <a id="behance-link" href="http://www.behance.net/ryanoshea" title="my behance" target="_blank">design</a></li>
-						<li>sometimes I <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
 						<li>sometimes I <a id="facebook-link" href="https://facebook.com/ryan.c.oshea" title="my facebook" target="_blank">waste time</a></li>
 						<!--<li>sometimes I <a id="delicious-link" href="<?php
 							if ($detect->isMobile())

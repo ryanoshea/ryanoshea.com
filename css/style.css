@@ -12,7 +12,7 @@ body {
 	display: inline-block;
 	text-align: left;
 	position: relative;
-	margin: 10em 15px 5% 15px;
+	margin: 6em 15px 3em 15px;
 	/*min-width: 780px;*/
 }
 	#wrapper {
@@ -141,7 +141,7 @@ footer {
 	/*padding: 3px 3px 0 0;*/
 }
 	footer, #push {
-		height: 6em;
+		height: 5.5em;
 	}
 	footer p {
 		margin: 3px;
