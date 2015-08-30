@@ -73,7 +73,7 @@
               Last Summer, I interned at <a href="http://vecna.com" target="_blank">Vecna Technologies</a> in Boston, writing firmware and designing electrical systems for their autonomous robots.
           </p>
           <p>
-              In Junior year, I built the control circuitry to make an <a href="https://www.flickr.com/photos/rinoshea/sets/72157651516510906/" target="_blank">electric hobby car</a> navigate an environment while avoiding obstacles.
+              In Junior year, I built the control circuitry to make an <a href="https://github.com/ryanoshea/car-lab" target="_blank">electric hobby car</a> navigate an environment while avoiding obstacles.
           </p>
           <p>
               I also built a <a href="http://pollprinceton.com/" target="_blank">social polling network</a> for Princeton students for a course project.
