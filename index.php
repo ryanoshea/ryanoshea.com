@@ -85,13 +85,7 @@
               In Summer 2014, I <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" target="_blank">interned at Comcast</a>, building an AngularJS web app for their Business Voice division.
           </p>
           <p>
-              I&#8217;m currently the Technology Chair of <a href="http://princetontowerclub.com" target="_blank">The Princeton Tower Club</a>, a <a href="https://scontent-lga1-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/11235070_629291543867747_3728324995604621959_o.jpg" target="_blank">community</a> I&#8217;m very grateful to be a part of.
-          </p>
-          <p>
-              I&#8217;m also the Publicity Chair of <a href="http://tigermag.com" target="_blank"><em>The Princeton Tiger</em></a>, an illustrious humor magazine founded more than 130 years ago.
-          </p>
-          <p>
-              What else I&#8217;ve done recently: <a href="http://www.ryanoshea.com/bitcoin" target="_blank">an infosite</a> about Bitcoin for a final project
+              Until recently, I was the Technology Chair of <a href="http://princetontowerclub.com" target="_blank">The Princeton Tower Club</a>, and Publicity Chair for <a href="http://tigermag.com" target="_blank"><em>The Princeton Tiger</em></a>, one of the oldest college humor magazines in the country.
           </p>
 				<div id="profile-links">
 					<ul id="profiles">
