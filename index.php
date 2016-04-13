@@ -70,13 +70,16 @@
 			<?php echoBio(); ?>
 
           <p>
-              Last Summer, I interned at <a href="http://vecna.com" target="_blank">Vecna Technologies</a> in Boston, writing firmware and designing electrical systems for their autonomous robots.
+              Right now, I'm finishing my <a href="https://github.com/PrincetonUniversity/data-center-monitoring" target="_blank">senior thesis</a> at Princeton, building a scalable network of temperature sensors for monitoring data center climates.
           </p>
           <p>
-              In Junior year, I built the control circuitry to make an <a href="https://github.com/ryanoshea/car-lab" target="_blank">electric hobby car</a> navigate an environment while avoiding obstacles.
+              Last Summer, I interned at <a href="http://www.vecna.com/robotics/" target="_blank">Vecna Technologies</a> in Boston, writing firmware and designing electrical systems for their autonomous robots.
           </p>
           <p>
-              I also built a <a href="http://pollprinceton.com/" target="_blank">social polling network</a> for Princeton students for a course project.
+              In Junior year, I built the control circuitry to make an <a href="https://github.com/ryanoshea/car-lab" target="_blank">electric hobby car</a> autonomously navigate an environment while avoiding obstacles.
+          </p>
+          <p>
+              I also built a <a href="http://pollprinceton.com/" target="_blank">social polling network</a> for Princeton students.
           </p>
           <p>
               In Summer 2014, I <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" target="_blank">interned at Comcast</a>, building an AngularJS web app for their Business Voice division.
@@ -92,30 +95,30 @@
           </p>
 				<div id="profile-links">
 					<ul id="profiles">
-						<li>sometimes I <a id="blog-link" href="<?php
+                        <li>sometimes I <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank">code</a></li>
+                        <li>sometimes I <a id="linkedin-link" href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" title="my linkedin" target="_blank">work</a></li>
+                        <li>sometimes I <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
+                        <li>sometimes I <a id="blog-link" href="<?php
 							if ($detect->isMobile())
 								echo "http://post.ryanoshea.com";
 							else
 								echo "#";
 						?>" title="my blog">write</a></li>
-            <li>sometimes I <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
-                        <li>sometimes I <a id="linkedin-link" href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" title="my linkedin" target="_blank">work</a></li>
+                        <li>sometimes I <a id="behance-link" href="http://www.behance.net/ryanoshea" title="my behance" target="_blank">design</a></li>
 						<li>sometimes I <a id="twitter-link" href="<?php
 							if ($detect->isMobile())
 								echo "https://twitter.com/ryancoshea";
 							else
 								echo "#";
 						?>" title="my twitter">tweet</a></li>
-                        <li>sometimes I <a id="github-link" href="https://github.com/ryanoshea?tab=repositories" title="my github" target="_blank">code</a></li>
-                        <li>sometimes I <a id="behance-link" href="http://www.behance.net/ryanoshea" title="my behance" target="_blank">design</a></li>
-						<li>sometimes I <a id="facebook-link" href="https://facebook.com/ryan.c.oshea" title="my facebook" target="_blank">waste time</a></li>
+						<li>sometimes I <a id="facebook-link" href="https://facebook.com/ryan.c.oshea" title="my facebook" target="_blank">facebook</a></li>
 						<!--<li>sometimes I <a id="delicious-link" href="<?php
 							if ($detect->isMobile())
 								echo "http://delicious.com/ryancoshea";
 							else
 								echo "#";
 						?>" title="my del.icio.us">save</a></li>-->
-						<li>sometimes I <a id="google-link" href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">search</a></li>
+						<li>sometimes I <a id="google-link" href="https://plus.google.com/106038738053849300832/posts" title="my google+" target="_blank">google</a></li>
 						<!--
 						<li>sometimes I <a href="//post.ryanoshea.com/" title="my blog" target="_blank">write</a></li>
 						<li>sometimes I <a href="//twitter.com/ryancoshea" title="my twitter" target="_blank">babble</a></li>
