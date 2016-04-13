@@ -70,6 +70,9 @@
 			<?php echoBio(); ?>
 
           <p>
+              I'm a <abbr title="firmware engineering, embedded programming, sensor communications, and computer hardware design in Verilog">computing-focused</abbr> electrical engineer and <abbr title="Node.js w/ Express.js, AngularJS, MongoDB, jQuery, Bootstrap">full-stack</abbr> web developer.
+          </p>
+          <p>
               Right now, I'm finishing my <a href="https://github.com/PrincetonUniversity/data-center-monitoring" target="_blank">senior thesis</a> at Princeton, building a scalable network of temperature sensors for monitoring data center climates.
           </p>
           <p>
@@ -85,7 +88,7 @@
               In Summer 2014, I <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" target="_blank">interned at Comcast</a>, building an AngularJS web app for their Business Voice division.
           </p>
           <p>
-              Until recently, I was the Technology Chair of <a href="http://princetontowerclub.com" target="_blank">The Princeton Tower Club</a>, and Publicity Chair for <a href="http://tigermag.com" target="_blank"><em>The Princeton Tiger</em></a>, one of the oldest college humor magazines in the country.
+              Until recently, I was the Technology Chair of <a href="http://princetontowerclub.com" target="_blank">The Princeton Tower Club</a>, <br>and Publicity Chair for <a href="http://tigermag.com" target="_blank"><em>The Princeton Tiger</em></a>, one of the oldest college humor magazines in the country.
           </p>
 				<div id="profile-links">
 					<ul id="profiles">
