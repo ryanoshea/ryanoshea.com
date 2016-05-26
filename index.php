@@ -73,7 +73,7 @@
               I'm a <abbr title="firmware engineering, embedded programming, sensor communications, and computer hardware design in Verilog">computing-focused</abbr> electrical engineer and <abbr title="Node.js w/ Express.js, AngularJS, MongoDB, jQuery, Bootstrap">full-stack</abbr> web developer.
           </p>
           <p>
-              Right now, I'm finishing my <a href="https://github.com/PrincetonUniversity/data-center-monitoring" target="_blank">senior thesis</a> at Princeton, building a scalable network of temperature sensors for monitoring data center climates.
+              Recently, I finished my <a href="https://github.com/PrincetonUniversity/data-center-monitoring" target="_blank">senior thesis</a> at <a href="https://princeton.edu" target="_blank">Princeton</a>, where I built a scalable network of temperature sensors for monitoring data center climates.
           </p>
           <p>
               Last Summer, I interned at <a href="http://www.vecna.com/robotics/" target="_blank">Vecna Technologies</a> in Boston, writing firmware and designing electrical systems for their autonomous robots.
@@ -82,7 +82,7 @@
               In Junior year, I built the control circuitry to make an <a href="https://github.com/ryanoshea/car-lab" target="_blank">electric hobby car</a> autonomously navigate an environment while avoiding obstacles.
           </p>
           <p>
-              I also built a <a href="http://pollprinceton.com/" target="_blank">social polling network</a> for Princeton students.
+              I also built an <a href="http://pollprinceton.com/" target="_blank">open-source social network</a> for Princeton students.
           </p>
           <p>
               In Summer 2014, I <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" target="_blank">interned at Comcast</a>, building an AngularJS web app for their Business Voice division.
