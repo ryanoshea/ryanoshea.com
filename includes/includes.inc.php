@@ -51,13 +51,13 @@
 ?>
 				<h2>
 					<p id="line1">
-						I&#8217;m a student from outside of Philadelphia.
+						I&#8217;m an electrical engineer and developer from outside of Philadelphia.
 					</p>
 					<p id="line3">
-						I build things, I code, I design, I write, and I take photos.
+						I build things, I code, I design, and I take photos.
 					</p>
 					<p id="line4">
-						I&#8217;m a big fan of science, so now I&#8217;m studying to be an electrical engineer.
+						I&#8217;m a big fan of science and spent the last four years getting a degree in electrical engineering.
 					</p>
 					<p id="line5">
 						And that&#8217;s about it.
