@@ -53,7 +53,7 @@
        In Junior year, I built the control circuitry to make an <a href="https://github.com/ryanoshea/car-lab" target="_blank">electric hobby car</a> autonomously navigate an environment while avoiding obstacles.
      </p>
      <p>
-       I also built an <a href="http://pollprinceton.com/" target="_blank">open-source social network</a> for Princeton students.
+       I also built an <a href="https://github.com/ryanoshea/poll-princeton" target="_blank">open-source social network</a> for Princeton students.
      </p>
      <p>
        In Summer 2014, I <a href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" target="_blank">interned at Comcast</a>, building an AngularJS web app for their Business Voice division.
