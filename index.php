@@ -38,7 +38,7 @@
       <?php echoBio(); ?>
 
      <p>
-       I'm a <abbr title="firmware engineering, embedded programming, sensor communications, and computer hardware design in Verilog">computing-focused</abbr> electrical engineer and <abbr title="Node.js w/ Express.js, AngularJS, MongoDB, jQuery, Bootstrap">full-stack</abbr> web developer.
+       I&#8217;m a <abbr title="firmware engineering, embedded programming, sensor communications, and computer hardware design in Verilog">computing-focused</abbr> electrical engineer and <abbr title="Node.js w/ Express.js, AngularJS, MongoDB, jQuery, Bootstrap">full-stack</abbr> web developer.
      </p>
      <p>
        Recently, I graduated Cum Laude from <a href="https://princeton.edu" target="_blank">Princeton University</a> with a <abbr title="Bachelor of Science in Engineering">B.S.E.</abbr> in Electrical Engineering and a <abbr title="effectively, a Minor">Certificate</abbr> in Computer Science.
