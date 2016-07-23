@@ -1,0 +1,26 @@
+{
+  "name": "ryanoshea-com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanoshea/ryanoshea.com.git"
+  },
+  "author": "Ryan O'Shea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanoshea/ryanoshea.com/issues"
+  },
+  "homepage": "https://github.com/ryanoshea/ryanoshea.com#readme",
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "helmet": "^2.1.1",
+    "spdy": "^3.3.4"
+  }
+}
