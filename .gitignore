@@ -1,9 +1,10 @@
 *.psd
 *.ai
 wp/**/*
-archives/**/*
+**/archives/*
 posterous/**/*
-supercars/**/*
+**/supercars/*
+**/cdn/*
 /archives
 /contact
 /minecraft
