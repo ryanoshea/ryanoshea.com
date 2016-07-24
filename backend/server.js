@@ -42,9 +42,6 @@ app.use(helmet.hsts({
   includeSubdomains: true,
   force: true
 }));
-app.get('/', function(req,res) {
-  res.send('hello');
-});
 
 http.createServer(function (req, res) {
   res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
