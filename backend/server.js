@@ -34,7 +34,7 @@ var tlsConfig = {
 };
 
 var app = express();
-app.use(express.static('.'));
+app.use(express.static('../frontend'));
 app.use(compression());
 var ONE_YEAR = 31536000000;
 app.use(helmet.hsts({
