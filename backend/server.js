@@ -26,11 +26,12 @@ app.use(helmet.hsts({
   force: true
 }));
 
-http.createServer(function (req, res) {
+
+// HTTP to HTTPS Redirect.
+var httpServer = http.createServer(function (req, res) {
   res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
   res.end();
 }).listen(80);
 
 // Start HTTPS Server
-var httpsServer = https.createServer(tlsConfig, app);
-httpsServer.listen(443);
+var httpsServer = https.createServer(tlsConfig, app).listen(443);
