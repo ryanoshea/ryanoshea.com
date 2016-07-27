@@ -1,4 +1,5 @@
 (function(){
+'use strict';
 
 var cont = angular.module('ryanoshea.controllers');
 

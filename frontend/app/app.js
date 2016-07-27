@@ -1,4 +1,5 @@
 (function(){
+'use strict';
 
 var app = angular.module('ryanoshea', [
   'ngRoute',
@@ -24,6 +25,10 @@ app.config(function ($routeProvider) {
     });
 
 });
+
+app.config(['$compileProvider', function($compileProvider) {
+  $compileProvider.debugInfoEnabled(false);
+}]);
 
 })();
 

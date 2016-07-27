@@ -1,3 +1,5 @@
+'use strict';
+
 var http = require('http');
 var https = require('spdy');
 var express = require('express');
