@@ -31,9 +31,6 @@ http.createServer(function (req, res) {
   res.end();
 }).listen(80);
 
-httpsServer = https.createServer(tlsConfig, app);
-httpsServer.listen(443);
-
 // Start HTTPS Server
 var httpsServer = https.createServer(tlsConfig, app);
 httpsServer.listen(443);
