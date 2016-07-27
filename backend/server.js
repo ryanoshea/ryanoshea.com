@@ -28,12 +28,16 @@ app.use(helmet.hsts({
   force: true
 }));
 
+// Start HTTPS Server
+var httpsServer = https.createServer(tlsConfig, app).listen(443);
+console.log('HTTPS server listening on port 443.');
 
 // HTTP to HTTPS Redirect.
 var httpServer = http.createServer(function (req, res) {
   res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
   res.end();
 }).listen(80);
+console.log('HTTP-to-HTTPS redirect server listening on port 80');
 
-// Start HTTPS Server
-var httpsServer = https.createServer(tlsConfig, app).listen(443);
+console.log('TLS/SSL certificate set to renew between 3:30am each Monday.');
+
