@@ -37,7 +37,7 @@ var httpServer = http.createServer(function (req, res) {
   res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
   res.end();
 }).listen(80);
-console.log('HTTP-to-HTTPS redirect server listening on port 80');
+console.log('HTTP-to-HTTPS redirect server listening on port 80.');
 
 console.log('TLS/SSL certificate set to renew between 3:30am each Monday.');
 
