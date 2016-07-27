@@ -9,8 +9,8 @@ var fs = require('fs');
 
 var app = express();
 // Get certificate
-var key = fs.readFileSync('cert/testserver-key.pem');
-var cert = fs.readFileSync('cert/testserver-cert.pem')
+var key = fs.readFileSync('cert/privkey.pem');
+var cert = fs.readFileSync('cert/fullchain.pem')
 var tlsConfig = {
     key: key,
     cert: cert
