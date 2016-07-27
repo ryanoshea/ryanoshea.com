@@ -22,7 +22,7 @@ app.use(compression()); // enable gzip
 var ONE_YEAR = 31536000000;
 app.use(helmet.hsts({
   maxAge: ONE_YEAR,
-  includeSubdomains: true,
+  includeSubdomains: false,
   force: true
 }));
 
