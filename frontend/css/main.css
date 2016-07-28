@@ -313,12 +313,18 @@ textarea {
 
 .foldout {
   /*visibility: hidden;*/
-  max-height: 0;
-  transition: all 1s ease-out;
+  height: 0;
+  transition: all 0.5s ease-out;
   width: 100%;
   background: #222;
   border-radius: 0.5em;
   overflow: hidden;
+  position: relative;
+}
+
+#profile-links ul:first-child li > i
+{
+  color: #222;
 }
 
 .flickr-photo {
@@ -328,16 +334,23 @@ textarea {
 .flickr-photo img {
   width: 40em;
   max-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #flickr-foldout-label
 {
   color: #f0f0f0;
-  margin-left: 2em;
+  margin-left: 42em;
 }
 
 #flickr-foldout-label, .flickr-photo {
   display: inline-block;
+}
+
+#flickr-foldout-label button i {
+  color: #f0f0f0;
 }
 
 #profiles a {

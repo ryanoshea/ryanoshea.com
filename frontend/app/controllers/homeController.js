@@ -3,29 +3,47 @@
 
 var cont = angular.module('ryanoshea.controllers');
 
-cont.controller('homeController', function ($scope, $filter, $http, $location) {
+cont.controller('homeController', function ($scope, $filter, $http, $location, $timeout) {
   
   document.title = 'Ryan O\'Shea // Home';
 
   $scope.currentYear = new Date().getFullYear();
 
   $scope.selectedFlickrPhoto = 0;
-  
+  $scope.flickrWaiting = false; // True only when user has clicked to view
+                                // flickr panel and images aren't loaded 
   $scope.flickrFoldoutOpen = false;
-  $scope.toggleFlickrFoldout = function () {
+  $scope.toggleFlickrFoldout = function (tim) {
     if (!$scope.flickrFoldoutOpen) {
-      $('#flickr-foldout').css({'max-height': '70em'});
-      $('#flickr-foldout').css({'margin-top': '1em'});
-      $('#flickr-foldout').css({'margin-bottom': '1em'});
+      var currentPhotoHeight = $('#flickr-photo-' 
+                                  + $scope.selectedFlickrPhoto
+                                  + ' img').height();
+      if (flickrContentLoaded && currentPhotoHeight > 0) {
+        $scope.flickrWaiting = false;
+        console.log('set to false');
+        console.log(currentPhotoHeight);
+        $('#flickr-foldout').css({'height': currentPhotoHeight + 'px'});
+        $('#flickr-foldout').css({'margin-top': '1em'});
+        $('#flickr-foldout').css({'margin-bottom': '1em'});
+        $scope.flickrFoldoutOpen = !$scope.flickrFoldoutOpen;
+      }
+      else {
+        $scope.flickrWaiting = true;
+        console.log('set to true');
+        $timeout(function () {
+          $scope.toggleFlickrFoldout();
+        }, 100);
+      }
     }
     else {
-      $('#flickr-foldout').css({'max-height': '0'});
+      $('#flickr-foldout').css({'height': '0'});
       $('#flickr-foldout').css({'margin-top': '0'});
       $('#flickr-foldout').css({'margin-bottom': '0'});
+      $scope.flickrFoldoutOpen = !$scope.flickrFoldoutOpen;
     }
-    $scope.flickrFoldoutOpen = !$scope.flickrFoldoutOpen;
   };
 
+  var flickrContentLoaded = false;
   var getFlickrMostRecent = function () {
     $http.get('/api/flickr/most-recent-photo')
     .success(function (data, status, headers, config) {
@@ -35,6 +53,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location) {
         $('#flickr-photo-' + i + ' img').attr('src', $scope.flickrPhotos[i].url);
         $('#flickr-photo-' + i).attr('href', $scope.flickrPhotos[i].pageUrl);
       }
+      flickrContentLoaded = true;
     })
     .error(function (data, status, headers, config) {
       alert('Server error.');
@@ -57,6 +76,10 @@ cont.controller('homeController', function ($scope, $filter, $http, $location) {
         $scope.selectedFlickrPhoto = 0;
       else $scope.selectedFlickrPhoto++;
     }
+    var currentPhotoHeight = $('#flickr-photo-' 
+                                + $scope.selectedFlickrPhoto
+                                + ' img').height();
+    $('#flickr-foldout').css({'height': currentPhotoHeight + 'px'});
   }
 
   $(document).ready(function () {

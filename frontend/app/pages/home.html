@@ -49,13 +49,14 @@
         <i class="fa fa-angle-down" ng-hide="flickrFoldoutOpen" aria-hidden="true"></i>
         <i class="fa fa-angle-up"   ng-hide="!flickrFoldoutOpen" aria-hidden="true"></i>
       </a>
+      <i class="fa fa-refresh fa-spin" ng-hide="!flickrWaiting" aria-hidden="true"></i>
     </li>
     <li class="foldout" id="flickr-foldout">
-      <a class="flickr-photo" id="flickr-photo-0" ng-hide="selectedFlickrPhoto != 0" target="_blank"><img></a>
-      <a class="flickr-photo" id="flickr-photo-1" ng-hide="selectedFlickrPhoto != 1" target="_blank"><img></a>
-      <a class="flickr-photo" id="flickr-photo-2" ng-hide="selectedFlickrPhoto != 2" target="_blank"><img></a>
-      <a class="flickr-photo" id="flickr-photo-3" ng-hide="selectedFlickrPhoto != 3" target="_blank"><img></a>
-      <a class="flickr-photo" id="flickr-photo-4" ng-hide="selectedFlickrPhoto != 4" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-0" ng-class="{'invisible': selectedFlickrPhoto != 0}" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-1" ng-class="{'invisible': selectedFlickrPhoto != 1}" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-2" ng-class="{'invisible': selectedFlickrPhoto != 2}" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-3" ng-class="{'invisible': selectedFlickrPhoto != 3}" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-4" ng-class="{'invisible': selectedFlickrPhoto != 4}" target="_blank"><img></a>
       <div id="flickr-foldout-label">
         <h4>{{flickrPhotoTitle()}}</h4>
         <button class="flickr-nav-button" ng-click="changeFlickrPhoto('left')"><i class="fa fa-caret-left"  aria-hidden="true"></i></button>
