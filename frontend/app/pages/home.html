@@ -44,7 +44,17 @@
   <ul id="profiles">
     <li>sometimes I <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank">code</a></li>
     <li>sometimes I <a id="linkedin-link" href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" title="my linkedin" target="_blank">work</a></li>
-    <li>sometimes I <a id="flickr-link" href="http://flickr.com/rinoshea" title="my flickr" target="_blank">take photos</a></li>
+    <li>sometimes I <a id="flickr-link" title="my flickr" ng-click="toggleFlickrFoldout()">take photos</a></li>
+    <li class="foldout" id="flickr-foldout">
+      <a class="flickr-photo" id="flickr-photo-0" ng-hide="selectedFlickrPhoto != 0" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-1" ng-hide="selectedFlickrPhoto != 1" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-2" ng-hide="selectedFlickrPhoto != 2" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-3" ng-hide="selectedFlickrPhoto != 3" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-4" ng-hide="selectedFlickrPhoto != 4" target="_blank"><img></a>
+      <div id="flickr-foldout-label">
+        <p>hi there</p>
+      </div>
+    </li>
     <li>sometimes I <a id="blog-link" href="http://post.ryanoshea.com" title="my blog" target="_blank">write</a></li>
     <li>sometimes I <a id="behance-link" href="http://www.behance.net/ryanoshea" title="my behance" target="_blank">design</a></li>
     <li>sometimes I <a id="twitter-link" href="https://twitter.com/ryancoshea" title="my twitter" target="_blank">tweet</a></li>

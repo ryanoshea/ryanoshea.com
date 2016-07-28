@@ -7,9 +7,11 @@ var helmet = require('helmet');
 var compression = require('compression');
 var fs = require('fs');
 
-// Setup HTTP2/SPDY/HTTP1.1 Server with TLS/SSL
+var pageServer = express();
+var handler = require('./app.js');
+pageServer.use('/api', app);
 
-var app = express();
+// Setup HTTP2/SPDY/HTTP1.1 Server with TLS/SSL
 // Get certificate
 var key = fs.readFileSync('cert/privkey.pem');
 var cert = fs.readFileSync('cert/fullchain.pem')
@@ -17,19 +19,21 @@ var tlsConfig = {
     key: key,
     cert: cert
 };
-app.use(express.static('../frontend')); // static webserver
-app.use(compression()); // enable gzip
+pageServer.use(express.static('../frontend')); // static webserver
+pageServer.use(compression()); // enable gzip
 
 // Enable HSTS
 var ONE_YEAR = 31536000000;
-app.use(helmet.hsts({
+pageServer.use(helmet.hsts({
   maxAge: ONE_YEAR,
   includeSubdomains: false,
   force: true
 }));
 
+// Runtime
+
 // Start HTTPS Server
-var httpsServer = https.createServer(tlsConfig, app).listen(443);
+var httpsServer = https.createServer(tlsConfig, pageServer).listen(443);
 console.log('HTTPS server listening on port 443.');
 
 // HTTP to HTTPS Redirect.

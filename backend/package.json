@@ -1,5 +1,5 @@
 {
-  "name": "ryanoshea-com",
+  "name": "ryanoshea-com-backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/ryanoshea/ryanoshea.com.git"
   },
   "author": "Ryan O'Shea",
-  "license": "ISC",
+  "license": "n/a",
   "bugs": {
     "url": "https://github.com/ryanoshea/ryanoshea.com/issues"
   },
@@ -20,6 +20,7 @@
   "dependencies": {
     "compression": "^1.6.2",
     "express": "^4.14.0",
+    "flickrapi": "^0.5.0",
     "helmet": "^2.1.1",
     "spdy": "^3.3.4"
   }
