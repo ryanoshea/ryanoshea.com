@@ -44,7 +44,12 @@
   <ul id="profiles">
     <li>sometimes I <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank">code</a></li>
     <li>sometimes I <a id="linkedin-link" href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" title="my linkedin" target="_blank">work</a></li>
-    <li>sometimes I <a id="flickr-link" title="my flickr" ng-click="toggleFlickrFoldout()">take photos</a></li>
+    <li>sometimes I 
+      <a id="flickr-link" title="my flickr" ng-click="toggleFlickrFoldout()">take photos
+        <i class="fa fa-angle-down" ng-hide="flickrFoldoutOpen" aria-hidden="true"></i>
+        <i class="fa fa-angle-up"   ng-hide="!flickrFoldoutOpen" aria-hidden="true"></i>
+      </a>
+    </li>
     <li class="foldout" id="flickr-foldout">
       <a class="flickr-photo" id="flickr-photo-0" ng-hide="selectedFlickrPhoto != 0" target="_blank"><img></a>
       <a class="flickr-photo" id="flickr-photo-1" ng-hide="selectedFlickrPhoto != 1" target="_blank"><img></a>
@@ -52,7 +57,9 @@
       <a class="flickr-photo" id="flickr-photo-3" ng-hide="selectedFlickrPhoto != 3" target="_blank"><img></a>
       <a class="flickr-photo" id="flickr-photo-4" ng-hide="selectedFlickrPhoto != 4" target="_blank"><img></a>
       <div id="flickr-foldout-label">
-        <p>hi there</p>
+        <h4>{{flickrPhotoTitle()}}</h4>
+        <button class="flickr-nav-button" ng-click="changeFlickrPhoto('left')"><i class="fa fa-caret-left"  aria-hidden="true"></i></button>
+        <button class="flickr-nav-button" ng-click="changeFlickrPhoto('right')"><i class="fa fa-caret-right" aria-hidden="true"></i></button>
       </div>
     </li>
     <li>sometimes I <a id="blog-link" href="http://post.ryanoshea.com" title="my blog" target="_blank">write</a></li>

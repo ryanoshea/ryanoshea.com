@@ -11,9 +11,9 @@ cont.controller('homeController', function ($scope, $filter, $http, $location) {
 
   $scope.selectedFlickrPhoto = 0;
   
-  var flickrFoldoutOpen = false;
+  $scope.flickrFoldoutOpen = false;
   $scope.toggleFlickrFoldout = function () {
-    if (!flickrFoldoutOpen) {
+    if (!$scope.flickrFoldoutOpen) {
       $('#flickr-foldout').css({'max-height': '70em'});
       $('#flickr-foldout').css({'margin-top': '1em'});
       $('#flickr-foldout').css({'margin-bottom': '1em'});
@@ -23,7 +23,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location) {
       $('#flickr-foldout').css({'margin-top': '0'});
       $('#flickr-foldout').css({'margin-bottom': '0'});
     }
-    flickrFoldoutOpen = !flickrFoldoutOpen;
+    $scope.flickrFoldoutOpen = !$scope.flickrFoldoutOpen;
   };
 
   var getFlickrMostRecent = function () {
@@ -40,6 +40,24 @@ cont.controller('homeController', function ($scope, $filter, $http, $location) {
       alert('Server error.');
     });
   };
+
+  $scope.flickrPhotoTitle = function () {
+    if (!$scope.flickrPhotos) return '';
+    else return $scope.flickrPhotos[$scope.selectedFlickrPhoto].title;
+  };
+
+  $scope.changeFlickrPhoto = function (direction) {
+    if (direction == 'left') {
+      if ($scope.selectedFlickrPhoto == 0)
+        $scope.selectedFlickrPhoto = 4;
+      else $scope.selectedFlickrPhoto--;
+    }
+    else {
+      if ($scope.selectedFlickrPhoto == 4)
+        $scope.selectedFlickrPhoto = 0;
+      else $scope.selectedFlickrPhoto++;
+    }
+  }
 
   $(document).ready(function () {
     $('#profiles li:first-child').css('color','inherit');

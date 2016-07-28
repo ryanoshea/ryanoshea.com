@@ -1,7 +1,3 @@
-html {
-  overflow-y: scroll;
-}
-
 html, body {
   height: 100%;
 }
@@ -10,6 +6,7 @@ body {
   font-family: "lato";
   background: #f0f0f0;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 #main {
   display: inline-block;
@@ -345,6 +342,46 @@ textarea {
 
 #profiles a {
   cursor: pointer;
+}
+
+
+.flickr-nav-button {
+	/*-moz-box-shadow:inset 0px 1px 7px 0px #bdbdbd;
+	-webkit-box-shadow:inset 0px 1px 7px 0px #bdbdbd;
+	box-shadow:inset 0px 1px 7px 0px #bdbdbd;*/
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #383838), color-stop(1, #1c1c1c) );
+	background:-moz-linear-gradient( center top, #383838 5%, #1c1c1c 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#383838', endColorstr='#1c1c1c');
+	background-color:#383838;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:none;
+	display:inline-block;
+	color:#777777;
+	text-align:center;
+}
+
+.flickr-nav-button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1c1c1c), color-stop(1, #383838) );
+	background:-moz-linear-gradient( center top, #1c1c1c 5%, #383838 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#383838');
+	background-color:#1c1c1c;
+}
+
+.flickr-nav-button:active {
+	position:relative;
+	top:1px;
 }
 
 
