@@ -13,6 +13,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   $scope.flickrWaiting = false; // True only when user has clicked to view
                                 // flickr panel and images aren't loaded 
   $scope.flickrFoldoutOpen = false;
+  $scope.dummyArray5 = [0,1,2,3,4];
   $scope.toggleFlickrFoldout = function (tim) {
     if (!$scope.flickrFoldoutOpen) {
       var currentPhotoHeight = $('#flickr-photo-' 
@@ -80,13 +81,18 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
                                 + $scope.selectedFlickrPhoto
                                 + ' img').height();
     $('#flickr-foldout').css({'height': currentPhotoHeight + 'px'});
-  }
+  };
+
+  $scope.flickrPhotoExif = function () {
+    if (!$scope.flickrPhotos) return 'n/a';
+    else return $scope.flickrPhotos[$scope.selectedFlickrPhoto].exif;
+  };
 
   $(document).ready(function () {
-    $('#profiles li:first-child').css('color','inherit');
+    $('#profiles > li:first-child').css('color','inherit');
 
-    $('#profiles li').hover(function() {
-      $('#profiles li').css(
+    $('#profiles > li').hover(function() {
+      $('#profiles > li').css(
         'color','rgba(0,0,0,0)'
       );
       $(this).css(

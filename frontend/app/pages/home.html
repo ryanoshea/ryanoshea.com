@@ -52,13 +52,15 @@
       <i class="fa fa-refresh fa-spin" ng-hide="!flickrWaiting" aria-hidden="true"></i>
     </li>
     <li class="foldout" id="flickr-foldout">
-      <a class="flickr-photo" id="flickr-photo-0" ng-class="{'invisible': selectedFlickrPhoto != 0}" target="_blank"><img></a>
-      <a class="flickr-photo" id="flickr-photo-1" ng-class="{'invisible': selectedFlickrPhoto != 1}" target="_blank"><img></a>
-      <a class="flickr-photo" id="flickr-photo-2" ng-class="{'invisible': selectedFlickrPhoto != 2}" target="_blank"><img></a>
-      <a class="flickr-photo" id="flickr-photo-3" ng-class="{'invisible': selectedFlickrPhoto != 3}" target="_blank"><img></a>
-      <a class="flickr-photo" id="flickr-photo-4" ng-class="{'invisible': selectedFlickrPhoto != 4}" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-{{$index}}" ng-repeat="item in dummyArray5" ng-class="{'invisible': selectedFlickrPhoto != $index}" target="_blank"><img></a>
       <div id="flickr-foldout-label">
         <h4>{{flickrPhotoTitle()}}</h4>
+        <ul id="exif-data">
+          <li><i class="fa fa-camera" aria-hidden="true"></i> <em>f</em>/{{flickrPhotoExif().aperture}}</li>
+          <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{flickrPhotoExif().shutter}}</li>
+          <li><strong>ISO</strong> {{flickrPhotoExif().iso}}</li>
+          <li><i class="fa fa-eye" aria-hidden="true"></i> {{flickrPhotoExif().focalLength}}</li>
+        </ul>
         <button class="flickr-nav-button" ng-click="changeFlickrPhoto('left')"><i class="fa fa-caret-left"  aria-hidden="true"></i></button>
         <button class="flickr-nav-button" ng-click="changeFlickrPhoto('right')"><i class="fa fa-caret-right" aria-hidden="true"></i></button>
       </div>

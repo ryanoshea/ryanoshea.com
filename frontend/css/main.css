@@ -76,13 +76,13 @@ h2 {
     #line1:hover, #line2:hover, #line3:hover, #line4:hover, #line5:hover {
       color: black;
     }
-#profile-links ul:first-child li {
+#profile-links > ul:first-child > li {
   color: rgba(0,0,0,0);
 }
 /*#profile-links ul:first-child li:first-child {
   color: inherit;
 }*/
-#profile-links ul {
+#profile-links > ul {
   list-style-type: none;
   padding: 0;
 }
@@ -322,7 +322,7 @@ textarea {
   position: relative;
 }
 
-#profile-links ul:first-child li > i
+#profile-links > ul:first-child > li > i
 {
   color: #222;
 }

@@ -49,7 +49,7 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
                + flickrPhotos[i].id
     };
 
-    // Send request for 
+    // Send request for image url
     flickr.photos.getSizes({
       photo_id: flickrPhotos[i].id
     }, function (err, result) {
@@ -60,6 +60,8 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
       else {
         var sizes = result.sizes.size;
         var photoUrl = ''; 
+
+        // Find the proper size
         sizes.forEach(function(current) {
           if (current.label == 'Large 2048')
             newPhoto.url = current.source;
@@ -78,8 +80,26 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
               newPhoto.title = result.photo.title['_content'];
             else
               newPhoto.title = 'Untitled';
-            responsePhotos[i] = newPhoto;
-            fetchPhotoDetails(flickrPhotos, responsePhotos, numPhotos, ++i, callback);
+
+            flickr.photos.getExif({
+              photo_id: flickrPhotos[i].id
+            }, function (err, result) {
+              var exif = result.photo.exif;
+              newPhoto.exif = {};
+              exif.forEach(function (current) {
+                if (current.tag == 'FNumber')
+                  newPhoto.exif.aperture = current.raw['_content'];
+                if (current.tag == 'ExposureTime')
+                  newPhoto.exif.shutter = current.raw['_content'];
+                if (current.tag == 'ISO')
+                  newPhoto.exif.iso = current.raw['_content'];
+                if (current.tag == 'FocalLength')
+                  newPhoto.exif.focalLength = current.raw['_content'];
+              });
+              
+              responsePhotos[i] = newPhoto;
+              fetchPhotoDetails(flickrPhotos, responsePhotos, numPhotos, ++i, callback);
+            });
           }
         });
       }
