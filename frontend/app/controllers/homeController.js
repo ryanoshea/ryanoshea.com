@@ -7,30 +7,37 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   
   document.title = 'Ryan O\'Shea // Home';
 
+  var mobileWidth = 1120;
+  $scope.isMobile = function () {
+    console.log($(window).width() < mobileWidth);
+    return $(window).width() < mobileWidth;
+  };
+
   $scope.currentYear = new Date().getFullYear();
 
   $scope.selectedFlickrPhoto = 0;
   $scope.flickrWaiting = false; // True only when user has clicked to view
                                 // flickr panel and images aren't loaded 
   $scope.flickrFoldoutOpen = false;
-  $scope.dummyArray5 = [0,1,2,3,4];
+  $scope.dummyArray = [0,1,2,3,4,5,6,7,8,9];
   $scope.toggleFlickrFoldout = function (tim) {
+    if ($(window).width() < mobileWidth) {
+      window.open('https://www.flickr.com/photos/rinoshea/', '_blank').focus();
+      return;
+    }
     if (!$scope.flickrFoldoutOpen) {
-      var currentPhotoHeight = $('#flickr-photo-' 
-                                  + $scope.selectedFlickrPhoto
-                                  + ' img').height();
-      if (flickrContentLoaded && currentPhotoHeight > 0) {
+      if (flickrContentLoaded && currentPhotoHeight() > 0) {
         $scope.flickrWaiting = false;
-        console.log('set to false');
-        console.log(currentPhotoHeight);
-        $('#flickr-foldout').css({'height': currentPhotoHeight + 'px'});
+        $('#flickr-foldout').css({'height': currentPhotoHeight() + 'px'});
         $('#flickr-foldout').css({'margin-top': '1em'});
         $('#flickr-foldout').css({'margin-bottom': '1em'});
+        $('html, body').animate({
+            scrollTop: $('#flickr-foldout').offset().top - 0.1 * $(window).height()
+        }, 500);
         $scope.flickrFoldoutOpen = !$scope.flickrFoldoutOpen;
       }
       else {
         $scope.flickrWaiting = true;
-        console.log('set to true');
         $timeout(function () {
           $scope.toggleFlickrFoldout();
         }, 100);
@@ -61,6 +68,10 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
     });
   };
 
+  function currentPhotoHeight() {
+    return $('#flickr-photo-' + $scope.selectedFlickrPhoto + ' img').height();
+  };
+
   $scope.flickrPhotoTitle = function () {
     if (!$scope.flickrPhotos) return '';
     else return $scope.flickrPhotos[$scope.selectedFlickrPhoto].title;
@@ -69,23 +80,38 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   $scope.changeFlickrPhoto = function (direction) {
     if (direction == 'left') {
       if ($scope.selectedFlickrPhoto == 0)
-        $scope.selectedFlickrPhoto = 4;
+        $scope.selectedFlickrPhoto = $scope.dummyArray.length - 1;
       else $scope.selectedFlickrPhoto--;
     }
     else {
-      if ($scope.selectedFlickrPhoto == 4)
+      if ($scope.selectedFlickrPhoto == $scope.dummyArray.length - 1)
         $scope.selectedFlickrPhoto = 0;
       else $scope.selectedFlickrPhoto++;
     }
-    var currentPhotoHeight = $('#flickr-photo-' 
-                                + $scope.selectedFlickrPhoto
-                                + ' img').height();
-    $('#flickr-foldout').css({'height': currentPhotoHeight + 'px'});
+    $('#flickr-foldout').css({'height': currentPhotoHeight() + 'px'});
   };
 
   $scope.flickrPhotoExif = function () {
     if (!$scope.flickrPhotos) return 'n/a';
     else return $scope.flickrPhotos[$scope.selectedFlickrPhoto].exif;
+  };
+
+  function resizeHandler() {
+    var ratio = 0.2;
+    if ($(window).width() >= mobileWidth) {
+      $('#main #left').css('width', $('#main').width() * ratio + 'px');
+      $('#main #content').css('width', $('#main').width() * (1 - ratio - 0.05) + 'px');
+    }
+    else {
+      $('.foldout').hide();
+      $('#main #left').css('width', 'auto');
+      $('#main #content').css('width', 0.95 * $(window).width());
+    }
+    $('.foldout').css('width', $(window).width());
+    $('.foldout').css('margin-left', (-1 * $('#content').offset().left));
+    $timeout(function () {
+      $('#flickr-foldout').css({'height': currentPhotoHeight() + 'px'});
+    });
   };
 
   $(document).ready(function () {
@@ -98,6 +124,12 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
       $(this).css(
         'color','inherit'
       );	
+    });
+
+    resizeHandler();
+
+    $(window).resize(function () {
+      resizeHandler();
     });
 
     getFlickrMostRecent();

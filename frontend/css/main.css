@@ -1,20 +1,23 @@
-html, body {
-  height: 100%;
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
-
 body {
   font-family: "lato";
   background: #f0f0f0;
-  overflow-x: hidden;
-  overflow-y: scroll;
 }
 #main {
   display: inline-block;
   text-align: left;
-  position: relative;
   margin: 6em 15px 3em 15px;
-  /*min-width: 780px;*/
+  max-width: 80em;
+  width: 100%;
 }
+  #content, #left {
+    display: inline-block;
+    vertical-align: top;
+    overflow: show;
+  }
   #wrapper {
     text-align: center;
     min-height: 100%;
@@ -45,9 +48,6 @@ h1 {
   }
 h1 strong {
   font-weight: 800;
-}
-#content {
-  float: left;
 }
 h2 {
   font-size: 1em;
@@ -158,10 +158,6 @@ h3 {
 
 #content h2:first-child {
   margin-top: 36px;
-}
-
-#left {
-  float:left;
 }
 
 #resume {
@@ -316,15 +312,16 @@ textarea {
   height: 0;
   transition: all 0.5s ease-out;
   width: 100%;
-  background: #222;
-  border-radius: 0.5em;
   overflow: hidden;
   position: relative;
-}
-
-#profile-links > ul:first-child > li > i
-{
-  color: #222;
+  background: #140d0d;
+  background: -moz-linear-gradient(top, #140d0d 0%, #333333 100%);
+  background: -webkit-linear-gradient(top, #140d0d 0%,#333333 100%);
+  background: linear-gradient(to bottom, #140d0d 0%,#333333 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#140d0d', endColorstr='#333333',GradientType=0 );
+  -webkit-box-shadow: inset 0px 1px 50px 0px rgba(0,0,0,1);
+  -moz-box-shadow: inset 0px 1px 50px 0px rgba(0,0,0,1);
+  box-shadow: inset 0px 1px 50px 0px rgba(0,0,0,1);
 }
 
 .flickr-photo {
@@ -332,8 +329,9 @@ textarea {
 }
 
 .flickr-photo img {
-  width: 40em;
-  max-width: 100%;
+  max-width: 50%;
+  height: auto;
+  width: auto;
   position: absolute;
   top: 0;
   left: 0;
@@ -342,23 +340,23 @@ textarea {
 #flickr-foldout-label
 {
   color: #f0f0f0;
-  margin-left: 42em;
+  margin-left: 51%;
+  margin-right: 1em;
+}
+
+#flickr-foldout-label h4 {
+  margin-bottom: 1em;
 }
 
 #flickr-foldout-label, .flickr-photo {
   display: inline-block;
 }
 
-#flickr-foldout-label button i {
-  color: #f0f0f0;
-}
-
 #profiles a {
   cursor: pointer;
 }
 
-
-.flickr-nav-button {
+.flickr-nav-button, #flickr-button {
 	/*-moz-box-shadow:inset 0px 1px 7px 0px #bdbdbd;
 	-webkit-box-shadow:inset 0px 1px 7px 0px #bdbdbd;
 	box-shadow:inset 0px 1px 7px 0px #bdbdbd;*/
@@ -380,16 +378,26 @@ textarea {
 	border-bottom-left-radius:6px;
 	text-indent:0;
 	border:none;
-	display:inline-block;
 	color:#777777;
 	text-align:center;
 }
 
-.flickr-nav-button:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1c1c1c), color-stop(1, #383838) );
-	background:-moz-linear-gradient( center top, #1c1c1c 5%, #383838 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1c1c1c', endColorstr='#383838');
-	background-color:#1c1c1c;
+.flickr-nav-button
+{
+  display:inline-block;
+}
+
+#flickr-foldout-label button i
+{
+  color: #777777;
+}
+
+#flickr-button
+{
+  font-size: 0.8em;
+  padding: 0.5em 0.8em;
+  display: block;
+  margin-top: 2em;
 }
 
 .flickr-nav-button:active {
@@ -397,6 +405,55 @@ textarea {
 	top:1px;
 }
 
+#exif-data {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  margin-left: -0.5em;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+#exif-data li
+{
+  display: block;
+  padding: 1em;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 0.5em;
+  font-size: 0.8em;
+  color: rgba(255,255,255,0.75);
+  margin: 0.5em;
+}
+
+#exif-data .exif-icons {
+  margin-right: 0.8em;
+}
+
+#exif-data li span{
+  display: inline;
+}
+
+#exif-data #iso-icon
+{
+  font-size: 0.8em;
+  padding: 0.05em .2em .1em .2em;
+  border: 1px solid rgba(255,255,255,0.75);
+  border-radius: 0.2em;
+  font-weight: bold;
+}
+
+#profiles li > .foldout-loading-indicators {
+  color: #666;
+  font-size: 0.75em;
+  margin-left: 1em;
+}
+
+#flickr-foldout-label #flickr-top-label {
+  font-size: 0.8em;
+  color: rgba(255,255,255,0.75);
+  margin-top: 2em;
+}
 
 /* ==========================================================================
    Media Queries

@@ -46,23 +46,25 @@
     <li>sometimes I <a id="linkedin-link" href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" title="my linkedin" target="_blank">work</a></li>
     <li>sometimes I 
       <a id="flickr-link" title="my flickr" ng-click="toggleFlickrFoldout()">take photos
-        <i class="fa fa-angle-down" ng-hide="flickrFoldoutOpen" aria-hidden="true"></i>
-        <i class="fa fa-angle-up"   ng-hide="!flickrFoldoutOpen" aria-hidden="true"></i>
+        <i class="fa fa-angle-down" ng-hide="flickrFoldoutOpen  || isMobile()" aria-hidden="true"></i>
+        <i class="fa fa-angle-up"   ng-hide="!flickrFoldoutOpen || isMobile()" aria-hidden="true"></i>
       </a>
-      <i class="fa fa-refresh fa-spin" ng-hide="!flickrWaiting" aria-hidden="true"></i>
+      <i class="foldout-loading-indicators fa fa-refresh fa-spin" ng-hide="!flickrWaiting" aria-hidden="true"></i>
     </li>
     <li class="foldout" id="flickr-foldout">
-      <a class="flickr-photo" id="flickr-photo-{{$index}}" ng-repeat="item in dummyArray5" ng-class="{'invisible': selectedFlickrPhoto != $index}" target="_blank"><img></a>
+      <a class="flickr-photo" id="flickr-photo-{{$index}}" ng-repeat="item in dummyArray" ng-class="{'invisible': selectedFlickrPhoto != $index}" target="_blank"><img></a>
       <div id="flickr-foldout-label">
+        <p id="flickr-top-label">Recent photos by Ryan O'Shea on Flickr <i class="fa fa-long-arrow-down" aria-hidden="true"></i></p>
         <h4>{{flickrPhotoTitle()}}</h4>
         <ul id="exif-data">
-          <li><i class="fa fa-camera" aria-hidden="true"></i> <em>f</em>/{{flickrPhotoExif().aperture}}</li>
-          <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{flickrPhotoExif().shutter}}</li>
-          <li><strong>ISO</strong> {{flickrPhotoExif().iso}}</li>
-          <li><i class="fa fa-eye" aria-hidden="true"></i> {{flickrPhotoExif().focalLength}}</li>
+          <li><i class="exif-icons fa fa-camera" aria-hidden="true"></i> <em>f</em>/{{flickrPhotoExif().aperture}}</li>
+          <li><i class="exif-icons fa fa-clock-o" aria-hidden="true"></i> {{flickrPhotoExif().shutter}}</li>
+          <li><span class="exif-icons" id="iso-icon">ISO</span> {{flickrPhotoExif().iso}}</li>
+          <li><i class="exif-icons fa fa-eye" aria-hidden="true"></i> {{flickrPhotoExif().focalLength}}</li>
         </ul>
         <button class="flickr-nav-button" ng-click="changeFlickrPhoto('left')"><i class="fa fa-caret-left"  aria-hidden="true"></i></button>
         <button class="flickr-nav-button" ng-click="changeFlickrPhoto('right')"><i class="fa fa-caret-right" aria-hidden="true"></i></button>
+        <button id="flickr-button">See All <i class="fa fa-external-link" aria-hidden="true"></i></button>
       </div>
     </li>
     <li>sometimes I <a id="blog-link" href="http://post.ryanoshea.com" title="my blog" target="_blank">write</a></li>

@@ -15,10 +15,10 @@ app.get('/flickr/most-recent-photo', function (req, res) {
   console.log('GET to /flickr/most-recent-photo. Getting most recent photos ' +
     'from Flickr.');
   
-  // Get IDs of 5 most recent photos
+  // Get IDs of 10 most recent photos
   flickr.people.getPhotos({
     user_id: flickrUserID,
-    per_page: 5
+    per_page: 10
   }, function (err, result) {
     if (err)
       res.status(500).send({err: 1, msg: 'Error fetching recent photos.'});
