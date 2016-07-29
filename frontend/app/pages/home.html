@@ -62,9 +62,11 @@
           <li><span class="exif-icons" id="iso-icon">ISO</span> {{flickrPhotoExif().iso}}</li>
           <li><i class="exif-icons fa fa-eye" aria-hidden="true"></i> {{flickrPhotoExif().focalLength}}</li>
         </ul>
-        <button class="flickr-nav-button" ng-click="changeFlickrPhoto('left')"><i class="fa fa-caret-left"  aria-hidden="true"></i></button>
-        <button class="flickr-nav-button" ng-click="changeFlickrPhoto('right')"><i class="fa fa-caret-right" aria-hidden="true"></i></button>
-        <button id="flickr-button">See All <i class="fa fa-external-link" aria-hidden="true"></i></button>
+        <div>
+          <button class="flickr-nav-button" ng-click="changeFlickrPhoto('left')"><i class="fa fa-caret-left"  aria-hidden="true"></i></button>
+          <button class="flickr-nav-button" ng-click="changeFlickrPhoto('right')"><i class="fa fa-caret-right" aria-hidden="true"></i></button>
+        </div>
+        <a id="flickr-button" href="https://www.flickr.com/photos/rinoshea/" target="_blank">See All <i class="fa fa-external-link" aria-hidden="true"></i></a>
       </div>
     </li>
     <li>sometimes I <a id="blog-link" href="http://post.ryanoshea.com" title="my blog" target="_blank">write</a></li>

@@ -109,9 +109,17 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
     }
     $('.foldout').css('width', $(window).width());
     $('.foldout').css('margin-left', (-1 * $('#content').offset().left));
-    $timeout(function () {
-      $('#flickr-foldout').css({'height': currentPhotoHeight() + 'px'});
-    });
+    if ($scope.flickrFoldoutOpen) {
+      $timeout(function () {
+        $('#flickr-foldout').css({'height': currentPhotoHeight() + 'px'});
+      });
+    }
+    if ($(window).height() > $('body').height()) {
+      $('body').css('height', $(window).height());
+    }
+    else {
+      $('body').css('height', 'auto');
+    }
   };
 
   $(document).ready(function () {

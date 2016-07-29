@@ -356,7 +356,7 @@ textarea {
   cursor: pointer;
 }
 
-.flickr-nav-button, #flickr-button {
+.flickr-nav-button, #profiles a#flickr-button {
 	/*-moz-box-shadow:inset 0px 1px 7px 0px #bdbdbd;
 	-webkit-box-shadow:inset 0px 1px 7px 0px #bdbdbd;
 	box-shadow:inset 0px 1px 7px 0px #bdbdbd;*/
@@ -387,7 +387,8 @@ textarea {
   display:inline-block;
 }
 
-#flickr-foldout-label button i
+#flickr-foldout-label button i,
+#flickr-foldout-label #flickr-button i,
 {
   color: #777777;
 }
@@ -396,10 +397,11 @@ textarea {
 {
   font-size: 0.8em;
   padding: 0.5em 0.8em;
-  display: block;
+  display: inline-block;
   margin-top: 2em;
 }
 
+#flickr-button:active, 
 .flickr-nav-button:active {
 	position:relative;
 	top:1px;
