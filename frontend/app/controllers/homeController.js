@@ -26,7 +26,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
       return;
     }
     if (!$scope.flickrFoldoutOpen) {
-      if (flickrContentLoaded && currentPhotoHeight() > 0) {
+      if (flickrContentLoaded) {// && currentPhotoHeight() > 0) {
         $scope.flickrWaiting = false;
         $('#flickr-foldout').css({'height': currentPhotoHeight() + 'px'});
         $('#flickr-foldout').css({'margin-top': '1em'});
@@ -97,10 +97,12 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   };
 
   function resizeHandler() {
-    var ratio = 0.2;
+    var columnRatio = 0.2;
     if ($(window).width() >= mobileWidth) {
-      $('#main #left').css('width', $('#main').width() * ratio + 'px');
-      $('#main #content').css('width', $('#main').width() * (1 - ratio - 0.05) + 'px');
+      $('.foldout').show();
+      $('#main #left').css('width', $('#main').width() * columnRatio + 'px');
+      $('#main #content').css('width', $('#main').width() 
+                                       * (1 - columnRatio - 0.05) + 'px');
     }
     else {
       $('.foldout').hide();
@@ -112,7 +114,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
     if ($scope.flickrFoldoutOpen) {
       $timeout(function () {
         $('#flickr-foldout').css({'height': currentPhotoHeight() + 'px'});
-      });
+      }, 510);
     }
     if ($(window).height() > $('body').height()) {
       $('body').css('height', $(window).height());
