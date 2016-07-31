@@ -8,10 +8,6 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   document.title = 'Ryan O\'Shea // Home';
 
   var mobileWidth = 1120;
-  $scope.isMobile = function () {
-    console.log($(window).width() < mobileWidth);
-    return $(window).width() < mobileWidth;
-  };
 
   $scope.currentYear = new Date().getFullYear();
 
@@ -99,12 +95,18 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   function resizeHandler() {
     var columnRatio = 0.2;
     if ($(window).width() >= mobileWidth) {
+      $timeout(function () {
+        $scope.isMobile = false;
+      }, 0);
       $('.foldout').show();
       $('#main #left').css('width', $('#main').width() * columnRatio + 'px');
       $('#main #content').css('width', $('#main').width() 
                                        * (1 - columnRatio - 0.05) + 'px');
     }
     else {
+      $timeout(function () {
+        $scope.isMobile = true;
+      }, 0);
       $('.foldout').hide();
       $('#main #left').css('width', 'auto');
       $('#main #content').css('width', 0.95 * $(window).width());
