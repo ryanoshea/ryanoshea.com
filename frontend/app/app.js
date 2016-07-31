@@ -18,6 +18,7 @@ app.config(function ($routeProvider) {
       templateUrl: 'app/pages/home.html'
     })
     .when('/404', {
+      controller: '404Controller',
       templateUrl: 'app/pages/404.html'
     })
     .otherwise({
