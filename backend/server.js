@@ -25,7 +25,8 @@ var ONE_YEAR = 31536000000;
 pageServer.use(helmet.hsts({
   maxAge: ONE_YEAR,
   includeSubdomains: false,
-  force: true
+  force: true,
+  preload: true
 }));
 
 // Set Content Security Policy header
