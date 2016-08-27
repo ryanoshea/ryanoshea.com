@@ -33,9 +33,10 @@ pageServer.use(helmet.hsts({
 pageServer.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'", 'ryanoshea.com'],
-    scriptSrc: ["'self'", "'unsafe-inline'", 'ajax.googleapis.com', 'www.google-analytics.com', 'data:'],
+    scriptSrc: ["'self'", 'ajax.googleapis.com', 'data:', 'www.google-analytics.com',
+                "'sha256-G6kxCJe/GhvJMb0wNe4hvs7x/Gs4iQ1dFBvedj61uw4='"], // Google Analytics inline script
     styleSrc: ["'self'", "'unsafe-inline'", 'fonts.googleapis.com', 'opensource.keycdn.com'],
-    imgSrc: ["'self'", '*.staticflickr.com'],
+    imgSrc: ["'self'", '*.staticflickr.com', 'www.google-analytics.com'],
     fontSrc: ["'self'", 'fonts.gstatic.com', 'opensource.keycdn.com'],
     sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin'],
   },
