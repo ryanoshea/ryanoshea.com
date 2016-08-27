@@ -44,6 +44,9 @@ pageServer.use(helmet.contentSecurityPolicy({
   browserSniff: true
 }));
 
+// Set X-Content-Type-Options
+pageServer.use(helmet.noSniff());
+
 pageServer.use(express.static('../frontend')); // static webserver
 pageServer.use(logger());
 pageServer.use('/api', app);
