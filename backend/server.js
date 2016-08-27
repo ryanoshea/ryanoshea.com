@@ -28,7 +28,7 @@ pageServer.use(helmet.hsts({
   force: true
 }));
 
-// Set Content Security Policy
+// Set Content Security Policy header
 pageServer.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'", 'ryanoshea.com'],
@@ -44,8 +44,11 @@ pageServer.use(helmet.contentSecurityPolicy({
   browserSniff: true
 }));
 
-// Set X-Content-Type-Options
+// Set X-Content-Type-Options header
 pageServer.use(helmet.noSniff());
+
+// Set X-XSS-Protection header
+pageServer.use(helmet.xssFilter());
 
 pageServer.use(express.static('../frontend')); // static webserver
 pageServer.use(logger());
