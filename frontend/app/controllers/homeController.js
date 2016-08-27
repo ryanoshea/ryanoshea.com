@@ -52,7 +52,6 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
     $http.get('/api/flickr/most-recent-photo')
     .success(function (data, status, headers, config) {
       $scope.flickrPhotos = data.photos;
-      console.log($scope.flickrPhotos);
       for (var i = 0; i < $scope.flickrPhotos.length; i++) {
         $('#flickr-photo-' + i + ' img').attr('src', $scope.flickrPhotos[i].url);
         $('#flickr-photo-' + i).attr('href', $scope.flickrPhotos[i].pageUrl);
