@@ -20,11 +20,6 @@ var tlsConfig = {
     cert: cert
 };
 
-pageServer.use(express.static('../frontend')); // static webserver
-pageServer.use(logger());
-pageServer.use('/api', app);
-pageServer.use(compression()); // enable gzip
-
 // Enable HSTS
 var ONE_YEAR = 31536000000;
 pageServer.use(helmet.hsts({
@@ -32,6 +27,11 @@ pageServer.use(helmet.hsts({
   includeSubdomains: false,
   force: true
 }));
+
+pageServer.use(express.static('../frontend')); // static webserver
+pageServer.use(logger());
+pageServer.use('/api', app);
+pageServer.use(compression()); // enable gzip
 
 // 404 Handler
 pageServer.use(function (req, res) {
