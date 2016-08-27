@@ -11,6 +11,9 @@ var logger = require('morgan');
 var pageServer = express();
 var handler = require('./app.js');
 
+// Enable gzip
+pageServer.use(compression());
+
 // Setup HTTP2/SPDY/HTTP1.1 Server with TLS/SSL
 // Get certificate
 var key = fs.readFileSync('cert/privkey.pem');
@@ -58,7 +61,6 @@ pageServer.use(helmet.frameguard());
 pageServer.use(express.static('../frontend')); // static webserver
 pageServer.use(logger());
 pageServer.use('/api', app);
-pageServer.use(compression()); // enable gzip
 
 // 404 Handler
 pageServer.use(function (req, res) {
