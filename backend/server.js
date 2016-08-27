@@ -28,6 +28,22 @@ pageServer.use(helmet.hsts({
   force: true
 }));
 
+// Set Content Security Policy
+pageServer.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'", 'ryanoshea.com'],
+    scriptSrc: ["'self'", "'unsafe-inline'", 'ajax.googleapis.com', 'www.google-analytics.com', 'data:'],
+    styleSrc: ["'self'", "'unsafe-inline'", 'fonts.googleapis.com', 'opensource.keycdn.com'],
+    imgSrc: ["'self'", '*.staticflickr.com'],
+    fontSrc: ["'self'", 'fonts.gstatic.com', 'opensource.keycdn.com'],
+    sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin'],
+  },
+  reportOnly: false,
+  setAllHeaders: false,
+  disableAndroid: false,
+  browserSniff: true
+}));
+
 pageServer.use(express.static('../frontend')); // static webserver
 pageServer.use(logger());
 pageServer.use('/api', app);
