@@ -37,12 +37,9 @@ pageServer.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'", 'ryanoshea.com'],
     scriptSrc: ["'self'", 'ajax.googleapis.com', 'data:', 'www.google-analytics.com',
-                "'sha256-G6kxCJe/GhvJMb0wNe4hvs7x/Gs4iQ1dFBvedj61uw4='"], // Google Analytics inline script
+                "'unsafe-inline'"], // Google Analytics inline script
     styleSrc: ["'self'", 'fonts.googleapis.com', 'opensource.keycdn.com',
-               "'sha256-1PxuDsPyGK6n+LZsMv0gG4lMX3i3XigG6h0CzPIjwrE='",
-               "'sha256-MZKTI0Eg1N13tshpFaVW65co/LeICXq4hyVx6GWVlK0='",
-               "'sha256-LpfmXS+4ZtL2uPRZgkoR29Ghbxcfime/CsD/4w5VujE='",
-               "'sha256-YJO/M9OgDKEBRKGqp4Zd07dzlagbB+qmKgThG52u/Mk='"],
+               "'unsafe-inline'"],
     imgSrc: ["'self'", '*.staticflickr.com', 'www.google-analytics.com',
              'stats.g.doubleclick.net'],
     fontSrc: ["'self'", 'fonts.gstatic.com', 'opensource.keycdn.com'],
