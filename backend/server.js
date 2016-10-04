@@ -61,7 +61,7 @@ pageServer.use(helmet.xssFilter());
 pageServer.use(helmet.frameguard());
 
 pageServer.use(express.static('../frontend')); // static webserver
-pageServer.use(logger());
+pageServer.use(logger('combined'));
 pageServer.use('/api', app);
 
 // 404 Handler
