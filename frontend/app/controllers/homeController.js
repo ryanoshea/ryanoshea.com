@@ -52,11 +52,14 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
     $http.get('/api/flickr/most-recent-photo')
     .success(function (data, status, headers, config) {
       $scope.flickrPhotos = data.photos;
+      // Don't open the panel when the first photo is fully loaded (and dimensions are usable)
+      $('#flickr-photo-0 img').on('load', function () {
+        flickrContentLoaded = true;
+      });
       for (var i = 0; i < $scope.flickrPhotos.length; i++) {
         $('#flickr-photo-' + i + ' img').attr('src', $scope.flickrPhotos[i].url);
         $('#flickr-photo-' + i).attr('href', $scope.flickrPhotos[i].pageUrl);
       }
-      flickrContentLoaded = true;
     })
     .error(function (data, status, headers, config) {
       alert('Server error.');
