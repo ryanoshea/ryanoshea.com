@@ -96,6 +96,13 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
                   newPhoto.exif.iso = current.raw['_content'];
                 if (current.tag == 'FocalLength')
                   newPhoto.exif.focalLength = current.raw['_content'];
+                if (current.tag == 'Flash') {
+                  var raw = current.raw['_content'];
+                  if (raw.match(/on/i))
+                    newPhoto.exif.flash = 'On';
+                  else
+                    newPhoto.exif.flash = 'Off';
+                }
               });
               
               responsePhotos[i] = newPhoto;
