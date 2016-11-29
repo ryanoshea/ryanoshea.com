@@ -17,14 +17,16 @@ app.get('/flickr/most-recent-photo', function (req, res) {
     user_id: flickrUserID,
     per_page: 10
   }, function (err, result) {
-    if (err)
+    if (err) {
       res.status(500).send({err: 1, msg: 'Error fetching recent photos.'});
+      console.err('Error fetching most recent photos.');
+    }
     else {
       var numPhotos = result.photos.photo.length; // for safety
 
       // Send requests for photo metadata iteratively
       fetchPhotoDetails(result.photos.photo, new Array(numPhotos), numPhotos, 
-                        0, function(responsePhotos) {
+                        0, res, function(responsePhotos) {
         res.send({
           err: false,
           photos: responsePhotos
@@ -38,7 +40,7 @@ app.get('/flickr/most-recent-photo', function (req, res) {
 // outputs that into the 'responsePhotos' buffer, and repeats for 'numPhotos'
 // before returning the buffer to the callback
 var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos, 
-                                  i, callback) {
+                                  i, res, callback) {
   if (i < numPhotos) {
 
     var newPhoto = {
@@ -52,6 +54,7 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
     }, function (err, result) {
       if (err) {
         res.status(500).send({err: 1, msg: 'Error fetching recent photos.'});
+        console.err('Error fetching flickr photos.');
         return;
       }
       else {
@@ -70,6 +73,7 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
         }, function (err, result) {
           if (err) {
             res.status(500).send({err: 1, msg: 'Error fetching recent photos.'});
+            console.err('Error fetching flickr photos.');
             return;
           }
           else {
@@ -95,7 +99,7 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
               });
               
               responsePhotos[i] = newPhoto;
-              fetchPhotoDetails(flickrPhotos, responsePhotos, numPhotos, ++i, callback);
+              fetchPhotoDetails(flickrPhotos, responsePhotos, numPhotos, ++i, res, callback);
             });
           }
         });
