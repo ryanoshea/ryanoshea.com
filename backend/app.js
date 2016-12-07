@@ -19,7 +19,7 @@ app.get('/flickr/most-recent-photo', function (req, res) {
   }, function (err, result) {
     if (err) {
       res.status(500).send({err: 1, msg: 'Error fetching recent photos.'});
-      console.err('Error fetching most recent photos.');
+      console.error('Error fetching most recent photos.');
     }
     else {
       var numPhotos = result.photos.photo.length; // for safety
@@ -54,7 +54,7 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
     }, function (err, result) {
       if (err) {
         res.status(500).send({err: 1, msg: 'Error fetching recent photos.'});
-        console.err('Error fetching flickr photos.');
+        console.error('Error fetching flickr photos.');
         return;
       }
       else {
@@ -73,7 +73,7 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
         }, function (err, result) {
           if (err) {
             res.status(500).send({err: 1, msg: 'Error fetching recent photos.'});
-            console.err('Error fetching flickr photos.');
+            console.error('Error fetching flickr photos.');
             return;
           }
           else {
