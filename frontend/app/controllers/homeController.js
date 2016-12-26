@@ -8,6 +8,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   document.title = 'Ryan O\'Shea // Home';
 
   var mobileWidth = 1120;
+  var networkError = false;
 
   $scope.currentYear = new Date().getFullYear();
 
@@ -17,7 +18,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   $scope.flickrFoldoutOpen = false;
   $scope.dummyArray = [0,1,2,3,4,5,6,7,8,9];
   $scope.toggleFlickrFoldout = function (tim) {
-    if ($(window).width() < mobileWidth) {
+    if ($(window).width() < mobileWidth || networkError) {
       window.location = 'https://www.flickr.com/photos/rinoshea/';
       return;
     }
@@ -49,26 +50,31 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
 
   var flickrContentLoaded = false;
   var getFlickrMostRecent = function () {
-    $http.get('/api/flickr/most-recent-photo')
+    $http.get('/api/flickr/most-recent-photos')
     .success(function (data, status, headers, config) {
       $scope.flickrPhotos = data.photos;
-      // Don't open the panel when the first photo is fully loaded (and dimensions are usable)
-      $('#flickr-photo-0 img').on('load', function () {
-        flickrContentLoaded = true;
-      });
-      for (var i = 0; i < $scope.flickrPhotos.length; i++) {
-        $('#flickr-photo-' + i + ' img').attr('src', $scope.flickrPhotos[i].url);
-        $('#flickr-photo-' + i).attr('href', $scope.flickrPhotos[i].pageUrl);
+      if ($scope.flickrPhotos === null) {
+        networkError = true;
+      } else {
+        // Don't open the panel when the first photo is fully loaded (and dimensions are usable)
+        $('#flickr-photo-0 img').on('load', function () {
+          flickrContentLoaded = true;
+        });
+        for (var i = 0; i < $scope.flickrPhotos.length; i++) {
+          $('#flickr-photo-' + i + ' img').attr('src', $scope.flickrPhotos[i].url);
+          $('#flickr-photo-' + i).attr('href', $scope.flickrPhotos[i].pageUrl);
+        }
       }
     })
     .error(function (data, status, headers, config) {
-      alert('Server error.');
+      console.error('Error fetching Flickr photos.');
+      networkError = true;
     });
   };
 
   function currentPhotoHeight() {
     return $('#flickr-photo-' + $scope.selectedFlickrPhoto + ' img').height();
-  };
+  }
 
   $scope.flickrPhotoTitle = function () {
     if (!$scope.flickrPhotos) return '';
@@ -77,7 +83,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
 
   $scope.changeFlickrPhoto = function (direction) {
     if (direction == 'left') {
-      if ($scope.selectedFlickrPhoto == 0)
+      if ($scope.selectedFlickrPhoto === 0)
         $scope.selectedFlickrPhoto = $scope.dummyArray.length - 1;
       else $scope.selectedFlickrPhoto--;
     }
@@ -102,8 +108,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
       }, 0);
       $('.foldout').show();
       $('#main #left').css('width', $('#main').width() * columnRatio + 'px');
-      $('#main #content').css('width', $('#main').width() 
-                                       * (1 - columnRatio - 0.05) + 'px');
+      $('#main #content').css('width', $('#main').width() * (1 - columnRatio - 0.05) + 'px');
     }
     else {
       $timeout(function () {
@@ -126,7 +131,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
     else {
       $('body').css('height', 'auto');
     }
-  };
+  }
 
   $(document).ready(function () {
     $('#profiles > li:first-child').css('color','inherit');

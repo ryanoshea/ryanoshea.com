@@ -10,7 +10,7 @@ var flickrUserID = "22136543@N06"; // hardcoded because it won't change
 
 // Returns an array representing my 5 most recent Flickr photos along with
 // a 2048px url, the photo's page url on flickr, the title, and exif data
-app.get('/flickr/most-recent-photo', function (req, res) {
+app.get('/flickr/most-recent-photos', function (req, res) {
   
   // Get IDs of 10 most recent photos
   flickr.people.getPhotos({
