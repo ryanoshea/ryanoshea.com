@@ -43,7 +43,6 @@ pageServer.use(helmet.contentSecurityPolicy({
     imgSrc: ["'self'", '*.staticflickr.com', 'www.google-analytics.com',
              'stats.g.doubleclick.net'],
     fontSrc: ["'self'", 'fonts.gstatic.com', 'opensource.keycdn.com'],
-    sandbox: ['allow-forms', 'allow-scripts', 'allow-same-origin'],
   },
   reportOnly: false,
   setAllHeaders: false,
