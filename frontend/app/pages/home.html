@@ -57,11 +57,12 @@
     <li class="foldout" id="flickr-foldout">
       <a class="flickr-photo" id="flickr-photo-{{$index}}" ng-repeat="item in dummyArray" ng-class="{'invisible': selectedFlickrPhoto != $index}"><img></a>
       <div id="flickr-foldout-label">
-        <p id="flickr-top-label">Recent photos by Ryan O'Shea on Flickr <i class="fa fa-long-arrow-down" aria-hidden="true"></i></p>
+        <p id="flickr-top-label">Recent photos by Ryan O'Shea on Flickr:</p>
         <h4>{{flickrPhotoTitle()}}</h4>
         <ul id="exif-data">
-          <li><i class="exif-icons fa fa-camera" aria-hidden="true"></i> <em>f</em>/{{flickrPhotoExif().aperture}}</li>
-          <li><i class="exif-icons fa fa-clock-o" aria-hidden="true"></i> {{flickrPhotoExif().shutter}}</li>
+          <li><i class="exif-icons fa fa-camera" aria-hidden="true"></i> {{flickrPhotoExif().camera}}</li>
+          <li><i class="exif-icons fa fa-circle-o" aria-hidden="true"></i> <em>f</em>/{{flickrPhotoExif().aperture}}</li>
+          <li><i class="exif-icons fa fa-clock-o" aria-hidden="true"></i> {{flickrPhotoExif().shutter}}"</li>
           <li><span class="exif-icons" id="iso-icon">ISO</span> {{flickrPhotoExif().iso}}</li>
           <li><i class="exif-icons fa fa-eye" aria-hidden="true"></i> {{flickrPhotoExif().focalLength}}</li>
           <li><i class="exif-icons fa fa-flash" aria-hidden="true"></i> {{flickrPhotoExif().flash}}</li>

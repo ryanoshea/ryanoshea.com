@@ -85,25 +85,19 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
             flickr.photos.getExif({
               photo_id: flickrPhotos[i].id
             }, function (err, result) {
+              // Gather needed EXIF fields
               var exif = result.photo.exif;
               newPhoto.exif = {};
-              exif.forEach(function (current) {
-                if (current.tag == 'FNumber')
-                  newPhoto.exif.aperture = current.raw['_content'];
-                if (current.tag == 'ExposureTime')
-                  newPhoto.exif.shutter = current.raw['_content'];
-                if (current.tag == 'ISO')
-                  newPhoto.exif.iso = current.raw['_content'];
-                if (current.tag == 'FocalLength')
-                  newPhoto.exif.focalLength = current.raw['_content'];
-                if (current.tag == 'Flash') {
-                  var raw = current.raw['_content'];
-                  if (raw.match(/on/i))
-                    newPhoto.exif.flash = 'On';
-                  else
-                    newPhoto.exif.flash = 'Off';
-                }
-              });
+              newPhoto.exif.camera = result.photo.camera;
+              newPhoto.exif.aperture = exif.find(x => { return x.tag === 'FNumber'; }).raw._content;
+              newPhoto.exif.shutter = exif.find(x => { return x.tag === 'ExposureTime'; }).raw._content;
+              newPhoto.exif.iso = exif.find(x => { return x.tag === 'ISO'; }).raw._content;
+              newPhoto.exif.focalLength = exif.find(x => { return x.tag === 'FocalLength'; }).raw._content;
+              var flash = exif.find(x => { return x.tag === 'Flash'; }).raw._content;
+              if (flash.match(/on/i))
+                newPhoto.exif.flash = 'On';
+              else
+                newPhoto.exif.flash = 'Off';
               
               responsePhotos[i] = newPhoto;
               fetchPhotoDetails(flickrPhotos, responsePhotos, numPhotos, ++i, res, callback);
