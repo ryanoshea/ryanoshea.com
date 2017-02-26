@@ -6,26 +6,27 @@ app.use(compression()); // use gzip
 var flickrAuth = require('./flickrAuth.js'); // load in API keys
 var Flickr = require('flickrapi'); // library
 var flickr = null; // flickr API object instance
-var flickrUserID = "22136543@N06"; // hardcoded because it won't change
+var flickrUserId = "22136543@N06"; // hardcoded because it won't change
+var flickrPortfolioAlbumId = '72157680776000625';
 
 // Returns an array representing my 5 most recent Flickr photos along with
 // a 2048px url, the photo's page url on flickr, the title, and exif data
 app.get('/flickr/most-recent-photos', function (req, res) {
   
   // Get IDs of 10 most recent photos
-  flickr.people.getPhotos({
-    user_id: flickrUserID,
-    per_page: 10
+  flickr.photosets.getPhotos({
+    user_id: flickrUserId,
+    photoset_id: flickrPortfolioAlbumId
   }, function (err, result) {
     if (err) {
       res.status(500).send({err: 1, msg: 'Error fetching recent photos.'});
       console.error('Error fetching most recent photos.');
     }
     else {
-      var numPhotos = result.photos.photo.length; // for safety
+      var numPhotos = result.photoset.photo.length; // for safety
 
       // Send requests for photo metadata iteratively
-      fetchPhotoDetails(result.photos.photo, new Array(numPhotos), numPhotos, 
+      fetchPhotoDetails(result.photoset.photo, new Array(numPhotos), numPhotos, 
                         0, res, function(responsePhotos) {
         res.send({
           err: false,
@@ -44,7 +45,7 @@ var fetchPhotoDetails = function (flickrPhotos, responsePhotos, numPhotos,
   if (i < numPhotos) {
 
     var newPhoto = {
-      pageUrl: 'https://www.flickr.com/photos/' + flickrUserID + '/' 
+      pageUrl: 'https://www.flickr.com/photos/' + flickrUserId + '/' 
                + flickrPhotos[i].id
     };
 

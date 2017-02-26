@@ -17,7 +17,7 @@
 <div id="resume"><a href="/contact/resume.pdf" class="nohover nocolor" target="_blank" rel="noopener noreferrer">r&eacute;sum&eacute; &nbsp;<img src="/images/doc.svg" height=20 width=17></a></div>
 
 <p>
-  I&#8217;m a <abbr title="Node.js, Express.js, AngularJS, MongoDB, SQL, jQuery, Bootstrap">full-stack</abbr> <abbr title="Java, C#, some C & Python">software</abbr> engineer at <a href="https://composableanalytics.com" target="_blank" rel="noopener noreferrer">Composable Analytics</a> in Cambridge, MA.
+  I&#8217;m a <abbr title="AngularJS, Node.js, Express.js, MongoDB, SQL Server, jQuery, Bootstrap">full-stack</abbr> <abbr title="C#, Java, JavaScript, TypeScript, some C & Python">software</abbr> engineer at <a href="https://composableanalytics.com" target="_blank" rel="noopener noreferrer">Composable Analytics</a> in Cambridge, MA.
 </p>
 <p>
   I&#8217;m also a <abbr title="firmware engineering, embedded programming, sensor communications, and computer hardware design in Verilog">computing-focused</abbr> electrical engineer.
@@ -48,16 +48,16 @@
     <li>sometimes I <a id="github-link" href="https://github.com/ryanoshea" title="my github" target="_blank" rel="noopener noreferrer">code</a></li>
     <li>sometimes I <a id="linkedin-link" href="http://www.linkedin.com/pub/ryan-o-shea/36/103/20b/" title="my linkedin" target="_blank" rel="noopener noreferrer">work</a></li>
     <li>sometimes I 
-      <a id="flickr-link" title="my flickr" ng-click="toggleFlickrFoldout()">take photos
+      <a id="flickr-link" title="I shoot on a Nikon D610 nowadays." ng-click="toggleFlickrFoldout()">take photos
         <i class="fa fa-angle-down" ng-hide="flickrFoldoutOpen  || isMobile" aria-hidden="true"></i>
         <i class="fa fa-angle-up"   ng-hide="!flickrFoldoutOpen || isMobile" aria-hidden="true"></i>
       </a>
       <i class="foldout-loading-indicators fa fa-refresh fa-spin" ng-hide="!flickrWaiting" aria-hidden="true"></i>
     </li>
     <li class="foldout" id="flickr-foldout">
-      <a class="flickr-photo" id="flickr-photo-{{$index}}" ng-repeat="item in dummyArray" ng-class="{'invisible': selectedFlickrPhoto != $index}"><img></a>
+      <a class="flickr-photo" id="flickr-photo-{{$index}}" ng-repeat="item in dummyArray" ng-class="{'invisible': selectedFlickrPhoto != $index}" target="_blank" rel="noopener noreferrer"><img></a>
       <div id="flickr-foldout-label">
-        <p id="flickr-top-label">Recent photos by Ryan O'Shea on Flickr:</p>
+        <p id="flickr-top-label">Photos by Ryan O&#8217;Shea on Flickr:</p>
         <h4>{{flickrPhotoTitle()}}</h4>
         <ul id="exif-data">
           <li><i class="exif-icons fa fa-camera" aria-hidden="true"></i> {{flickrPhotoExif().camera}}</li>
