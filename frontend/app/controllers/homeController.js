@@ -16,7 +16,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   $scope.flickrWaiting = false; // True only when user has clicked to view
                                 // flickr panel and images aren't loaded 
   $scope.flickrFoldoutOpen = false;
-  $scope.dummyArray = [0,1,2,3,4,5,6,7,8,9];
+  $scope.dummyArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
   $scope.toggleFlickrFoldout = function (tim) {
     if ($(window).width() < mobileWidth || networkError) {
       window.location = 'https://www.flickr.com/photos/rinoshea/';
