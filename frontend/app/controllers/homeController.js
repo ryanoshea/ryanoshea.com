@@ -52,7 +52,12 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   };
 
   var flickrContentLoaded = false;
+  var flickrRequestOutstanding = false;
   var getFlickrMostRecent = function () {
+    if (flickrRequestOutstanding) {
+      return;
+    }
+    flickrRequestOutstanding = true;
     $http.get('/api/flickr/most-recent-photos')
     .success(function (data, status, headers, config) {
       $scope.flickrPhotos = data.photos;
@@ -69,12 +74,14 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
         // Don't open the panel until the first photo is fully loaded (and dimensions are usable)
         $('#flickr-photo-0 img').on('load', function () {
           flickrContentLoaded = true;
+          flickrRequestOutstanding = false;
         });
       }
     })
     .error(function (data, status, headers, config) {
       console.error('Error fetching Flickr photos.');
       networkError = true;
+      flickrRequestOutstanding = false;
     });
   };
 
