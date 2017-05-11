@@ -55,7 +55,10 @@
       <i class="foldout-loading-indicators fa fa-refresh fa-spin" ng-hide="!flickrWaiting" aria-hidden="true"></i>
     </li>
     <li class="foldout" id="flickr-foldout">
-      <a class="flickr-photo" id="flickr-photo-{{$index}}" ng-repeat="item in dummyArray" ng-class="{'invisible': selectedFlickrPhoto != $index}" target="_blank" rel="noopener noreferrer"><img></a>
+      <a class="flickr-photo" id="flickr-photo-{{$index}}" ng-repeat="item in dummyArray" ng-class="{'invisible': selectedFlickrPhoto != $index}" target="_blank" rel="noopener noreferrer"
+         ng-href="{{ flickrPhotos[$index].pageUrl }}">
+        <img ng-src="{{ flickrPhotos[$index].url }}">
+      </a>
       <div id="flickr-foldout-label">
         <p id="flickr-top-label">Photos by Ryan O&#8217;Shea on Flickr:</p>
         <h4>{{flickrPhotoTitle()}}</h4>

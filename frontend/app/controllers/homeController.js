@@ -16,7 +16,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   $scope.flickrWaiting = false; // True only when user has clicked to view
                                 // flickr panel and images aren't loaded 
   $scope.flickrFoldoutOpen = false;
-  $scope.dummyArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+  $scope.dummyArray = [0];
   $scope.toggleFlickrFoldout = function (tim) {
     if ($(window).width() < mobileWidth || networkError) {
       window.location = 'https://www.flickr.com/photos/rinoshea/';
@@ -58,14 +58,15 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
       if ($scope.flickrPhotos === null) {
         networkError = true;
       } else {
-        // Don't open the panel when the first photo is fully loaded (and dimensions are usable)
+        $scope.flickrPhotos.forEach(function (photo, i) {
+          if (i > 0) {
+            $scope.dummyArray.push(i);
+          }
+        });
+        // Don't open the panel until the first photo is fully loaded (and dimensions are usable)
         $('#flickr-photo-0 img').on('load', function () {
           flickrContentLoaded = true;
         });
-        for (var i = 0; i < $scope.flickrPhotos.length; i++) {
-          $('#flickr-photo-' + i + ' img').attr('src', $scope.flickrPhotos[i].url);
-          $('#flickr-photo-' + i).attr('href', $scope.flickrPhotos[i].pageUrl);
-        }
       }
     })
     .error(function (data, status, headers, config) {
