@@ -1,5 +1,3 @@
-'use strict';
-
 var http = require('http');
 var https = require('spdy');
 var express = require('express');
@@ -64,9 +62,9 @@ pageServer.use(logger('combined'));
 pageServer.use('/api', app);
 
 // 404 Handler
-pageServer.use(function (req, res) {
+pageServer.use((req, res) => {
   // Redirect to Angular-routed 404 page
-  res.writeHead(301, {'Location': 'https://' + req.headers['host'] + '/#/404'});
+  res.writeHead(301, {'Location': 'https://' + req.headers.host + '/#/404'});
   res.end();
 });
 
@@ -77,8 +75,8 @@ var httpsServer = https.createServer(tlsConfig, pageServer).listen(443);
 console.log('HTTPS server listening on port 443.');
 
 // HTTP to HTTPS Redirect.
-var httpServer = http.createServer(function (req, res) {
-  res.writeHead(301, {'Location': 'https://' + req.headers['host'] + req.url});
+var httpServer = http.createServer((req, res) => {
+  res.writeHead(301, {'Location': 'https://' + req.headers.host + req.url});
   res.end();
 }).listen(80);
 console.log('HTTP-to-HTTPS redirect server listening on port 80.');
