@@ -19,7 +19,8 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   $scope.dummyArray = [0];
   $scope.toggleFlickrFoldout = function (tim) {
     if ($(window).width() < mobileWidth || networkError) {
-      window.location = 'https://www.flickr.com/photos/rinoshea/';
+      var tab = window.open('https://www.flickr.com/photos/rinoshea/', '_blank');
+      tab.opener = null;
       return;
     }
     if (!$scope.flickrFoldoutOpen) {
@@ -58,11 +59,13 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
       if ($scope.flickrPhotos === null) {
         networkError = true;
       } else {
-        $scope.flickrPhotos.forEach(function (photo, i) {
-          if (i > 0) {
-            $scope.dummyArray.push(i);
-          }
-        });
+        if ($scope.dummyArray.length === 1) {
+          $scope.flickrPhotos.forEach(function (photo, i) {
+            if (i > 0) {
+              $scope.dummyArray.push(i);
+            }
+          });
+        }
         // Don't open the panel until the first photo is fully loaded (and dimensions are usable)
         $('#flickr-photo-0 img').on('load', function () {
           flickrContentLoaded = true;
@@ -106,14 +109,19 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   function resizeHandler() {
     var columnRatio = 0.2;
     if ($(window).width() >= mobileWidth) {
+      $scope.isMobile = false;
       $timeout(function () {
         $scope.isMobile = false;
       }, 0);
+      if (!flickrContentLoaded && !$scope.flickrPhotos) {
+        getFlickrMostRecent();
+      }
       $('.foldout').show();
       $('#main #left').css('width', $('#main').width() * columnRatio + 'px');
       $('#main #content').css('width', $('#main').width() * (1 - columnRatio - 0.05) + 'px');
     }
     else {
+      $scope.isMobile = true;
       $timeout(function () {
         $scope.isMobile = true;
       }, 0);
@@ -155,7 +163,9 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
       resizeHandler();
     });
 
-    getFlickrMostRecent();
+    if (!$scope.isMobile) {
+      getFlickrMostRecent();
+    }
   });
 
 });
