@@ -61,9 +61,8 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
       return;
     }
     flickrRequestOutstanding = true;
-    $http.get('/api/flickr/most-recent-photos')
-    .success(function (data, status, headers, config) {
-      $scope.flickrPhotos = data.photos;
+    $http.get('/api/flickr/most-recent-photos').then(function (rs) {
+      $scope.flickrPhotos = rs.data.photos;
       if ($scope.flickrPhotos === null) {
         networkError = true;
       } else {
@@ -81,7 +80,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
         });
       }
     })
-    .error(function (data, status, headers, config) {
+    .catch(function (data, status, headers, config) {
       console.error('Error fetching Flickr photos.');
       networkError = true;
       flickrRequestOutstanding = false;

@@ -34,13 +34,12 @@ pageServer.use(helmet.hsts({
 pageServer.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'", 'ryanoshea.com'],
-    scriptSrc: ["'self'", 'ajax.googleapis.com', 'data:', 'www.google-analytics.com',
+    scriptSrc: ["'self'", 'ajax.googleapis.com', 'data:', 'www.google-analytics.com', 'use.fontawesome.com',
                 "'unsafe-inline'"], // Google Analytics inline script
-    styleSrc: ["'self'", 'fonts.googleapis.com', 'opensource.keycdn.com',
-               "'unsafe-inline'"],
+    styleSrc: ["'self'", 'fonts.googleapis.com', 'use.fontawesome.com', "'unsafe-inline'"],
     imgSrc: ["'self'", '*.staticflickr.com', 'www.google-analytics.com',
              'stats.g.doubleclick.net'],
-    fontSrc: ["'self'", 'fonts.gstatic.com', 'opensource.keycdn.com'],
+    fontSrc: ["'self'", 'fonts.gstatic.com', 'use.fontawesome.com'],
   },
   reportOnly: false,
   setAllHeaders: false,
