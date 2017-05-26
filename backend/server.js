@@ -10,7 +10,9 @@ var pageServer = express();
 var handler = require('./app.js');
 
 // Enable gzip
-pageServer.use(compression());
+pageServer.use(compression({
+  threshold: 100 // compress any response over 100 bytes
+}));
 
 // Setup HTTP2/SPDY/HTTP1.1 Server with TLS/SSL
 // Get certificate

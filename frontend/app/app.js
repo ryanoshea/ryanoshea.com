@@ -3,7 +3,6 @@
 
 var app = angular.module('ryanoshea', [
   'ngRoute',
-  'ngCookies',
   'ryanoshea.controllers'
 ]);
 

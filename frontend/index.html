@@ -14,23 +14,8 @@
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" 
-            integrity="sha384-cpKecN+57XiRigFOiAFZF5lV7jvI/DJ8YioJ1lHlAavT7PTOcwd6LmoaDabaos5N" 
-            crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" 
-            integrity="sha384-SSr9u58E3BFKugwDmQqHMXHlq898SdCjpUqGfkkix93OL0bVTX4gD7yB5ekWfOM1" 
-            crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.min.js" 
-            integrity="sha384-QOIbkc9HXKtYwDa66Jb7r2F/HBhgRWExyANljM2RJ2hJzHo3THUpIybTZ5gTMEP6" 
-            crossorigin="anonymous"></script>
-    <script src="app/app.js"></script>
-    <script src="app/controllers/mainController.js"></script>
-    <script src="app/controllers/homeController.js"></script>
-    <script src="app/controllers/404Controller.js"></script>
-
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i,900,900i" rel="stylesheet">
-    <script src="https://use.fontawesome.com/cac21c30d9.js"></script>
   </head>
   <body data-ng-controller="mainController">
     <!--[if lt IE 8]>
@@ -67,7 +52,30 @@
             crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" 
+            integrity="sha384-cpKecN+57XiRigFOiAFZF5lV7jvI/DJ8YioJ1lHlAavT7PTOcwd6LmoaDabaos5N" 
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" 
+            integrity="sha384-SSr9u58E3BFKugwDmQqHMXHlq898SdCjpUqGfkkix93OL0bVTX4gD7yB5ekWfOM1" 
+            crossorigin="anonymous"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/mainController.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/404Controller.js"></script>
+
+    <script async src="https://use.fontawesome.com/cac21c30d9.js"></script>
+
     <!-- Google Analytics -->
-    <script src="js/googleAnalytics.js"></script>
+    <script type="text/javascript">
+      (function(){
+        'use strict';
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-3319912-4', 'auto');
+        ga('send', 'pageview');
+      })();
+    </script>
   </body>
 </html>
