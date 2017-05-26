@@ -13,6 +13,9 @@ let flickrUserId = '22136543@N06';
 let flickrPortfolioAlbumId = '72157680776000625';
 let flickr, flickrSync;
 
+// Cached photo info
+let cachedPhotos;
+
 console.log('REST handler listening under /api/');
 
 // Initialize Flickr API
@@ -37,6 +40,8 @@ app.get('/flickr/most-recent-photos', (req, res) => {
     return;
   }
 
+  let allPhotoDataFetchedSuccessfully = true;
+
   // Get IDs of all photos in portfolio album
   flickr.photosets.getPhotosAsync({
     user_id: flickrUserId,
@@ -44,14 +49,25 @@ app.get('/flickr/most-recent-photos', (req, res) => {
   }).then(rs => {
     let numPhotos = rs.photoset.photo.length; // for safety
     let flickrPhotos = rs.photoset.photo;
+
+    if (photoCacheHit(flickrPhotos)) {
+      console.log(`Flickr photos: returning ${cachedPhotos.length} cached results...`);
+      res.send({
+        err: false,
+        photos: cachedPhotos
+      });
+      return;
+    }
+
     let photoDetails = new Array(numPhotos); // response object
     let apiPromises = [];
 
     flickrPhotos.forEach((photoInfo, i) => {
       // Initialize object to represent photo's details
       photoDetails[i] = {
+        id: photoInfo.id,
         pageUrl: 'https://www.flickr.com/photos/' + flickrUserId + '/' 
-                + photoInfo.id
+                 + photoInfo.id
       };
 
       // Find url for 2048-px size of image
@@ -80,22 +96,34 @@ app.get('/flickr/most-recent-photos', (req, res) => {
         // Gather needed EXIF fields
         let exif = rs.photo.exif;
         photoDetails[i].exif = {};
-        photoDetails[i].exif.camera = rs.photo.camera;
-        photoDetails[i].exif.aperture = exif.filter(x => x.tag === 'FNumber' )[0].raw._content;
-        photoDetails[i].exif.shutter = exif.filter(x => x.tag === 'ExposureTime' )[0].raw._content;
-        photoDetails[i].exif.iso = exif.filter(x => x.tag === 'ISO' )[0].raw._content;
-        photoDetails[i].exif.focalLength = exif.filter(x => x.tag === 'FocalLength' )[0].raw._content;
-        let flash = exif.filter(x => x.tag === 'Flash' )[0].raw._content;
-        if (flash.match(/on/i)) {
-          photoDetails[i].exif.flash = 'On';
-        } else {
-          photoDetails[i].exif.flash = 'Off';
+        if (exif.length > 0) {
+          photoDetails[i].exif.camera = rs.photo.camera;
+          photoDetails[i].exif.aperture = exif.filter(x => x.tag === 'FNumber' )[0].raw._content;
+          photoDetails[i].exif.shutter = exif.filter(x => x.tag === 'ExposureTime' )[0].raw._content;
+          photoDetails[i].exif.iso = exif.filter(x => x.tag === 'ISO' )[0].raw._content;
+          photoDetails[i].exif.focalLength = exif.filter(x => x.tag === 'FocalLength' )[0].raw._content;
+          let flash = exif.filter(x => x.tag === 'Flash' )[0].raw._content;
+          if (flash.match(/on/i)) {
+            photoDetails[i].exif.flash = 'On';
+          } else {
+            photoDetails[i].exif.flash = 'Off';
+          }
+        } else { // Sometimes Flickr's API returns no EXIF results for getExif(), for no apparent reason
+          console.error(`EXIF not returned for photo id = ${photoInfo.id}. Response data:`);
+          console.error(JSON.stringify(rs));
+          allPhotoDataFetchedSuccessfully = false;
         }
       }));
     });
 
     // When all requests are done & photoDetails is fully assembled, send response
     Promise.all(apiPromises).then(() => {
+      if (allPhotoDataFetchedSuccessfully) {
+        cachedPhotos = photoDetails;
+      } else {
+        cachedPhotos = null;
+      }
+      console.log(`Flickr photos: returning ${photoDetails.length} new results...`);
       res.send({
         err: false,
         photos: photoDetails
@@ -107,3 +135,22 @@ app.get('/flickr/most-recent-photos', (req, res) => {
     });
   });
 });
+
+/**
+ * Checks the last set of photos grabbed from the Flickr API and indicates whether the current portfolio album contains
+ * the same photos. If so, we return the cached copy to save time & API calls.
+ * @param newPortfolioAlbum: Flickr API response for getPhotos() call on portfolio album
+ */
+function photoCacheHit(newPortfolioAlbum) {
+  if (!cachedPhotos || cachedPhotos.length !== newPortfolioAlbum.length) {
+    return false;
+  }
+
+  for (let i = 0; i < cachedPhotos.length; i++) {
+    if (newPortfolioAlbum[i].id !== cachedPhotos[i].id) {
+      return false;
+    }
+  }
+
+  return true;
+}
