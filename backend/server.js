@@ -57,8 +57,8 @@ pageServer.use(helmet.xssFilter());
 // Set X-Frame-Options to allow only iframes only on same origin
 pageServer.use(helmet.frameguard());
 
-pageServer.use(express.static('../frontend')); // static webserver
 pageServer.use(logger('combined'));
+pageServer.use(express.static('../frontend')); // static webserver
 pageServer.use('/api', app);
 
 // 404 Handler
