@@ -26,10 +26,13 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
     if (!$scope.flickrFoldoutOpen) {
       if (flickrContentLoaded) {// && currentPhotoHeight() > 0) {
         $scope.flickrWaiting = false;
-        $('#flickr-foldout').css({'height': currentPhotoHeight() + 'px'});
-        $('#flickr-foldout').css({'margin-top': '1em'});
-        $('#flickr-foldout').css({'margin-bottom': '1em'});
-        $('#flickr-foldout').css({'min-height': ($('#flickr-foldout-label').height() + 25) + 'px'});
+        var flickrFoldout = $('#flickr-foldout');
+        flickrFoldout.css({'height': currentPhotoHeight() + 'px'});
+        flickrFoldout.css({'margin-top': '1em'});
+        flickrFoldout.css({'margin-bottom': '1em'});
+        $timeout(() => {
+          flickrFoldout.css({'min-height': ($('#flickr-foldout-label').height() + 25) + 'px'});
+        }, 500); // css transition for height takes 0.5s, so wait until then to apply the min-height to avoid snapping
         $('html, body').animate({
             scrollTop: $('#flickr-foldout').offset().top - 0.1 * $(window).height()
         }, 500);
