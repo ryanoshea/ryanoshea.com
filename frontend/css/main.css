@@ -62,20 +62,24 @@ h2 {
       color: hsl(0,0%,30%);
     }
     #line2 {
-      color: hsl(0,0%,44%);
+      color: hsl(0,0%,40%);
     }
     #line3 {
-      color: hsl(0,0%,58%);
+      color: hsl(0,0%,55%);
     }
     #line4 {
-      color: hsl(0,0%,72%);
+      color: hsl(0,0%,70%);
     }
     #line5 {
-      color: hsl(0,0%,85%);
+      color: hsl(0,0%,80%);
     }
     #line1:hover, #line2:hover, #line3:hover, #line4:hover, #line5:hover {
-      color: black;
+      color: #222;
     }
+  #content h2.bio a {
+    color: inherit;
+    font-weight: inherit;
+  } 
 #profile-links > ul:first-child > li {
   color: rgba(0,0,0,0);
 }
