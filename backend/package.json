@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/ryanoshea/ryanoshea.com#readme",
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "compression": "^1.6.2",
-    "express": "^4.14.0",
+    "bluebird": "^3.5.1",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
     "flickrapi": "^0.6.0",
-    "helmet": "^3.1.0",
-    "morgan": "^1.7.0",
+    "helmet": "^3.9.0",
+    "morgan": "^1.9.0",
     "spdy": "^3.3.4"
   }
 }
