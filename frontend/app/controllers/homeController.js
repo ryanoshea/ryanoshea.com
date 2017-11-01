@@ -30,7 +30,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
         flickrFoldout.css({'height': currentPhotoHeight() + 'px'});
         flickrFoldout.css({'margin-top': '1em'});
         flickrFoldout.css({'margin-bottom': '1em'});
-        $timeout(() => {
+        $timeout(function () {
           flickrFoldout.css({'min-height': ($('#flickr-foldout-label').height() + 25) + 'px'});
         }, 500); // css transition for height takes 0.5s, so wait until then to apply the min-height to avoid snapping
         $('html, body').animate({
