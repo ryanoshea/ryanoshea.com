@@ -37,7 +37,7 @@ pageServer.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'", 'ryanoshea.com'],
     scriptSrc: ["'self'", 'ajax.googleapis.com', 'data:', 'www.google-analytics.com', 'use.fontawesome.com',
-                "'unsafe-inline'"], // Google Analytics inline script
+                "'unsafe-inline'", "'unsafe-eval'"],
     styleSrc: ["'self'", 'fonts.googleapis.com', 'use.fontawesome.com', "'unsafe-inline'"],
     imgSrc: ["'self'", '*.staticflickr.com', 'www.google-analytics.com',
              'stats.g.doubleclick.net'],

@@ -10,11 +10,11 @@
     <meta name="description" content="Homepage of Ryan O'Shea: electrical & software engineer based in Boston, MA">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="author" content="Ryan O'Shea"> <!-- href="/humans.txt" -->
-
+    
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i,900,900i" rel="stylesheet">
   </head>
   <body data-ng-controller="mainController">
@@ -23,29 +23,33 @@
     <![endif]-->
     
     <div id="wrapper">
-      <div id="main" role="main">
-        <div id="left">
-          <h1>
-            <a href="/#/" class="nocolor nohover">Ryan<strong>O&#8217;Shea</strong></a>
-          </h1>
+      <main>
+        <div id="main" role="main">
+          <article>
+            <div id="left">
+              <h1>
+                <a href="/#/" class="nocolor nohover">Ryan<strong>O&#8217;Shea</strong></a>
+              </h1>
+            </div>
+            <div id="content" data-ng-view data-ng-cloak></div>
+          </article>
         </div>
-        <div id="content" data-ng-view data-ng-cloak></div>
-      </div>
+      </main>
 
-      <div id="push"></div>
+      <footer>
+        <div class="width-limiter">
+          <p>
+            <a href="https://github.com/ryanoshea/ryanoshea.com" class="nocolor" target="_blank" rel="noopener noreferrer">see the code for this site on github <i id="icon-github-footer" class="icon-github"></i></a> &nbsp;// Copyright &copy; 2006&ndash;{{currentYear}} Ryan O'Shea.
+          </p>
+          <p>
+            Contact me at <span class="dummy">asdfas</span>ry<span class="dummy">asdfas</span>an@<span class="dummy">7jt30h</span>ryanosh<span class="dummy">asdfas</span>ea.com (<a href="http://pgp.mit.edu/pks/lookup?op=get&search=0x3BE538A4E17D2A03" class="nocolor" target="_blank" rel="noopener noreferrer">PGP key</a>).
+          </p>
+          <p>
+            <a href="https://cash.me/$ryanoshea" target="_blank" rel="noopener noreferrer">Donate</a>
+          </p>
+        </div>
+      </footer>
     </div>
-
-    <footer>
-      <p>
-        <a href="https://github.com/ryanoshea/ryanoshea.com" class="nocolor" target="_blank" rel="noopener noreferrer">see the code for this site on github <i id="icon-github-footer" class="icon-github"></i></a> &nbsp;// Copyright &copy; 2006&ndash;{{currentYear}} Ryan O'Shea.
-      </p>
-      <p>
-        Contact me at <span class="dummy">asdfas</span>ry<span class="dummy">asdfas</span>an@<span class="dummy">7jt30h</span>ryanosh<span class="dummy">asdfas</span>ea.com (<a href="http://pgp.mit.edu/pks/lookup?op=get&search=0x3BE538A4E17D2A03" class="nocolor" target="_blank" rel="noopener noreferrer">PGP key</a>).
-      </p>
-      <p>
-        <a href="https://cash.me/$ryanoshea" target="_blank" rel="noopener noreferrer">Donate</a>
-      </p>
-    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" 
             integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" 

@@ -1,28 +1,45 @@
 html {
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
+  height: 100%;
 }
 body {
   font-family: "lato";
   background: #f0f0f0;
+  height: 100%;
+  overflow: hidden;
+  font-size: 16px;
 }
-#main {
-  display: inline-block;
-  text-align: left;
-  margin: 6em 15px 3em 15px;
-  max-width: 80em;
-  width: 100%;
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
-  #content, #left {
-    display: inline-block;
-    vertical-align: top;
-    overflow: show;
+  main {
+    flex: 1 1 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
   }
-  #wrapper {
-    text-align: center;
-    min-height: 100%;
-    margin: 0 auto -3.5em;  /* FOOTER ADJUSTMENT */
+    article {
+      margin: 0 auto;
+      padding: 1em;
+    }
+    #main {
+      text-align: left;
+      margin: 6em auto 6em auto;
+    }
+      #content, #left {
+        display: inline-block;
+        vertical-align: top;
+        overflow: show;
+      }
+  footer {
+    flex: 0 0 auto;
   }
+
 h1:hover, h2:hover, p:hover, li:hover {
   cursor: default;
 }
@@ -135,17 +152,17 @@ a.nohover, a.nohover:hover {
 footer {
   text-align: right;
   text-transform: uppercase;
-  font-family: "open sans";
+  font-family: "Open Sans";
   font-weight: 400;
   font-size: 0.6em;
   color: #444;
   width: 100%;
-  /*min-width: 780px;*/
   border-top: solid 1px rgba(0,0,0,0.25);
-  /*padding: 3px 3px 0 0;*/
 }
-  footer, #push {
-    height: 5.5em;
+  footer .width-limiter {
+    width: 67%;
+    display: inline-block;
+    padding-right: 0.5em;
   }
   footer p {
     margin: 3px;
