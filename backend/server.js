@@ -75,7 +75,7 @@ pageServer.use(helmet.xssFilter());
 pageServer.use(helmet.frameguard());
 
 // Strip paths from referrer
-pageServer.use(helmet.referrerPolicy({ policy: 'origin' }));
+pageServer.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
 
 pageServer.use(logger('combined'));
 pageServer.use(express.static('../frontend')); // static webserver
