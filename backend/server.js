@@ -35,13 +35,29 @@ pageServer.use(helmet.hsts({
 // Set Content Security Policy header
 pageServer.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: ["'self'", 'ryanoshea.com'],
-    scriptSrc: ["'self'", 'ajax.googleapis.com', 'data:', 'www.google-analytics.com', 'use.fontawesome.com',
-                "'unsafe-inline'", "'unsafe-eval'"],
-    styleSrc: ["'self'", 'fonts.googleapis.com', 'use.fontawesome.com', "'unsafe-inline'"],
-    imgSrc: ["'self'", '*.staticflickr.com', 'www.google-analytics.com',
+    defaultSrc: ["'none'"],
+    connectSrc: ["ryanoshea.com", "localhost"],
+    scriptSrc: [
+      "ryanoshea.com", "localhost", "www.google-analytics.com", "use.fontawesome.com", "ajax.googleapis.com",
+      // Google Analytics inline hashes
+      "'sha256-1x5xSsObH83rcuF5NpFRGALUyVEUZSA0C6LlueRxfek='", "'sha256-vW/bBWjiMca9xcF6xcWp5hHtiQofRu6SLormz9EsHE8='"
+    ],
+    styleSrc: [
+      "ryanoshea.com", "localhost", 'fonts.googleapis.com', 'use.fontawesome.com',
+      // Inline Font Awesome 5 styles
+      "'sha256-sC9roG6gjsOxA1jz9CZn8bm+B+LEew4Jef0kbhK/zYY='",
+      "'sha256-QMz3EH1p4IxRUmvQV6MMMh3MIRWKGY81zmiWZA4Ype8='",
+      // Inline jQuery styles
+      "'sha256-1PxuDsPyGK6n+LZsMv0gG4lMX3i3XigG6h0CzPIjwrE='",
+      "'sha256-bmoAbKZGxrhg+zuX0e+kfAa0D3V7s2HZPuwHAb3QDPo='"
+    ],
+    imgSrc: ["ryanoshea.com", "localhost", '*.staticflickr.com', 'www.google-analytics.com',
              'stats.g.doubleclick.net'],
-    fontSrc: ["'self'", 'fonts.gstatic.com', 'use.fontawesome.com'],
+    fontSrc: ["ryanoshea.com", "localhost", 'fonts.gstatic.com', 'use.fontawesome.com'],
+    objectSrc: ["ryanoshea.com", "localhost"],
+    frameAncestors: ["'none'"],
+    baseUri: ["'none'"],
+    formAction: ["'none'"]
   },
   reportOnly: false,
   setAllHeaders: false,
@@ -57,6 +73,9 @@ pageServer.use(helmet.xssFilter());
 
 // Set X-Frame-Options to allow only iframes only on same origin
 pageServer.use(helmet.frameguard());
+
+// Strip paths from referrer
+pageServer.use(helmet.referrerPolicy({ policy: 'origin' }));
 
 pageServer.use(logger('combined'));
 pageServer.use(express.static('../frontend')); // static webserver
