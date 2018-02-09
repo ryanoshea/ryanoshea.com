@@ -17,7 +17,7 @@ pageServer.use(compression({
 // Setup HTTP2/SPDY/HTTP1.1 Server with TLS/SSL
 // Get certificate
 var key = fs.readFileSync('cert/privkey.pem');
-var cert = fs.readFileSync('cert/fullchain.pem')
+var cert = fs.readFileSync('cert/fullchain.pem');
 var tlsConfig = {
     key: key,
     cert: cert
