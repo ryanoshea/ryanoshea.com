@@ -66,8 +66,7 @@ app.get('/flickr/most-recent-photos', (req, res) => {
       // Initialize object to represent photo's details
       photoDetails[i] = {
         id: photoInfo.id,
-        pageUrl: 'https://www.flickr.com/photos/' + flickrUserId + '/' 
-                 + photoInfo.id
+        pageUrl: `https://www.flickr.com/photos/${flickrUserId}/${photoInfo.id}`
       };
 
       // Find url for 2048-px size of image
