@@ -36,14 +36,14 @@ pageServer.use(helmet.hsts({
 pageServer.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'none'"],
-    connectSrc: ["*.ryanoshea.com", "localhost"],
+    connectSrc: ["ryanoshea.com", "*.ryanoshea.com", "localhost"],
     scriptSrc: [
-      "*.ryanoshea.com", "localhost", "www.google-analytics.com", "use.fontawesome.com", "ajax.googleapis.com",
+      "ryanoshea.com", "*.ryanoshea.com", "localhost", "www.google-analytics.com", "use.fontawesome.com", "ajax.googleapis.com",
       // Google Analytics inline hashes
       "'sha256-1x5xSsObH83rcuF5NpFRGALUyVEUZSA0C6LlueRxfek='", "'sha256-vW/bBWjiMca9xcF6xcWp5hHtiQofRu6SLormz9EsHE8='"
     ],
     styleSrc: [
-      "*.ryanoshea.com", "localhost", 'fonts.googleapis.com', 'use.fontawesome.com', "ajax.googleapis.com",
+      "ryanoshea.com", "*.ryanoshea.com", "localhost", 'fonts.googleapis.com', 'use.fontawesome.com', "ajax.googleapis.com",
       // Inline Font Awesome 5 styles
       "'sha256-QMz3EH1p4IxRUmvQV6MMMh3MIRWKGY81zmiWZA4Ype8='",
       "'sha256-1PxuDsPyGK6n+LZsMv0gG4lMX3i3XigG6h0CzPIjwrE='",
@@ -51,10 +51,10 @@ pageServer.use(helmet.contentSecurityPolicy({
       "'sha256-sC9roG6gjsOxA1jz9CZn8bm+B+LEew4Jef0kbhK/zYY='",
       "'sha256-bmoAbKZGxrhg+zuX0e+kfAa0D3V7s2HZPuwHAb3QDPo='"
     ],
-    imgSrc: ["*.ryanoshea.com", "localhost", '*.staticflickr.com', 'www.google-analytics.com',
+    imgSrc: ["ryanoshea.com", "*.ryanoshea.com", "localhost", '*.staticflickr.com', 'www.google-analytics.com',
              'stats.g.doubleclick.net'],
-    fontSrc: ["*.ryanoshea.com", "localhost", 'fonts.gstatic.com', 'use.fontawesome.com'],
-    objectSrc: ["*.ryanoshea.com", "localhost"],
+    fontSrc: ["ryanoshea.com", "*.ryanoshea.com", "localhost", 'fonts.gstatic.com', 'use.fontawesome.com'],
+    objectSrc: ["ryanoshea.com", "*.ryanoshea.com", "localhost"],
     frameAncestors: ["'none'"],
     baseUri: ["'none'"],
     formAction: ["'none'"]
