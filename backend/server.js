@@ -27,7 +27,7 @@ var tlsConfig = {
 var ONE_YEAR = 31536000000;
 pageServer.use(helmet.hsts({
   maxAge: ONE_YEAR,
-  includeSubdomains: false,
+  includeSubDomains: false,
   force: true,
   preload: true
 }));
