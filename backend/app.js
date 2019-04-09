@@ -97,15 +97,24 @@ app.get('/flickr/most-recent-photos', (req, res) => {
         photoDetails[i].exif = {};
         if (exif.length > 0) {
           photoDetails[i].exif.camera = rs.photo.camera;
-          photoDetails[i].exif.aperture = exif.filter(x => x.tag === 'FNumber' )[0].raw._content;
-          photoDetails[i].exif.shutter = exif.filter(x => x.tag === 'ExposureTime' )[0].raw._content;
-          photoDetails[i].exif.iso = exif.filter(x => x.tag === 'ISO' )[0].raw._content;
-          photoDetails[i].exif.focalLength = exif.filter(x => x.tag === 'FocalLength' )[0].raw._content;
-          let flash = exif.filter(x => x.tag === 'Flash' )[0].raw._content;
-          if (flash.match(/on/i)) {
-            photoDetails[i].exif.flash = 'On';
+          const aperture = exif.find(x => x.tag === 'FNumber');
+          photoDetails[i].exif.aperture = aperture ? aperture.raw._content : null;
+          const shutter = exif.find(x => x.tag === 'ExposureTime');
+          photoDetails[i].exif.shutter = shutter ? shutter.raw._content : null;
+          const iso = exif.find(x => x.tag === 'ISO');
+          photoDetails[i].exif.iso = iso ? iso.raw._content : null;
+          const focalLen = exif.find(x => x.tag === 'FocalLength');
+          photoDetails[i].exif.focalLength = focalLen ? focalLen.raw._content : null;
+          const flashItem = exif.find(x => x.tag === 'Flash');
+          if (flashItem) {
+            let flash = flashItem.raw._content;
+            if (flash.match(/on/i)) {
+              photoDetails[i].exif.flash = 'On';
+            } else {
+              photoDetails[i].exif.flash = 'Off';
+            }
           } else {
-            photoDetails[i].exif.flash = 'Off';
+            photoDetails[i].exif.flash = null;
           }
         } else { // Sometimes Flickr's API returns no EXIF results for getExif(), for no apparent reason
           console.error(`EXIF not returned for photo id = ${photoInfo.id}. Response data:`);
