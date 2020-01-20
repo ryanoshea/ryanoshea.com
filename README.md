@@ -1,6 +1,6 @@
 # `ryanoshea.com`
 
-This repo contains a relatively unintersting Angular 1 app powering my personal website at <https://ryanoshea.com> and a somewhat more interesting Node.js implementation of a secure HTTP/2 server.
+This repo contains a relatively uninteresting Angular 1 app powering my personal website at <https://ryanoshea.com> and a somewhat more interesting Node.js implementation of a secure HTTP/2 server.
 
 ## Node.js Backend
 
