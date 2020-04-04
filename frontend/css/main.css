@@ -97,7 +97,10 @@ h2 {
   #content h2.bio a {
     color: inherit;
     font-weight: inherit;
-  } 
+  }
+.hire-me > a {
+  font-size: 1.1em;
+}
 #profile-links > ul:first-child > li {
   color: rgba(0,0,0,0);
 }
@@ -423,7 +426,7 @@ textarea {
   margin-top: 2em;
 }
 
-#flickr-button:active, 
+#flickr-button:active,
 .flickr-nav-button:active {
 	position:relative;
 	top:1px;
