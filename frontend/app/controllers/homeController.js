@@ -4,7 +4,7 @@
 var cont = angular.module('ryanoshea.controllers');
 
 cont.controller('homeController', function ($scope, $filter, $http, $location, $timeout) {
-  
+
   document.title = 'Ryan O\'Shea // Home';
 
   var mobileWidth = 1120;
@@ -14,7 +14,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
 
   $scope.selectedFlickrPhoto = 0;
   $scope.flickrWaiting = false; // True only when user has clicked to view
-                                // flickr panel and images aren't loaded 
+                                // flickr panel and images aren't loaded
   $scope.flickrFoldoutOpen = false;
   $scope.dummyArray = [0];
   $scope.toggleFlickrFoldout = function (tim) {
@@ -116,7 +116,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
   };
 
   function resizeHandler() {
-    var columnRatio = 0.2;
+    var columnRatio = 0.25;
     if ($(window).width() >= mobileWidth) {
       $scope.isMobile = false;
       $timeout(function () {
@@ -140,7 +140,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
       $('#main #content').css('width', 0.95 * $(window).width());
       $('article').css('max-width', 'none');
     }
-    
+
     $('.foldout').css('width', $('#main').width());
     $('.foldout').css('margin-left', (-1 * $('#content').offset().left));
     if ($scope.flickrFoldoutOpen) {
@@ -162,7 +162,7 @@ cont.controller('homeController', function ($scope, $filter, $http, $location, $
       );
       $(this).css(
         'color','inherit'
-      );	
+      );
     });
 
     resizeHandler();

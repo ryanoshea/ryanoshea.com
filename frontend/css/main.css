@@ -86,7 +86,7 @@ h2 {
       color: hsl(0,0%,55%);
     }
     #line4 {
-      color: hsl(0,0%,70%);
+      color: hsl(0,0%,65%);
     }
     #line5 {
       color: hsl(0,0%,80%);
@@ -97,7 +97,13 @@ h2 {
   #content h2.bio a {
     color: inherit;
     font-weight: inherit;
-  } 
+  }
+.hire-me {
+  font-weight: bold;
+}
+  .hire-me > a {
+    font-size: 1.1em;
+  }
 #profile-links > ul:first-child > li {
   color: rgba(0,0,0,0);
 }
@@ -423,7 +429,7 @@ textarea {
   margin-top: 2em;
 }
 
-#flickr-button:active, 
+#flickr-button:active,
 .flickr-nav-button:active {
 	position:relative;
 	top:1px;
@@ -487,8 +493,10 @@ abbr[title] {
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
-
+@media only screen and (max-width: 1119px) {
+  #main {
+    margin-top: 2em;
+  }
 }
 
 @media print,
