@@ -65,6 +65,15 @@ pageServer.use(helmet.contentSecurityPolicy({
   browserSniff: true
 }));
 
+// Strip CSP from object storage requests (e.g. resume).
+// Strict CSP policies like disallowing unsafe-inline styles break Chrome's JS-based PDF reader
+pageServer.use((req, res, next) => {
+  if (req.url.startsWith('/contact')) {
+    res.removeHeader('Content-Security-Policy');
+  }
+  next();
+});
+
 // Set X-Content-Type-Options header
 pageServer.use(helmet.noSniff());
 
