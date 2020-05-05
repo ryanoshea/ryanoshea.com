@@ -22,7 +22,7 @@ backend/flickrAuth.js
 **/*.csr
 
 # Ignore Node Binaries
-**/node_modules/* 
+**/node_modules/*
 
 # VSCode
 **/.vscode/*
@@ -281,3 +281,4 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+.DS_Store
