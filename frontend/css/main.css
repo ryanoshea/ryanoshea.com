@@ -98,18 +98,9 @@ h2 {
     color: inherit;
     font-weight: inherit;
   }
-.hire-me {
-  font-weight: bold;
-}
-  .hire-me > a {
-    font-size: 1.1em;
-  }
 #profile-links > ul:first-child > li {
   color: rgba(0,0,0,0);
 }
-/*#profile-links ul:first-child li:first-child {
-  color: inherit;
-}*/
 #profile-links > ul {
   list-style-type: none;
   padding: 0;
@@ -126,9 +117,7 @@ h2 {
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    /*color: inherit;*/
   }
-  /*#profile-links a, #profile-links a:active, #profile-links a:visited, #profile-links a:hover {*/
   #content a {
     font-weight: 700;
     color: #bb0055;
@@ -385,9 +374,6 @@ textarea {
 }
 
 .flickr-nav-button, #profiles a#flickr-button {
-	/*-moz-box-shadow:inset 0px 1px 7px 0px #bdbdbd;
-	-webkit-box-shadow:inset 0px 1px 7px 0px #bdbdbd;
-	box-shadow:inset 0px 1px 7px 0px #bdbdbd;*/
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #383838), color-stop(1, #1c1c1c) );
 	background:-moz-linear-gradient( center top, #383838 5%, #1c1c1c 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#383838', endColorstr='#1c1c1c');
