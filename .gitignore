@@ -25,7 +25,6 @@ backend/flickrAuth.js
 **/node_modules/*
 
 # VSCode
-**/.vscode/*
 **/.editorconfig
 
 ## Ignore Visual Studio temporary files, build results, and
