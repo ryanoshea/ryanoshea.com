@@ -155,8 +155,7 @@ footer {
   width: 100%;
   border-top: solid 1px rgba(0,0,0,0.25);
 }
-  footer .width-limiter {
-    width: 67%;
+  footer .footer-content {
     display: inline-block;
     padding-right: 0.5em;
   }
