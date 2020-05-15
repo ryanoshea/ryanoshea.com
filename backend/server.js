@@ -15,6 +15,13 @@ const tlsConfig = {
     cert: cert,
 };
 
+const localhostCorsMiddleware = (req, res, next) => {
+    // Allow requests from local React dev server
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+};
+
 const createServer = () => {
     const pageServer = express();
 
@@ -98,6 +105,8 @@ const createServer = () => {
         }
         next();
     });
+
+    pageServer.use(localhostCorsMiddleware);
 
     // Set X-Content-Type-Options header
     pageServer.use(helmet.noSniff());
