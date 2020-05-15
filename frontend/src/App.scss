@@ -42,7 +42,6 @@ article {
     max-width: 75%;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
 
     #content, #left {
         vertical-align: top;
@@ -371,11 +370,12 @@ textarea {
 
 .foldout {
     /*visibility: hidden;*/
-    height: 0;
-    transition: all 0.5s ease-out;
+    //height: 0;
+    transition: height 0.5s ease-out;
     width: 100%;
     overflow: hidden;
     position: relative;
+    left: 0;
     background: #140d0d;
     background: -moz-linear-gradient(top, #140d0d 0%, #333333 100%);
     background: -webkit-linear-gradient(top, #140d0d 0%, #333333 100%);
