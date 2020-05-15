@@ -1,7 +1,7 @@
 {
   "name": "ryanoshea-com-backend",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Server for https://ryanoshea.com. TLS static server with a small API surface for serving Flickr photo metadata.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/ryanoshea/ryanoshea.com.git"
   },
   "author": "Ryan O'Shea",
-  "license": "n/a",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ryanoshea/ryanoshea.com/issues"
   },
