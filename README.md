@@ -24,7 +24,7 @@ The Node.js server is based on the [`spdy`](https://www.npmjs.com/package/spdy) 
 
 ### `app.js`
 
-`app.js` is a single-endpoint REST handler for the one AJAX call made by the frontend — fetching the contents of a portfolio album on Flickr. It uses the wonderful [`flickrapi`](https://www.npmjs.com/package/flickrapi) promisified with [`bluebird`](https://www.npmjs.com/package/bluebird) to fetch all the necessary details from Flickr's API. All of those requests take a while, so after the first set of requests, the server caches the results until the contents of the Flickr album change.
+`app.js` is a single-endpoint REST handler for the one AJAX call made by the frontend — fetching the contents of a portfolio album on Flickr. It uses  [`flickr-sdk`](https://github.com/flickr/flickr-sdk) to fetch all the necessary details from Flickr's API. All of those requests take a while, so after the first set of requests, the server caches the results until the contents of the Flickr album change.
 
 ## Frontend Angular 1 App
 
