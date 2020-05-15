@@ -1,6 +1,58 @@
-import React from 'react';
+import React, { useReducer, useEffect } from 'react';
+import classNames from 'classnames';
+import { AppReducer, ACTIONS, AppState } from '../../State/AppState';
+import PhotosFoldout from '../PhotosFoldout/PhotosFoldout';
 
-const Home = () => {
+const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn: React.RefObject<HTMLDivElement> }) => {
+    const { container, contentColumn } = props;
+    const reducer: AppReducer = (state, action) => {
+        const newState = { ...state, photos: { ...state.photos } };
+        switch (action.type) {
+            case ACTIONS.LOAD_PHOTOS:
+                newState.photos.data = action.payload;
+                newState.photos.loading = false;
+                break;
+            case ACTIONS.NEXT_PHOTO:
+                newState.photos.currentIdx = (state.photos.currentIdx + 1) % newState.photos.data.length;
+                break;
+            case ACTIONS.PREV_PHOTO:
+                newState.photos.currentIdx =
+                    (state.photos.currentIdx + newState.photos.data.length - 1) % newState.photos.data.length;
+                break;
+            case ACTIONS.OPEN_PHOTOS:
+                newState.photos.open = true;
+                break;
+            case ACTIONS.CLOSE_PHOTOS:
+                newState.photos.open = false;
+                break;
+        }
+        return newState;
+    };
+    const [
+        {
+            photos: { open: photosOpen, currentIdx: currentPhotoIdx, data: photoData, loading: loadingPhotos },
+        },
+        dispatch,
+    ] = useReducer(reducer, new AppState());
+
+    const flickrDataUrl =
+        window.location.hostname === 'ryanoshea.com'
+            ? '/api/flickr/most-recent-photos'
+            : `https://localhost/api/flickr/most-recent-photos`;
+    useEffect(() => {
+        if (photoData.length === 0) {
+            fetch(flickrDataUrl)
+                .then(rs => rs.json())
+                .then(rs => {
+                    dispatch({
+                        type: ACTIONS.LOAD_PHOTOS,
+                        payload: rs.photos,
+                    });
+                })
+                .catch(e => console.error(e));
+        }
+    }, [photoData, flickrDataUrl]);
+
     return (
         <>
             <h2 className='bio'>
@@ -103,61 +155,40 @@ const Home = () => {
                         </a>
                     </li>
                     <li>
-                        sometimes I
-                        <a id='flickr-link' title='I shoot on a Nikon D610 nowadays.'>
-                            take photos
-                            <span ng-hide='flickrWaiting || flickrFoldoutOpen  || isMobile'>
-                                <i className='fas fa-angle-down' aria-hidden='true'></i>
-                            </span>
-                            <span ng-hide='flickrWaiting || !flickrFoldoutOpen || isMobile'>
-                                <i className='fas fa-angle-up' aria-hidden='true'></i>
-                            </span>
-                        </a>
-                        <span ng-hide='!flickrWaiting'>
-                            <i className='foldout-loading-indicators fas fa-sync fa-spin' aria-hidden='true'></i>
-                        </span>
-                    </li>
-                    <li className='foldout' id='flickr-foldout'>
-                        {/* <a
-                            className='flickr-photo'
-                            id='flickr-photo-{{$index}}'
-                            ng-repeat='item in dummyArray'
-                            ng-className="{'invisible': selectedFlickrPhoto != $index}"
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            ng-href='{{ flickrPhotos[$index].pageUrl }}'
+                        sometimes I{' '}
+                        <a
+                            id='flickr-link'
+                            title='I shoot on a Nikon D610 nowadays.'
+                            onClick={() => {
+                                dispatch({
+                                    type: photosOpen ? ACTIONS.CLOSE_PHOTOS : ACTIONS.OPEN_PHOTOS,
+                                });
+                            }}
                         >
-                            <img ng-src='{{ flickrPhotos[$index].url }}' />
+                            take photos{' '}
+                            {!loadingPhotos || !photosOpen ? (
+                                <i
+                                    className={classNames('fas', {
+                                        'fa-angle-down': !photosOpen,
+                                        'fa-angle-up': photosOpen,
+                                    })}
+                                    aria-hidden='true'
+                                ></i>
+                            ) : (
+                                <i className='foldout-loading-indicators fas fa-sync fa-spin' aria-hidden='true'></i>
+                            )}
                         </a>
-                        <div id='flickr-foldout-label'>
-                            <p id='flickr-top-label'>Photos by Ryan O’Shea on Flickr:</p>
-                            <h4>{{ flickrPhotoTitle(); }}</h4>
-                            <ul id='exif-data'>
-                                <li ng-show="flickrPhotoExif().camera != null"><i className="exif-icons fas fa-camera-retro" aria-hidden="true"></i> {{flickrPhotoExif().camera}}</li>
-                                <li ng-show="flickrPhotoExif().aperture != null"><i className="exif-icons far fa-circle" aria-hidden="true"></i> <em>f</em>/{{flickrPhotoExif().aperture}}</li>
-                                <li ng-show="flickrPhotoExif().shutter != null"><i className="exif-icons fas fa-stopwatch" aria-hidden="true"></i> {{flickrPhotoExif().shutter}}"</li>
-                                <li ng-show="flickrPhotoExif().iso != null"><span className="exif-icons" id="iso-icon">ISO</span> {{flickrPhotoExif().iso}}</li>
-                                <li ng-show="flickrPhotoExif().focalLength != null"><i className="exif-icons fas fa-eye" aria-hidden="true"></i> {{flickrPhotoExif().focalLength}}</li>
-                                <li ng-show="flickrPhotoExif().flash != null"><i className="exif-icons fas fa-bolt" aria-hidden="true"></i> {{flickrPhotoExif().flash}}</li>
-                            </ul>
-                            <div>
-                                <button className='flickr-nav-button' ng-click="changeFlickrPhoto('left')">
-                                    <i className='fas fa-caret-left' aria-hidden='true'></i>
-                                </button>
-                                <button className='flickr-nav-button' ng-click="changeFlickrPhoto('right')">
-                                    <i className='fas fa-caret-right' aria-hidden='true'></i>
-                                </button>
-                            </div>
-                            <a
-                                id='flickr-button'
-                                href='https://www.flickr.com/photos/rinoshea/'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                            >
-                                See All <i className='fas fa-external-link-square-alt' aria-hidden='true'></i>
-                            </a>
-                        </div> */}
                     </li>
+                    {photoData.length > 0 && (
+                        <PhotosFoldout
+                            photos={photoData}
+                            currentIdx={currentPhotoIdx}
+                            isOpen={photosOpen}
+                            container={container}
+                            contentColumn={contentColumn}
+                            dispatch={dispatch}
+                        />
+                    )}
                     <li>
                         sometimes I{' '}
                         <a
