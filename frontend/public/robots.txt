@@ -1,3 +1,8 @@
-# https://www.robotstxt.org/robotstxt.html
+# www.robotstxt.org/
+# http://code.google.com/web/controlcrawlindex/
+
 User-agent: *
-Disallow:
+Disallow: /archives/
+
+User-agent: *
+Disallow: /cdn

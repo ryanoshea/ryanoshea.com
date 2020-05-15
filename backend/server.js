@@ -115,7 +115,7 @@ const createServer = () => {
     pageServer.use(logger('combined'));
 
     // Routes
-    pageServer.use(express.static('../frontend'));
+    pageServer.use(express.static('../frontend/build'));
     pageServer.use('/api', App);
 
     // 404 Handler
