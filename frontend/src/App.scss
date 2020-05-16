@@ -101,25 +101,6 @@ body {
         -ms-transition: color 300ms ease-in;
         transition: color 300ms ease-in;
     }
-
-    h1 {
-        text-transform: uppercase;
-        font-family: 'open sans';
-        font-weight: 300;
-        /*float: left;*/
-        margin-right: 30px;
-        margin-top: 30px;
-        margin-bottom: 0;
-        color: #444;
-
-        &:hover {
-            color: hsl(0, 0%, 50%);
-        }
-
-        strong {
-            font-weight: 800;
-        }
-    }
 }
 
 #content {
