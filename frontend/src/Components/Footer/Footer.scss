@@ -1,0 +1,32 @@
+footer {
+    flex: 0 0 auto;
+    text-align: right;
+    text-transform: uppercase;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 0.6em;
+    color: #444;
+    width: 100%;
+    border-top: solid 1px rgba(0, 0, 0, 0.25);
+
+    .footer-content {
+        display: inline-block;
+        padding-right: 0.5em;
+    }
+
+    p {
+        margin: 3px;
+    }
+
+    a:hover {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    #icon-github-footer {
+        font-size: 1.5em;
+        line-height: 1em;
+        vertical-align: -0.15em;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+}

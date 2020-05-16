@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect } from 'react';
+import './Home.scss';
 import classNames from 'classnames';
 import { AppReducer, ACTIONS, AppState, Photo, PhotosState } from '../../State/AppState';
 import PhotosFoldout from '../PhotosFoldout/PhotosFoldout';
