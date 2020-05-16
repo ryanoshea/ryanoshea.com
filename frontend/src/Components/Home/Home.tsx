@@ -3,6 +3,7 @@ import './Home.scss';
 import classNames from 'classnames';
 import { AppReducer, ACTIONS, AppState, Photo, PhotosState } from '../../State/AppState';
 import PhotosFoldout from '../PhotosFoldout/PhotosFoldout';
+import { mobileViewport } from '../../Utils';
 
 const Home = () => {
     const reducer: AppReducer = (state, action) => {
@@ -58,17 +59,18 @@ const Home = () => {
             const promise = fetch(flickrDataUrl)
                 .then(rs => rs.json())
                 .then(rs => rs.photos as Photo[])
-                .then(rs =>
-                    rs.map(photo => {
-                        // Preload each image
-                        const img = new Image();
-                        img.src = photo.url;
-                        return {
-                            ...photo,
-                            raw: img,
-                        };
-                    })
-                )
+                .then(rs => {
+                    // Preload each image if user is on a desktop
+                    if (!mobileViewport()) {
+                        rs.forEach(photo => {
+                            // Preload each image
+                            const img = new Image();
+                            img.src = photo.url;
+                        });
+                    }
+                    
+                    return rs;
+                })
                 .then(rs => {
                     dispatch({
                         type: ACTIONS.LOAD_PHOTO_DATA,
@@ -84,19 +86,27 @@ const Home = () => {
     }, [photoData, flickrDataUrl, loadingPhotos]);
 
     const toggleFoldout = () => {
-        if (loadingPhotos) {
-            dispatch({
-                type: ACTIONS.ATTEMPT_EARLY_FOLDOUT_OPEN
-            });
-            photosPromise?.then(() =>
+        // Open the foldout only if the window is big enough
+        if (!mobileViewport()) {
+            if (loadingPhotos) {
                 dispatch({
-                    type: ACTIONS.OPEN_PHOTOS,
-                })
-            );
+                    type: ACTIONS.ATTEMPT_EARLY_FOLDOUT_OPEN,
+                });
+                photosPromise?.then(() =>
+                    dispatch({
+                        type: ACTIONS.OPEN_PHOTOS,
+                    })
+                );
+            } else {
+                dispatch({
+                    type: photosOpen ? ACTIONS.CLOSE_PHOTOS : ACTIONS.OPEN_PHOTOS,
+                });
+            }
         } else {
-            dispatch({
-                type: photosOpen ? ACTIONS.CLOSE_PHOTOS : ACTIONS.OPEN_PHOTOS,
-            });
+            const newTab = window.open('https://www.flickr.com/photos/rinoshea/', '_blank');
+            if (newTab) {
+                newTab.opener = null;
+            }
         }
     };
 
