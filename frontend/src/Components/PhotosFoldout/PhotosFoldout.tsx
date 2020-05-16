@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import './PhotosFoldout.scss';
 import { ACTIONS, Photo, AppDispatchParam } from '../../State/AppState';
 
 const PhotosFoldout = (props: {
@@ -98,11 +99,13 @@ const PhotosFoldout = (props: {
                             </li>
                         )}
                     </ul>
-                    <div>
+                    <div className='flickr-nav-button-row'>
                         <button className='flickr-nav-button' onClick={() => dispatch({ type: ACTIONS.PREV_PHOTO })}>
-                            <i className='fas fa-caret-left' aria-hidden='true'></i>
+                            <i className='fas fa-caret-left' aria-hidden='true'></i>{' '}
+                            Prev
                         </button>
                         <button className='flickr-nav-button' onClick={() => dispatch({ type: ACTIONS.NEXT_PHOTO })}>
+                            Next{' '}
                             <i className='fas fa-caret-right' aria-hidden='true'></i>
                         </button>
                     </div>
