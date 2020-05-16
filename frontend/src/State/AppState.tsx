@@ -23,10 +23,10 @@ export class PhotosState {
 }
 
 export class AppState {
-    public constructor(public photos = new PhotosState()) {}
+    public constructor(public photos = new PhotosState(), public selectedSometimesLabel = 'code') {}
 
     public clone(): AppState {
-        return new AppState(this.photos.clone());
+        return new AppState(this.photos.clone(), this.selectedSometimesLabel);
     }
 }
 
@@ -63,4 +63,5 @@ export const ACTIONS = {
     PREV_PHOTO: 'prevPhoto',
     OPEN_PHOTOS: 'openPhotos',
     CLOSE_PHOTOS: 'closePhotos',
+    SET_SELECTED_SOMETIMES_LABEL: 'setSelectedSometimesLabel'
 };
