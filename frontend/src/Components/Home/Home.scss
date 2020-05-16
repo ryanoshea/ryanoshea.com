@@ -3,12 +3,7 @@
 @import '../../../node_modules/bootstrap/scss/mixins';
 
 #content {
-    
-
     #profile-links {
-        & > ul:first-child > li {
-            color: rgba(0, 0, 0, 0);
-        }
         & > ul {
             list-style-type: none;
             padding: 0;

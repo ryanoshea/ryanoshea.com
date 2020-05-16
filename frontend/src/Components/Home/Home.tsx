@@ -6,10 +6,17 @@ import PhotosFoldout from '../PhotosFoldout/PhotosFoldout';
 import Biography from '../Biography/Biography';
 import { mobileViewport } from '../../Utils';
 import { FOLDOUT_ANIMATION_PRIMARY_DURATION } from '../../Consts';
+import SometimesLabel from '../SometimesLabel/SometimesLabel';
 
 const Home = () => {
     const foldoutElem = useRef<HTMLLIElement>(null);
     const foldoutOpenLink = useRef<HTMLButtonElement>(null);
+
+    // Profile link refs
+    const codeRef = useRef<HTMLLIElement>(null);
+    const workRef = useRef<HTMLLIElement>(null);
+    const photoRef = useRef<HTMLLIElement>(null);
+    const tweetRef = useRef<HTMLLIElement>(null);
 
     const reducer: AppReducer = (state, action) => {
         const newState = state.clone();
@@ -38,6 +45,9 @@ const Home = () => {
             case ACTIONS.CLOSE_PHOTOS:
                 newState.photos.open = false;
                 break;
+            case ACTIONS.SET_SELECTED_SOMETIMES_LABEL:
+                newState.selectedSometimesLabel = action.payload;
+                break;
         }
         return newState;
     };
@@ -52,6 +62,7 @@ const Home = () => {
                 apiPromise: photosPromise,
                 attemptedEarlyFoldoutOpen,
             },
+            selectedSometimesLabel,
         },
         dispatch,
     ] = useReducer(reducer, new AppState());
@@ -138,8 +149,13 @@ const Home = () => {
             <Biography />
             <div id='profile-links'>
                 <ul id='profiles'>
-                    <li>
-                        sometimes I{' '}
+                    <li ref={codeRef}>
+                        <SometimesLabel
+                            identifier='code'
+                            selectedId={selectedSometimesLabel}
+                            listItem={codeRef}
+                            dispatch={dispatch}
+                        />
                         <a
                             id='github-link'
                             href='https://github.com/ryanoshea'
@@ -150,8 +166,13 @@ const Home = () => {
                             code
                         </a>
                     </li>
-                    <li>
-                        sometimes I{' '}
+                    <li ref={workRef}>
+                        <SometimesLabel
+                            identifier='work'
+                            selectedId={selectedSometimesLabel}
+                            listItem={workRef}
+                            dispatch={dispatch}
+                        />
                         <a
                             id='linkedin-link'
                             href='https://www.linkedin.com/in/ryancoshea'
@@ -162,8 +183,13 @@ const Home = () => {
                             work
                         </a>
                     </li>
-                    <li>
-                        sometimes I{' '}
+                    <li ref={photoRef}>
+                        <SometimesLabel
+                            identifier='take photos'
+                            selectedId={selectedSometimesLabel}
+                            listItem={photoRef}
+                            dispatch={dispatch}
+                        />
                         <button
                             id='flickr-link'
                             className='link'
@@ -194,8 +220,13 @@ const Home = () => {
                             dispatch={dispatch}
                         />
                     )}
-                    <li>
-                        sometimes I{' '}
+                    <li ref={tweetRef}>
+                        <SometimesLabel
+                            identifier='tweet'
+                            selectedId={selectedSometimesLabel}
+                            listItem={tweetRef}
+                            dispatch={dispatch}
+                        />
                         <a
                             id='twitter-link'
                             href='https://twitter.com/ryancoshea'
