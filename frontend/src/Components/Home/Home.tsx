@@ -8,7 +8,7 @@ import { FOLDOUT_ANIMATION_PRIMARY_DURATION } from '../../Consts';
 
 const Home = () => {
     const foldoutElem = useRef<HTMLLIElement>(null);
-    const foldoutOpenLink = useRef<HTMLAnchorElement>(null);
+    const foldoutOpenLink = useRef<HTMLButtonElement>(null);
 
     const reducer: AppReducer = (state, action) => {
         const newState = state.clone();
@@ -230,7 +230,13 @@ const Home = () => {
                     </li>
                     <li>
                         sometimes I{' '}
-                        <a id='flickr-link' title='I shoot on a Nikon D610 nowadays.' onClick={() => toggleFoldout()} ref={foldoutOpenLink}>
+                        <button
+                            id='flickr-link'
+                            className='link'
+                            title='I shoot on a Nikon D610 nowadays.'
+                            onClick={() => toggleFoldout()}
+                            ref={foldoutOpenLink}
+                        >
                             take photos{' '}
                             {loadingPhotos && attemptedEarlyFoldoutOpen ? (
                                 <i className='foldout-loading-indicators fas fa-sync fa-spin' aria-hidden='true'></i>
@@ -243,7 +249,7 @@ const Home = () => {
                                     aria-hidden='true'
                                 ></i>
                             )}
-                        </a>
+                        </button>
                     </li>
                     {photoData.length > 0 && (
                         <PhotosFoldout
