@@ -1,0 +1,1 @@
+export const BOOTSTRAP_BREAKPOINT_XL = 1200;
