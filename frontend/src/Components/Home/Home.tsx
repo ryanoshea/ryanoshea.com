@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 import classNames from 'classnames';
-import { AppReducer, ACTIONS, AppState } from '../../State/AppState';
+import { AppReducer, ACTIONS, AppState, Photo } from '../../State/AppState';
 import PhotosFoldout from '../PhotosFoldout/PhotosFoldout';
 
 const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn: React.RefObject<HTMLDivElement> }) => {
@@ -43,10 +43,20 @@ const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn
         if (photoData.length === 0) {
             fetch(flickrDataUrl)
                 .then(rs => rs.json())
+                .then(rs => rs.photos as Photo[])
+                .then(rs => rs.map(photo => {
+                    // Preload each image
+                    const img = new Image();
+                    img.src = photo.url;
+                    return {
+                        ...photo,
+                        raw: img
+                    };
+                }))
                 .then(rs => {
                     dispatch({
                         type: ACTIONS.LOAD_PHOTOS,
-                        payload: rs.photos,
+                        payload: rs,
                     });
                 })
                 .catch(e => console.error(e));

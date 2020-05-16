@@ -28,6 +28,7 @@ export interface Photo {
     exif: Exif;
     url: string;
     title: string;
+    file: any
 }
 
 export type AppDispatchParam = {
