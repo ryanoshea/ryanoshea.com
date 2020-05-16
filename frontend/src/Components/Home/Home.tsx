@@ -1,11 +1,15 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useRef } from 'react';
 import './Home.scss';
 import classNames from 'classnames';
-import { AppReducer, ACTIONS, AppState, Photo, PhotosState } from '../../State/AppState';
+import { AppReducer, ACTIONS, AppState, Photo } from '../../State/AppState';
 import PhotosFoldout from '../PhotosFoldout/PhotosFoldout';
 import { mobileViewport } from '../../Utils';
+import { FOLDOUT_ANIMATION_PRIMARY_DURATION } from '../../Consts';
 
 const Home = () => {
+    const foldoutElem = useRef<HTMLLIElement>(null);
+    const foldoutOpenLink = useRef<HTMLAnchorElement>(null);
+
     const reducer: AppReducer = (state, action) => {
         const newState = state.clone();
         switch (action.type) {
@@ -68,7 +72,7 @@ const Home = () => {
                             img.src = photo.url;
                         });
                     }
-                    
+
                     return rs;
                 })
                 .then(rs => {
@@ -92,15 +96,20 @@ const Home = () => {
                 dispatch({
                     type: ACTIONS.ATTEMPT_EARLY_FOLDOUT_OPEN,
                 });
-                photosPromise?.then(() =>
+                photosPromise?.then(() => {
                     dispatch({
                         type: ACTIONS.OPEN_PHOTOS,
-                    })
-                );
+                    });
+                    scrollFoldoutIntoView();
+                });
             } else {
                 dispatch({
                     type: photosOpen ? ACTIONS.CLOSE_PHOTOS : ACTIONS.OPEN_PHOTOS,
                 });
+
+                if (!photosOpen) {
+                    scrollFoldoutIntoView();
+                }
             }
         } else {
             const newTab = window.open('https://www.flickr.com/photos/rinoshea/', '_blank');
@@ -108,6 +117,14 @@ const Home = () => {
                 newTab.opener = null;
             }
         }
+    };
+
+    const scrollFoldoutIntoView = () => {
+        setTimeout(() => {
+            if (foldoutOpenLink.current) {
+                foldoutOpenLink.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, FOLDOUT_ANIMATION_PRIMARY_DURATION);
     };
 
     return (
@@ -213,7 +230,7 @@ const Home = () => {
                     </li>
                     <li>
                         sometimes I{' '}
-                        <a id='flickr-link' title='I shoot on a Nikon D610 nowadays.' onClick={() => toggleFoldout()}>
+                        <a id='flickr-link' title='I shoot on a Nikon D610 nowadays.' onClick={() => toggleFoldout()} ref={foldoutOpenLink}>
                             take photos{' '}
                             {loadingPhotos && attemptedEarlyFoldoutOpen ? (
                                 <i className='foldout-loading-indicators fas fa-sync fa-spin' aria-hidden='true'></i>
@@ -233,6 +250,7 @@ const Home = () => {
                             photos={photoData}
                             currentIdx={currentPhotoIdx}
                             isOpen={photosOpen}
+                            foldoutElem={foldoutElem}
                             dispatch={dispatch}
                         />
                     )}

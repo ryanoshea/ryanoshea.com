@@ -128,5 +128,6 @@
 
     .foldout-spacer {
         width: 100%;
+        transition-duration: 0.1s; // FOLDOUT_ANIMATION_PRIMARY_DURATION
     }
 }

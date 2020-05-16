@@ -6,20 +6,20 @@ const PhotosFoldout = (props: {
     photos: Photo[];
     currentIdx: number;
     isOpen: boolean;
+    foldoutElem: React.RefObject<HTMLLIElement>;
     dispatch: React.Dispatch<AppDispatchParam>;
 }) => {
-    const { photos, currentIdx, isOpen, dispatch } = props;
+    const { photos, currentIdx, isOpen, foldoutElem, dispatch } = props;
     const photo = photos[currentIdx];
     const exif = photo.exif;
-    const foldout = useRef<HTMLLIElement>(null);
     const image = useRef<HTMLImageElement>(null);
     const foldoutSpacer = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const imageElem = image.current;
         const cb = () => {
-            if (imageElem && foldout.current && foldoutSpacer.current) {
-                const foldoutStyle = foldout.current.style;
+            if (imageElem && foldoutElem.current && foldoutSpacer.current) {
+                const foldoutStyle = foldoutElem.current.style;
                 const spacerStyle = foldoutSpacer.current.style;
                 let height, margin;
                 if (isOpen) {
@@ -46,11 +46,11 @@ const PhotosFoldout = (props: {
                 window.removeEventListener('resize', cb);
             }
         };
-    }, [image, isOpen]);
+    }, [image, isOpen, foldoutElem]);
 
     return (
         <>
-            <li className='foldout' id='flickr-foldout' ref={foldout}>
+            <li className='foldout' id='flickr-foldout' ref={foldoutElem}>
                 <a
                     className='flickr-photo'
                     id={`flickr-photo-${currentIdx}`}
