@@ -1,16 +1,21 @@
 import React, { useReducer, useEffect } from 'react';
 import classNames from 'classnames';
-import { AppReducer, ACTIONS, AppState, Photo } from '../../State/AppState';
+import { AppReducer, ACTIONS, AppState, Photo, PhotosState } from '../../State/AppState';
 import PhotosFoldout from '../PhotosFoldout/PhotosFoldout';
 
-const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn: React.RefObject<HTMLDivElement> }) => {
-    const { container, contentColumn } = props;
+const Home = () => {
     const reducer: AppReducer = (state, action) => {
-        const newState = { ...state, photos: { ...state.photos } };
+        const newState = state.clone();
         switch (action.type) {
-            case ACTIONS.LOAD_PHOTOS:
+            case ACTIONS.REQUEST_PHOTO_DATA:
+                newState.photos.apiPromise = action.payload;
+                break;
+            case ACTIONS.LOAD_PHOTO_DATA:
                 newState.photos.data = action.payload;
-                newState.photos.loading = false;
+                newState.photos.apiPromise = null;
+                break;
+            case ACTIONS.ATTEMPT_EARLY_FOLDOUT_OPEN:
+                newState.photos.attemptedEarlyFoldoutOpen = true;
                 break;
             case ACTIONS.NEXT_PHOTO:
                 newState.photos.currentIdx = (state.photos.currentIdx + 1) % newState.photos.data.length;
@@ -21,6 +26,7 @@ const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn
                 break;
             case ACTIONS.OPEN_PHOTOS:
                 newState.photos.open = true;
+                newState.photos.attemptedEarlyFoldoutOpen = false;
                 break;
             case ACTIONS.CLOSE_PHOTOS:
                 newState.photos.open = false;
@@ -30,7 +36,14 @@ const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn
     };
     const [
         {
-            photos: { open: photosOpen, currentIdx: currentPhotoIdx, data: photoData, loading: loadingPhotos },
+            photos: {
+                open: photosOpen,
+                currentIdx: currentPhotoIdx,
+                data: photoData,
+                loading: loadingPhotos,
+                apiPromise: photosPromise,
+                attemptedEarlyFoldoutOpen,
+            },
         },
         dispatch,
     ] = useReducer(reducer, new AppState());
@@ -40,28 +53,51 @@ const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn
             ? '/api/flickr/most-recent-photos'
             : `https://localhost/api/flickr/most-recent-photos`;
     useEffect(() => {
-        if (photoData.length === 0) {
-            fetch(flickrDataUrl)
+        if (photoData.length === 0 && !loadingPhotos) {
+            const promise = fetch(flickrDataUrl)
                 .then(rs => rs.json())
                 .then(rs => rs.photos as Photo[])
-                .then(rs => rs.map(photo => {
-                    // Preload each image
-                    const img = new Image();
-                    img.src = photo.url;
-                    return {
-                        ...photo,
-                        raw: img
-                    };
-                }))
+                .then(rs =>
+                    rs.map(photo => {
+                        // Preload each image
+                        const img = new Image();
+                        img.src = photo.url;
+                        return {
+                            ...photo,
+                            raw: img,
+                        };
+                    })
+                )
                 .then(rs => {
                     dispatch({
-                        type: ACTIONS.LOAD_PHOTOS,
+                        type: ACTIONS.LOAD_PHOTO_DATA,
                         payload: rs,
                     });
                 })
                 .catch(e => console.error(e));
+            dispatch({
+                type: ACTIONS.REQUEST_PHOTO_DATA,
+                payload: promise,
+            });
         }
-    }, [photoData, flickrDataUrl]);
+    }, [photoData, flickrDataUrl, loadingPhotos]);
+
+    const toggleFoldout = () => {
+        if (loadingPhotos) {
+            dispatch({
+                type: ACTIONS.ATTEMPT_EARLY_FOLDOUT_OPEN
+            });
+            photosPromise?.then(() =>
+                dispatch({
+                    type: ACTIONS.OPEN_PHOTOS,
+                })
+            );
+        } else {
+            dispatch({
+                type: photosOpen ? ACTIONS.CLOSE_PHOTOS : ACTIONS.OPEN_PHOTOS,
+            });
+        }
+    };
 
     return (
         <>
@@ -166,17 +202,11 @@ const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn
                     </li>
                     <li>
                         sometimes I{' '}
-                        <a
-                            id='flickr-link'
-                            title='I shoot on a Nikon D610 nowadays.'
-                            onClick={() => {
-                                dispatch({
-                                    type: photosOpen ? ACTIONS.CLOSE_PHOTOS : ACTIONS.OPEN_PHOTOS,
-                                });
-                            }}
-                        >
+                        <a id='flickr-link' title='I shoot on a Nikon D610 nowadays.' onClick={() => toggleFoldout()}>
                             take photos{' '}
-                            {!loadingPhotos || !photosOpen ? (
+                            {loadingPhotos && attemptedEarlyFoldoutOpen ? (
+                                <i className='foldout-loading-indicators fas fa-sync fa-spin' aria-hidden='true'></i>
+                            ) : (
                                 <i
                                     className={classNames('fas', {
                                         'fa-angle-down': !photosOpen,
@@ -184,8 +214,6 @@ const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn
                                     })}
                                     aria-hidden='true'
                                 ></i>
-                            ) : (
-                                <i className='foldout-loading-indicators fas fa-sync fa-spin' aria-hidden='true'></i>
                             )}
                         </a>
                     </li>
@@ -194,8 +222,6 @@ const Home = (props: { container: React.RefObject<HTMLDivElement>, contentColumn
                             photos={photoData}
                             currentIdx={currentPhotoIdx}
                             isOpen={photosOpen}
-                            container={container}
-                            contentColumn={contentColumn}
                             dispatch={dispatch}
                         />
                     )}

@@ -8,18 +8,16 @@ import Home from './Components/Home/Home';
 import NotFound from './Components/404/404';
 
 const App = () => {
-    const article = useRef<HTMLDivElement>(null);
-    const contentColumn = useRef<HTMLDivElement>(null);
     return (
         <Router>
             <main>
                 <div id='main' role='main'>
-                    <article ref={article}>
+                    <article>
                         <Nameplate />
-                        <div id='content' ref={contentColumn}>
+                        <div id='content'>
                             <Switch>
                                 <Route path='/' exact>
-                                    <Home container={article} contentColumn={contentColumn} />
+                                    <Home />
                                 </Route>
                                 <Route path='*'>
                                     <NotFound />
