@@ -1,0 +1,60 @@
+.biography {
+    #resume a {
+        transform: translateX(-0.15em);
+        display: inline-block;
+        padding: 0.15em 0.25em 0.05em;
+        margin-bottom: 1em;
+
+        i {
+            color: rgb(94, 94, 94);
+        }
+    }
+
+    .intro-lines {
+        margin-top: 34px;
+        margin-bottom: 1em;
+        font-size: 1em;
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1.4;
+
+        #line1 {
+            color: hsl(0, 0%, 30%);
+        }
+
+        #line2 {
+            color: hsl(0, 0%, 40%);
+        }
+
+        #line3 {
+            color: hsl(0, 0%, 55%);
+        }
+
+        #line4 {
+            color: hsl(0, 0%, 65%);
+        }
+
+        #line5 {
+            color: hsl(0, 0%, 80%);
+        }
+
+        #line1:hover,
+        #line2:hover,
+        #line3:hover,
+        #line4:hover,
+        #line5:hover {
+            color: #222;
+        }
+
+        a {
+            color: inherit;
+            font-weight: inherit;
+        }
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-weight: 800;
+        font-family: 'open sans';
+    }
+}
