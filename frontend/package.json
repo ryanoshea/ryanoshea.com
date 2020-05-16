@@ -23,7 +23,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "./scripts/deploy.zsh"
   },
   "eslintConfig": {
     "extends": "react-app"
