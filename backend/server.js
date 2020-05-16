@@ -58,6 +58,8 @@ const createServer = () => {
                     'www.google-analytics.com',
                     'use.fontawesome.com',
                     'ajax.googleapis.com',
+                    "'sha256-oY1ddOyqyapI/8WdWPxfu4D5+SEPylUFMWng2aAlnQA='",
+                    "'sha256-DdEaN+Pq6QjzsX3DogWAWpNCzeWCw437H8jqNv9mP+8='",
                     // Google Analytics inline hashes
                     "'sha256-1x5xSsObH83rcuF5NpFRGALUyVEUZSA0C6LlueRxfek='",
                     "'sha256-vW/bBWjiMca9xcF6xcWp5hHtiQofRu6SLormz9EsHE8='",
@@ -69,12 +71,6 @@ const createServer = () => {
                     'fonts.googleapis.com',
                     'use.fontawesome.com',
                     'ajax.googleapis.com',
-                    // Inline Font Awesome 5 styles
-                    "'sha256-QMz3EH1p4IxRUmvQV6MMMh3MIRWKGY81zmiWZA4Ype8='",
-                    "'sha256-1PxuDsPyGK6n+LZsMv0gG4lMX3i3XigG6h0CzPIjwrE='",
-                    // Inline jQuery styles
-                    "'sha256-sC9roG6gjsOxA1jz9CZn8bm+B+LEew4Jef0kbhK/zYY='",
-                    "'sha256-bmoAbKZGxrhg+zuX0e+kfAa0D3V7s2HZPuwHAb3QDPo='",
                 ],
                 imgSrc: [
                     'ryanoshea.com',
