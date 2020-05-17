@@ -3,6 +3,13 @@
 @import '../../../node_modules/bootstrap/scss/mixins';
 
 #content {
+    h2 {
+        margin-top: 34px;
+        margin-bottom: 1em;
+        font-size: 1em;
+        font-weight: 900;
+        line-height: 1.4;
+    }
     #profile-links {
         & > ul {
             list-style-type: none;

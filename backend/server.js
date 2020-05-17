@@ -4,6 +4,7 @@ const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
 const fs = require('fs');
+const path = require('path');
 const logger = require('morgan');
 const App = require('./app');
 
@@ -125,9 +126,8 @@ const createServer = () => {
 
     // 404 Handler
     pageServer.use((req, res) => {
-        // Redirect to Angular-routed 404 page
-        res.writeHead(301, { Location: 'https://' + req.headers.host + '/#/404' });
-        res.end();
+        // Preserve URL, but load the React SPA
+        res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
     });
 
     return pageServer;
