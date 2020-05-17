@@ -79,10 +79,6 @@ body {
 
         &.nohover,
         &.nohover:hover {
-            -webkit-transition: none !important;
-            -moz-transition: none !important;
-            -o-transition: none !important;
-            -ms-transition: none !important;
             transition: none !important;
             padding: 0;
             margin: 0;
@@ -95,10 +91,6 @@ body {
     }
 
     h1, h2, p, li {
-        -webkit-transition: color 300ms ease-in;
-        -moz-transition: color 300ms ease-in;
-        -o-transition: color 300ms ease-in;
-        -ms-transition: color 300ms ease-in;
         transition: color 300ms ease-in;
     }
 }
