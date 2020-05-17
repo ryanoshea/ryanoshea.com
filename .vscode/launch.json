@@ -11,7 +11,7 @@
       "cwd": "${workspaceRoot}/backend",
       "preLaunchTask": null,
       "runtimeExecutable": null,
-      "runtimeVersion": "12.16.2",
+      "runtimeVersion": "10.20.1",
       "runtimeArgs": [
         "--nolazy"
       ],
