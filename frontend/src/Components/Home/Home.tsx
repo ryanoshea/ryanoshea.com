@@ -200,7 +200,7 @@ const Home = () => {
                             take photos{' '}
                             {loadingPhotos && attemptedEarlyFoldoutOpen ? (
                                 <i className='foldout-loading-indicators fas fa-sync fa-spin' aria-hidden='true'></i>
-                            ) : (
+                            ) : ((loadingPhotos || photoData.length > 0) &&
                                 <i
                                     className={classNames('fas', {
                                         'fa-angle-down': !photosOpen,
