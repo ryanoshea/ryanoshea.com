@@ -36,89 +36,92 @@
         #flickr-foldout-label {
             flex: 1 1 0;
             color: #f0f0f0;
-            padding: 0 1em 2em;
             overflow-y: auto;
 
-            .flickr-nav-button, #flickr-button {
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #383838), color-stop(1, #1c1c1c));
-                background: -moz-linear-gradient(center top, #383838 5%, #1c1c1c 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#383838', endColorstr='#1c1c1c');
-                background-color: #383838;
-                border-radius: 6px;
-                text-indent: 0;
-                border: none;
-                color: #777777;
-                text-align: center;
-                font-size: 0.8em;
-                padding: 0.5em 0.8em;
-                display: inline-block;
-                font-weight: 700;
+            .body {
+                padding: 0 1em 2em;
 
-                &:focus {
-                    outline: none;
-                }
-
-                &:active {
-                    position: relative;
-                    top: 1px;
-                }
-
-                i {
+                .flickr-nav-button, #flickr-button {
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #383838), color-stop(1, #1c1c1c));
+                    background: -moz-linear-gradient(center top, #383838 5%, #1c1c1c 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#383838', endColorstr='#1c1c1c');
+                    background-color: #383838;
+                    border-radius: 6px;
+                    text-indent: 0;
+                    border: none;
                     color: #777777;
-                }
-            }
-
-            .flickr-nav-button:first-child {
-                margin-right: 0.5em;
-            }
-
-            h4 {
-                margin-bottom: 1em;
-            }
-
-            .flickr-nav-button-row {
-                margin-bottom: 1.15em;
-            }
-
-            #exif-data {
-                display: flex;
-                flex-wrap: wrap;
-                list-style: none;
-                padding-left: 0;
-                margin-left: -0.5em;
-                margin-bottom: 0.5em;
-
-                li {
-                    display: block;
-                    padding: 1em;
-                    background-color: rgba(255, 255, 255, 0.1);
-                    border-radius: 0.5em;
+                    text-align: center;
                     font-size: 0.8em;
-                    color: rgba(255, 255, 255, 0.75);
-                    margin: 0 0.5em 0.5em;
+                    padding: 0.5em 0.8em;
+                    display: inline-block;
+                    font-weight: 700;
 
-                    span {
-                        display: inline;
+                    &:focus {
+                        outline: none;
+                    }
+
+                    &:active {
+                        position: relative;
+                        top: 1px;
+                    }
+
+                    i {
+                        color: #777777;
                     }
                 }
 
-                .exif-icons {
-                    margin-right: 0.8em;
+                .flickr-nav-button:first-child {
+                    margin-right: 0.5em;
                 }
 
-                #iso-icon {
+                h4 {
+                    margin-bottom: 1em;
+                }
+
+                .flickr-nav-button-row {
+                    margin-bottom: 1.15em;
+                }
+
+                #exif-data {
+                    display: flex;
+                    flex-wrap: wrap;
+                    list-style: none;
+                    padding-left: 0;
+                    margin-left: -0.5em;
+                    margin-bottom: 0.5em;
+
+                    li {
+                        display: block;
+                        padding: 1em;
+                        background-color: rgba(255, 255, 255, 0.1);
+                        border-radius: 0.5em;
+                        font-size: 0.8em;
+                        color: rgba(255, 255, 255, 0.75);
+                        margin: 0 0.5em 0.5em;
+
+                        span {
+                            display: inline;
+                        }
+                    }
+
+                    .exif-icons {
+                        margin-right: 0.8em;
+                    }
+
+                    #iso-icon {
+                        font-size: 0.8em;
+                        padding: 0.05em 0.2em 0.1em 0.2em;
+                        border: 1px solid rgba(255, 255, 255, 0.75);
+                        border-radius: 0.2em;
+                        font-weight: bold;
+                    }
+                }
+
+                #flickr-top-label {
                     font-size: 0.8em;
-                    padding: 0.05em 0.2em 0.1em 0.2em;
-                    border: 1px solid rgba(255, 255, 255, 0.75);
-                    border-radius: 0.2em;
-                    font-weight: bold;
+                    color: rgba(255, 255, 255, 0.75);
+                    margin-top: 2em;
                 }
-            }
-
-            #flickr-top-label {
-                font-size: 0.8em;
-                color: rgba(255, 255, 255, 0.75);
-                margin-top: 2em;
             }
         }
     }
@@ -136,7 +139,9 @@
 }
 
 @media only screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
-    #content .foldout {
-        display: none;
+    #content {
+        .foldout, .foldout-spacer {
+            display: none;
+        }
     }
 }
