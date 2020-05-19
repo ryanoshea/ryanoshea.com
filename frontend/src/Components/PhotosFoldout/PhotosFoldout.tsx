@@ -51,37 +51,39 @@ const PhotosFoldout = (props: {
     return (
         <>
             <li className='foldout' id='flickr-foldout' ref={foldoutElem}>
-                <a
-                    className='flickr-photo'
-                    id={`flickr-photo-${currentIdx}`}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    href={photo.pageUrl}
-                >
-                    <img src={photo.url} alt={photo.title} ref={image} />
-                </a>
+                <div className='flickr-photo'>
+                    <p>
+                        <a
+                            href={photo.pageUrl}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            <img src={photo.url} alt={photo.title} ref={image} />
+                        </a>
+                    </p>
+                </div>
                 <div id='flickr-foldout-label'>
                     <p id='flickr-top-label'>Photos by Ryan O’Shea on Flickr:</p>
                     <h4>{photo.title}</h4>
                     <ul id='exif-data'>
                         {exif.camera != null && (
-                            <li ng-show='flickrPhotoExif().camera != null'>
+                            <li ng-show='flickrPhotoExif().camera != null' title='Camera'>
                                 <i className='exif-icons fas fa-camera-retro' aria-hidden='true'></i> {exif.camera}
                             </li>
                         )}
                         {exif.aperture != null && (
-                            <li ng-show='flickrPhotoExif().aperture != null'>
+                            <li ng-show='flickrPhotoExif().aperture != null' title='Aperture'>
                                 <i className='exif-icons far fa-circle' aria-hidden='true'></i> <em>f</em>/
                                 {exif.aperture}
                             </li>
                         )}
                         {exif.shutter != null && (
-                            <li ng-show='flickrPhotoExif().shutter != null'>
+                            <li ng-show='flickrPhotoExif().shutter != null' title='Shutter Speed'>
                                 <i className='exif-icons fas fa-stopwatch' aria-hidden='true'></i> {exif.shutter}"
                             </li>
                         )}
                         {exif.iso != null && (
-                            <li ng-show='flickrPhotoExif().iso != null'>
+                            <li ng-show='flickrPhotoExif().iso != null' title='ISO'>
                                 <span className='exif-icons' id='iso-icon'>
                                     ISO
                                 </span>{' '}
@@ -89,12 +91,12 @@ const PhotosFoldout = (props: {
                             </li>
                         )}
                         {exif.focalLength != null && (
-                            <li ng-show='flickrPhotoExif().focalLength != null'>
+                            <li ng-show='flickrPhotoExif().focalLength != null' title='Focal Length'>
                                 <i className='exif-icons fas fa-eye' aria-hidden='true'></i> {exif.focalLength}
                             </li>
                         )}
                         {exif.flash != null && (
-                            <li ng-show='flickrPhotoExif().flash != null'>
+                            <li ng-show='flickrPhotoExif().flash != null' title='Flash'>
                                 <i className='exif-icons fas fa-bolt' aria-hidden='true'></i> {exif.flash}
                             </li>
                         )}
