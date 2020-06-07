@@ -17,15 +17,15 @@ const Biography = () => (
         </div>
 
         <p>
-            Currently, I’m prepping to start a new software engineering position at{' '}
+            I recently started a new senior software engineering position on{' '}
             <a href='https://chewy.com' target='_blank' rel='noopener noreferrer'>
-                Chewy
-            </a>
-            .
+                Chewy’s
+            </a>{' '}
+            Pet Health team.
         </p>
 
         <p>
-            Until the COVID crisis hit the restaurant industry, I spent a brief while as full-stack web developer at{' '}
+            Until the COVID-19 pandemic hit the restaurant industry, I spent a brief while at{' '}
             <a href='https://pos.toasttab.com' target='_blank' rel='noopener noreferrer'>
                 Toast
             </a>{' '}
