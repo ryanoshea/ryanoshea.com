@@ -1,4 +1,13 @@
-# `ryanoshea.com`
+# ryanoshea.com
+
+![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/ryanoshea.com?label=mozilla%20observatory&publish)
+![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Fryanoshea.com)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d1faca4be5cf500366bb/maintainability)](https://codeclimate.com/github/ryanoshea/ryanoshea.com/maintainability)
+[![Known Vulnerabilities](https://snyk.io/test/github/ryanoshea/ryanoshea.com/badge.svg?targetFile=backend/package.json)](https://snyk.io/test/github/ryanoshea/ryanoshea.com?targetFile=backend/package.json)
+![Dependencies](https://david-dm.org/ryanoshea/ryanoshea.com.svg)
+![GitHub](https://img.shields.io/github/license/ryanoshea/ryanoshea.com)
+
 
 This repo contains a React SPA powering my personal website at <https://ryanoshea.com>, backed by a Node.js implementation of a secure HTTP/2 server pulling double-duty as a static file and read API service.
 
@@ -33,4 +42,4 @@ The Node.js server is based on the [`spdy`](https://www.npmjs.com/package/spdy) 
 
 ## React Front-end Single-page App
 
-Client-side code for [ryanoshea.com](https://ryanoshea.com). This was originally written in AngularJS/jQuery and ported to React in May 2020. There may be some remnants of messy code left over as a result.
+Client-side code for [ryanoshea.com](https://ryanoshea.com). This was originally written back in 2012 in PHP and jQuery, then ported to AngularJS and before eventually landing on React in May 2020. There may be some remnants of messy code left over as a result.
