@@ -42,4 +42,4 @@ The Node.js server is based on the [`spdy`](https://www.npmjs.com/package/spdy) 
 
 ## React Front-end Single-page App
 
-Client-side code for [ryanoshea.com](https://ryanoshea.com). This was originally written back in 2012 in PHP and jQuery, then ported to AngularJS and before eventually landing on React in May 2020. There may be some remnants of messy code left over as a result.
+Client-side code for [ryanoshea.com](https://ryanoshea.com). This was originally written back in 2012 in PHP and jQuery, then ported to AngularJS before eventually landing on React in May 2020. There may be some remnants of messy code left over as a result.
