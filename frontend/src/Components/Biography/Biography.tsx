@@ -11,7 +11,7 @@ const Biography = () => (
         </h2>
 
         <div id='resume'>
-            <a href='/contact/resume.pdf' className='nocolor resume-link' target='_blank' rel='noopener noreferrer'>
+            <a href='/contact/resume.pdf' className='resume-link' target='_blank' rel='noopener noreferrer'>
                 Résumé &nbsp;<i className='far fa-file-alt'></i>
             </a>
         </div>
