@@ -5,20 +5,20 @@
   "description": "Frontend for https://ryanoshea.com",
   "license": "MIT",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/classnames": "^2.2.10",
-    "bootstrap": "^4.5.0",
+    "@types/classnames": "^2.2.11",
+    "bootstrap": "^4.5.3",
     "classnames": "^2.2.6",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "typescript": "^3.9.2"
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,8 +42,8 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.5",
-    "eslint-plugin-prettier": "^3.1.3",
-    "prettier": "^2.0.5"
+    "@types/react-router-dom": "^5.1.6",
+    "eslint-plugin-prettier": "^3.2.0",
+    "prettier": "^2.2.1"
   }
 }
