@@ -134,7 +134,7 @@ body {
 }
 
 @media only screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
-    main {
+    #root .scroll-body main {
         margin-top: 2em;
 
         .limit-width {
@@ -144,7 +144,7 @@ body {
 }
 
 @media only screen and (max-width: map-get($grid-breakpoints, md) - 1) {
-    main .limit-width {
+    #root .scroll-body main .limit-width {
         max-width: 95%;
     }
 }
