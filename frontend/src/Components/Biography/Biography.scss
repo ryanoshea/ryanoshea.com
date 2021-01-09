@@ -1,14 +1,21 @@
 @import '../../Style/mixins';
 
 .biography {
-    #resume a {
-        transform: translateX(-0.15em);
-        display: inline-block;
-        padding: 0.15em 0.25em 0.05em;
-        margin-bottom: 1em;
+    .resume {
+        a {
+            transform: translateX(-0.15em);
+            display: inline-block;
+            padding: 0.15em 0.25em 0.05em;
+            margin-bottom: 1em;
 
-        i {
-            color: rgb(94, 94, 94);
+            i {
+                color: rgb(94, 94, 94);
+            }
+        }
+
+        .resume-timestamp {
+            opacity: 0.7;
+            font-size: 0.8em;
         }
     }
 
