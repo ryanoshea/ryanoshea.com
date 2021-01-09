@@ -3,10 +3,21 @@ const compression = require('compression');
 
 // Initialize Flickr API
 const Flickr = require('flickr-sdk');
-const { apiKey: flickrApiKey } = require('./flickrAuth');
+const {
+    flickr: {
+        apiKey: flickrApiKey
+    },
+    github: {
+        apiKey: githubApiKey
+    }
+} = require('./flickrAuth');
 const flickr = new Flickr(flickrApiKey);
 const FLICKR_USER_ID = '22136543@N06';
 const FLICKR_PORTFOLIO_ALBUM_ID = '72157680776000625';
+
+// GitHub API
+const { Octokit } = require("@octokit/core");
+const octokit = new Octokit({ auth: githubApiKey });
 
 // Set up Express
 const App = express();
@@ -157,5 +168,37 @@ const logFlickrError = e => {
     console.error('Error fetching most recent photos.');
     console.error(e);
 }
+
+/**
+ * Return the last modified date (and commit URL) for the resume PDF in the site's public directory. Used to display
+ * a last-updated time so viewers can know how outdated the resume might be.
+ */
+App.get('/github/resume-info', (req, res) => {
+    octokit.request("GET /repos/{owner}/{repo}/commits", {
+        owner: 'ryanoshea',
+        repo: 'ryanoshea.com',
+        path: 'frontend/public/contact/resume.pdf',
+        page: 1,
+        per_page: 1
+    }).then(response => {
+        if (response.data.length) {
+            const commit = response.data[0];
+            const date = commit.commit.committer.date;
+            const url = commit.html_url;
+            res.send({
+                date,
+                url
+            });
+        } else {
+            const message = 'Could not find last commit for resume.pdf.';
+            console.error(`${message} Response: ${response}`);
+            res.statusCode(500).send(message);
+        }
+    }).catch(e => {
+        const message = 'Error fetching last commit for resume.pdf.';
+        console.error(`${message} Exception: ${e}`);
+        res.statusCode(500).send(message);
+    });
+});
 
 module.exports = App;
