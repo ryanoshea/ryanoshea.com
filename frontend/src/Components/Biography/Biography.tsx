@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Biography.scss';
+import { getUrl } from '../../Utils/api';
 
 const Biography = () => {
     const year = new Date().getFullYear();
+    // Fetch info on the last updated date for the resume
+    let [resumeInfo, setResumeInfo] = useState<{ date: string; url: string } | undefined>();
+    let [resumeInfoError, setResumeInfoError] = useState(false);
+    useEffect(() => {
+        fetch(getUrl('/api/github/resume-info'))
+            .then(rs => {
+                if (!rs.ok) throw new Error(rs.statusText);
+                return rs.json()
+            })
+            .then(info => setResumeInfo(info))
+            .catch(e => {
+                setResumeInfoError(true);
+                console.error(e);
+            });
+    }, []);
+
+    const formatResumeDate = (isoDate: string | undefined) => {
+        if (isoDate) {
+            const date = new Date(isoDate);
+            return new Intl.DateTimeFormat('en-US', {
+                month: 'long',
+                year: 'numeric',
+            }).format(date);
+        }
+
+        return null;
+    };
 
     return (
         <article className='biography'>
@@ -17,7 +45,21 @@ const Biography = () => {
                 <a href='/contact/resume.pdf' className='resume-link' target='_blank' rel='noopener noreferrer'>
                     Résumé &nbsp;<i className='far fa-file-alt'></i>
                 </a>{' '}
-                <em className='resume-timestamp'>Last updated May 2020.</em>
+                {!resumeInfoError && (
+                    <em className='resume-timestamp'>
+                        Last updated{' '}
+                        {resumeInfo ? (
+                            <a className='nocolor' href={resumeInfo.url} target='_blank' rel='noopener noreferrer'>
+                                {formatResumeDate(resumeInfo.date)}
+                            </a>
+                        ) : (
+                            <span className='resume-timestamp-loading'>
+                                <i className='fas fa-sync fa-spin' aria-hidden='true'></i>
+                            </span>
+                        )}
+                        .
+                    </em>
+                )}
             </div>
 
             <p>

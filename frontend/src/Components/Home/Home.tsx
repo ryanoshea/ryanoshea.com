@@ -7,6 +7,7 @@ import Biography from '../Biography/Biography';
 import { mobileViewport } from '../../Utils';
 import { FOLDOUT_ANIMATION_PRIMARY_DURATION } from '../../Consts';
 import SometimesLabel from '../SometimesLabel/SometimesLabel';
+import { getUrl } from '../../Utils/api';
 
 const Home = () => {
     const foldoutElem = useRef<HTMLLIElement>(null);
@@ -68,10 +69,7 @@ const Home = () => {
     ] = useReducer(reducer, new AppState());
 
     // Load Flickr portfolio image data
-    const flickrDataUrl =
-        window.location.hostname === 'ryanoshea.com'
-            ? '/api/flickr/most-recent-photos'
-            : `https://localhost/api/flickr/most-recent-photos`;
+    const flickrDataUrl = getUrl('/api/flickr/most-recent-photos');
     useEffect(() => {
         if (photoData.length === 0 && !loadingPhotos) {
             const promise = fetch(flickrDataUrl)
