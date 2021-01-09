@@ -1,7 +1,7 @@
-
 @import '../node_modules/bootstrap/scss/functions';
 @import '../node_modules/bootstrap/scss/variables';
 @import '../node_modules/bootstrap/scss/mixins';
+@import './Style/mixins';
 
 $bgColor: #f0f0f0;
 
@@ -27,26 +27,27 @@ body {
     animation-name: fade;
     animation-duration: 0.5s;
 
-    main {
+    .scroll-body {
         flex: 1 1 0px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         overflow-x: hidden;
         width: 100%;
 
-        #main {
+        main {
             text-align: left;
             margin: 6em auto 6em auto;
             position: relative;
 
-            article {
+            .limit-width {
                 margin: 0 auto;
                 padding: 1em;
                 max-width: 75%;
                 display: flex;
                 flex-direction: row;
 
-                #content, #left {
+                .router-body,
+                #left {
                     vertical-align: top;
                     overflow: show;
                 }
@@ -55,14 +56,15 @@ body {
                     flex: 1 1 0px;
                 }
 
-                #content {
+                .router-body {
                     flex: 3 3 0px;
                 }
             }
         }
     }
 
-    a, button.link {
+    a,
+    button.link {
         &,
         &:active,
         &:visited,
@@ -86,27 +88,22 @@ body {
         }
     }
 
-    h1:hover, h2:hover, p:hover, li:hover {
+    h1:hover,
+    h2:hover,
+    p:hover,
+    li:hover {
         cursor: default;
-    }
-
-    h1, h2, p, li {
-        transition: color 300ms ease-in;
     }
 }
 
-#content {
-    a, button.link {
+.text-content {
+    a,
+    button.link {
         &,
         &:active,
         &:visited,
         &:hover {
-            transition: background-color 200ms ease-in;
-            background-color: transparent;
-            padding: 0.15em;
-            margin-left: -0.15em;
-            margin-right: -0.15em;
-            border-radius: 3px;
+            @include link-bg;
             font-weight: 700;
             color: #bb0055;
         }
@@ -137,19 +134,17 @@ body {
 }
 
 @media only screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
-    #root {
-        main #main {
-            margin-top: 2em;
+    main {
+        margin-top: 2em;
 
-            article {
-                display: block;
-            }
+        .limit-width {
+            display: block;
         }
     }
 }
 
 @media only screen and (max-width: map-get($grid-breakpoints, md) - 1) {
-    #root main #main article {
+    main .limit-width {
         max-width: 95%;
     }
 }

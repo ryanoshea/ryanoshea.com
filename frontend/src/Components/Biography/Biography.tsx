@@ -2,7 +2,7 @@ import React from 'react';
 import './Biography.scss';
 
 const Biography = () => (
-    <div className='biography'>
+    <article className='biography'>
         <h2 className='intro-lines'>
             <p id='line1'>I’m a full-stack software engineer based in Boston.</p>
             <p id='line2'>I build user-facing products and core infrastructure from the ground up.</p>
@@ -77,7 +77,7 @@ const Biography = () => (
             </a>
             .
         </p>
-    </div>
+    </article>
 );
 
 export default Biography;

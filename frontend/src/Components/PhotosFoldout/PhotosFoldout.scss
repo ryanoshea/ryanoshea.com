@@ -2,7 +2,7 @@
 @import '../../../node_modules/bootstrap/scss/variables';
 @import '../../../node_modules/bootstrap/scss/mixins';
 
-#content {
+main {
     .foldout {
         width: 100%;
         overflow: hidden;
@@ -139,7 +139,7 @@
 }
 
 @media only screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
-    #content {
+    main {
         .foldout, .foldout-spacer {
             display: none;
         }

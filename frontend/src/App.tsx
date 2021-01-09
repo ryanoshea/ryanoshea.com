@@ -10,11 +10,11 @@ import NotFound from './Components/404/404';
 const App = () => {
     return (
         <Router>
-            <main>
-                <div id='main' role='main'>
-                    <article>
+            <div className='scroll-body'>
+                <main role='main'>
+                    <article className='limit-width'>
                         <Nameplate />
-                        <div id='content'>
+                        <div className='text-content router-body'>
                             <Switch>
                                 <Route path='/' exact>
                                     <Home />
@@ -25,8 +25,8 @@ const App = () => {
                             </Switch>
                         </div>
                     </article>
-                </div>
-            </main>
+                </main>
+            </div>
 
             <Footer />
         </Router>

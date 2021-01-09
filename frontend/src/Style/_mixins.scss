@@ -1,0 +1,12 @@
+@mixin text-color-transition {
+    transition: color 300ms ease-in;
+}
+
+@mixin link-bg {
+    transition: background-color 200ms ease-in;
+    background-color: transparent;
+    padding: 0.15em;
+    margin-left: -0.15em;
+    margin-right: -0.15em;
+    border-radius: 3px;
+}

@@ -147,7 +147,7 @@ const Home = () => {
     return (
         <>
             <Biography />
-            <div id='profile-links'>
+            <nav id='profile-links'>
                 <ul id='profiles'>
                     <li ref={codeRef}>
                         <SometimesLabel
@@ -238,20 +238,22 @@ const Home = () => {
                         </a>
                     </li>
                 </ul>
-                <p>
-                    I went to{' '}
-                    <a href='http://devonprep.com' title='high school' target='_blank' rel='noopener noreferrer'>
-                        Devon Prep
-                    </a>{' '}
-                    before undergrad.
-                </p>
-                <p>
-                    <a href='https://twitter.com/djoshea' title="Dan O'Shea" target='_blank' rel='noopener noreferrer'>
-                        This guy
-                    </a>{' '}
-                    is my brother. He's doing some amazing stuff in neuroscience.
-                </p>
-            </div>
+                <section>
+                    <p>
+                        I went to{' '}
+                        <a href='http://devonprep.com' title='high school' target='_blank' rel='noopener noreferrer'>
+                            Devon Prep
+                        </a>{' '}
+                        before undergrad.
+                    </p>
+                    <p>
+                        <a href='https://twitter.com/djoshea' title="Dan O'Shea" target='_blank' rel='noopener noreferrer'>
+                            This guy
+                        </a>{' '}
+                        is my brother. He's doing some amazing stuff in neuroscience.
+                    </p>
+                </section>
+            </nav>
         </>
     );
 };

@@ -1,3 +1,5 @@
+@import '../../Style/mixins';
+
 .biography {
     #resume a {
         transform: translateX(-0.15em);
@@ -12,6 +14,10 @@
 
     .intro-lines {
         text-transform: uppercase;
+
+        & > p {
+            @include text-color-transition;
+        }
 
         #line1 {
             color: hsl(0, 0%, 30%);
