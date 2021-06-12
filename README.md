@@ -5,7 +5,6 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d1faca4be5cf500366bb/maintainability)](https://codeclimate.com/github/ryanoshea/ryanoshea.com/maintainability)
 [![Known Vulnerabilities](https://snyk.io/test/github/ryanoshea/ryanoshea.com/badge.svg?targetFile=backend/package.json)](https://snyk.io/test/github/ryanoshea/ryanoshea.com?targetFile=backend/package.json)
-![Dependencies](https://david-dm.org/ryanoshea/ryanoshea.com.svg)
 ![GitHub](https://img.shields.io/github/license/ryanoshea/ryanoshea.com)
 
 
@@ -38,7 +37,11 @@ The Node.js server is based on the [`spdy`](https://www.npmjs.com/package/spdy) 
 
 #### app.js
 
-`app.js` is a REST microservice for the single AJAX call made by the front-end — fetching the contents of a portfolio album on Flickr. It uses [`flickr-sdk`](https://github.com/flickr/flickr-sdk) to fetch all the necessary details from Flickr's API. All of those requests take a while, so after the first set of requests, the server caches the results until the contents of the Flickr album change.
+`app.js` is a REST microservice for a few AJAX calls made by the front-end. 
+
+One handles fetching the contents of a portfolio album on Flickr. It uses [`flickr-sdk`](https://github.com/flickr/flickr-sdk) to fetch all the necessary details from Flickr's API. All of those requests take a while, so after the first set of requests, the server caches the results until the contents of the Flickr album change.
+
+Another powers a dynamic “last-updated time” for my résumé. I often let this get out of date, so this call hits GitHub’s API (through [Octokit](https://github.com/octokit/core.js)) to obtain the timestamp of the last commit to the resume.pdf file in this repository.
 
 ## React Front-end Single-page App
 
