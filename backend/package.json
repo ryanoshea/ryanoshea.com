@@ -20,7 +20,7 @@
   "dependencies": {
     "@octokit/core": "^3.2.4",
     "compression": "^1.7.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "flickr-sdk": "^3.10.0",
     "helmet": "^3.23.3",
     "morgan": "^1.10.0",
