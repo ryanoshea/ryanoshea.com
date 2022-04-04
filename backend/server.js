@@ -1,5 +1,6 @@
 const http = require('http');
 const https = require('spdy');
+const crypto = require('crypto');
 const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
@@ -14,6 +15,7 @@ const cert = fs.readFileSync('cert/fullchain.pem');
 const tlsConfig = {
     key: key,
     cert: cert,
+    secureOptions: crypto.constants.SSL_OP_NO_TLSv1 | crypto.constants.SSL_OP_NO_TLSv1_1
 };
 
 const localhostCorsMiddleware = (req, res, next) => {
