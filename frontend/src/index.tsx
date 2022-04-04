@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/scss/bootstrap.scss';
 import 'normalize.css/normalize.css';
-import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
-import '@fortawesome/fontawesome-free/scss/regular.scss';
-import '@fortawesome/fontawesome-free/scss/solid.scss';
-import '@fortawesome/fontawesome-free/scss/brands.scss';
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+import '@fortawesome/fontawesome-free/css/regular.css';
+import '@fortawesome/fontawesome-free/css/solid.css';
+import '@fortawesome/fontawesome-free/css/brands.css';
 import App from './App';
 
 ReactDOM.render(
