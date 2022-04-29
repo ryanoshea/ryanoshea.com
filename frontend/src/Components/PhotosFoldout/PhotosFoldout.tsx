@@ -113,8 +113,8 @@ const PhotosFoldout = (props: {
                             </button>
                         </div>
                         <a
-                            id='flickr-button'
-                            href='https://www.flickr.com/photos/rinoshea/'
+                            id='see-all-button'
+                            href='https://www.instagram.com/ryanoshea/'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
