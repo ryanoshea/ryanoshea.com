@@ -35,6 +35,12 @@ const createServer = () => {
         })
     );
 
+    // Set cache policy
+    pageServer.use((req, res, next) => {
+        res.setHeader('Cache-Control', 'public, max-age=604800');
+        next();
+    });
+
     // Setup HTTP2/SPDY/HTTP1.1 Server with TLS/SSL
 
     // Enable HSTS with long expiry
