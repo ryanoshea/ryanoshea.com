@@ -15,7 +15,7 @@ const cert = fs.readFileSync('cert/fullchain.pem');
 const tlsConfig = {
     key: key,
     cert: cert,
-    secureOptions: crypto.constants.SSL_OP_NO_TLSv1 | crypto.constants.SSL_OP_NO_TLSv1_1
+    secureOptions: crypto.constants.SSL_OP_NO_TLSv1 | crypto.constants.SSL_OP_NO_TLSv1_1,
 };
 
 const localhostCorsMiddleware = (req, res, next) => {
@@ -64,14 +64,9 @@ const createServer = () => {
                     'ryanoshea.com',
                     '*.ryanoshea.com',
                     'localhost',
-                    'www.google-analytics.com',
                     'use.fontawesome.com',
-                    'ajax.googleapis.com',
                     "'sha256-oY1ddOyqyapI/8WdWPxfu4D5+SEPylUFMWng2aAlnQA='",
                     "'sha256-DdEaN+Pq6QjzsX3DogWAWpNCzeWCw437H8jqNv9mP+8='",
-                    // Google Analytics inline hashes
-                    "'sha256-1x5xSsObH83rcuF5NpFRGALUyVEUZSA0C6LlueRxfek='",
-                    "'sha256-vW/bBWjiMca9xcF6xcWp5hHtiQofRu6SLormz9EsHE8='",
                 ],
                 styleSrc: [
                     'ryanoshea.com',
@@ -79,15 +74,12 @@ const createServer = () => {
                     'localhost',
                     'fonts.googleapis.com',
                     'use.fontawesome.com',
-                    'ajax.googleapis.com',
                 ],
                 imgSrc: [
                     'ryanoshea.com',
                     '*.ryanoshea.com',
                     'localhost',
                     '*.staticflickr.com',
-                    'www.google-analytics.com',
-                    'stats.g.doubleclick.net',
                 ],
                 fontSrc: ['ryanoshea.com', '*.ryanoshea.com', 'localhost', 'fonts.gstatic.com', 'use.fontawesome.com'],
                 objectSrc: ['ryanoshea.com', '*.ryanoshea.com', 'localhost'],
