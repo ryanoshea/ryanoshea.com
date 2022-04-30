@@ -30,7 +30,7 @@ main {
     }
 }
 
-@media only screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+@media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
     #flickr-link i {
         display: none;
     }

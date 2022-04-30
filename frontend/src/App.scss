@@ -50,6 +50,7 @@ body {
                 #left {
                     vertical-align: top;
                     overflow: show;
+                    padding-right: 30px;
                 }
 
                 #left {
@@ -133,12 +134,16 @@ body {
     }
 }
 
-@media only screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+@media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
     #root .scroll-body main {
         margin-top: 2em;
 
         .limit-width {
             display: block;
+
+            .headshot {
+                display: none;
+            }
         }
     }
 }

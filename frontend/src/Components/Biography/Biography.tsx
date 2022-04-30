@@ -3,7 +3,6 @@ import './Biography.scss';
 import { getUrl } from '../../Utils/api';
 
 const Biography = () => {
-    const year = new Date().getFullYear();
     // Fetch info on the last updated date for the resume
     let [resumeInfo, setResumeInfo] = useState<{ date: string; url: string } | undefined>();
     let [resumeInfoError, setResumeInfoError] = useState(false);
@@ -37,7 +36,7 @@ const Biography = () => {
             <h2 className='intro-lines'>
                 <p id='line1'>I’m a full-stack software engineer based in Boston.</p>
                 <p id='line2'>I build user-facing products and core infrastructure from the ground up.</p>
-                <p id='line3'>I like writing apps, designing user experiences, and taking photos on the side.</p>
+                <p id='line3'>I like designing scalable systems, writing apps, and taking photos on the side.</p>
                 <p id='line4'>Say hello if you’d like to chat or work together.</p>
             </h2>
 
@@ -63,15 +62,15 @@ const Biography = () => {
             </div>
 
             <p>
-                {year === 2021 ? 'Last year' : 'In 2021'}, I started as senior software engineer on{' '}
+                Since 2021, I’ve been a tech lead, then Staff Engineer, on{' '}
                 <a href='https://www.chewy.com/b/pharmacy-2515' target='_blank' rel='noopener noreferrer'>
                     Chewy’s Pet Health team
                 </a>
-                , shipping storefront features at scale using Kotlin and Vue.js on Spring Boot.
+                , shipping storefront features at scale on EKS-hosted Spring Boot microservices and React SPAs.
             </p>
 
             <p>
-                Until the COVID-19 pandemic hit the restaurant industry, I spent a brief while at{' '}
+                Until the pandemic, I spent a brief while at{' '}
                 <a href='https://pos.toasttab.com' target='_blank' rel='noopener noreferrer'>
                     Toast
                 </a>{' '}
