@@ -2,7 +2,7 @@
 
 echo
 echo "Creating production front-end build."
-yarn build
+npm run build
 
 echo
 echo "Stopping ryanoshea.com server."
