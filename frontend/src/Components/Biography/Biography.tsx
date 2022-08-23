@@ -62,7 +62,7 @@ const Biography = () => {
             </div>
 
             <p>
-                Since 2021, I’ve been a tech lead, then Staff Engineer, on{' '}
+                Since 2020, I’ve been a tech lead, then Staff Engineer, on{' '}
                 <a href='https://www.chewy.com/b/pharmacy-2515' target='_blank' rel='noopener noreferrer'>
                     Chewy’s Pet Health team
                 </a>
