@@ -60,7 +60,7 @@ const PhotosFoldout = (props: {
                 </div>
                 <div id='flickr-foldout-label'>
                     <div className='body'>
-                        <p id='flickr-top-label'>Photos by Ryan O’Shea on Flickr:</p>
+                        <p id='flickr-top-label'>Some of my favorite shots:</p>
                         <h4>{photo.title}</h4>
                         <ul id='exif-data'>
                             {exif.camera != null && (

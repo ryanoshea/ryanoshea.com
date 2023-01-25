@@ -100,25 +100,13 @@ const Biography = () => {
                 >
                     senior thesis
                 </a>{' '}
-                was a scalable network of temperature sensors for monitoring data center climates. Interesting projects:{' '}
+                was a scalable network of temperature sensors for monitoring data center climates. Projects:{' '}
                 <a href='https://github.com/ryanoshea/car-lab' target='_blank' rel='noopener noreferrer'>
                     Car Lab
                 </a>
                 ,{' '}
                 <a href='https://github.com/ryanoshea/poll-princeton' target='_blank' rel='noopener noreferrer'>
                     PollPrinceton
-                </a>
-                .
-            </p>
-
-            <p>
-                Way back, I interned at{' '}
-                <a href='https://robotics.vecna.com/' target='_blank' rel='noopener noreferrer'>
-                    Vecna Technologies
-                </a>{' '}
-                and{' '}
-                <a href='https://business.comcast.com' target='_blank' rel='noopener noreferrer'>
-                    Comcast
                 </a>
                 .
             </p>
