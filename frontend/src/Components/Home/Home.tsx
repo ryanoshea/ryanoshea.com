@@ -18,6 +18,7 @@ const Home = () => {
     const workRef = useRef<HTMLLIElement>(null);
     const photoRef = useRef<HTMLLIElement>(null);
     const tweetRef = useRef<HTMLLIElement>(null);
+    const mastodonRef = useRef<HTMLLIElement>(null);
 
     const reducer: AppReducer = (state, action) => {
         const newState = state.clone();
@@ -157,11 +158,10 @@ const Home = () => {
                         <a
                             id='github-link'
                             href='https://github.com/ryanoshea'
-                            title='github'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
-                            code
+                            GitHub
                         </a>
                     </li>
                     <li ref={workRef}>
@@ -174,11 +174,10 @@ const Home = () => {
                         <a
                             id='linkedin-link'
                             href='https://www.linkedin.com/in/ryancoshea'
-                            title='linkedin'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
-                            work
+                            LinkedIn
                         </a>
                     </li>
                     <li ref={photoRef}>
@@ -191,11 +190,11 @@ const Home = () => {
                         <button
                             id='flickr-link'
                             className='link'
-                            title='I shoot on a Nikon D610 nowadays.'
+                            title='I shoot on a Nikon D610 or iPhone mostly nowadays.'
                             onClick={() => toggleFoldout()}
                             ref={foldoutOpenLink}
                         >
-                            take photos{' '}
+                            Instagram{' '}
                             {loadingPhotos && attemptedEarlyFoldoutOpen ? (
                                 <i className='foldout-loading-indicators fas fa-sync fa-spin' aria-hidden='true'></i>
                             ) : ((loadingPhotos || photoData.length > 0) &&
@@ -218,6 +217,23 @@ const Home = () => {
                             dispatch={dispatch}
                         />
                     )}
+                    <li ref={mastodonRef}>
+                        <SometimesLabel
+                            identifier='publish'
+                            selectedId={selectedSometimesLabel}
+                            listItem={mastodonRef}
+                            dispatch={dispatch}
+                        />
+                        <a
+                            id='mastodon-link'
+                            href='https://mastodon.lol/@ryanoshea'
+                            title='Trying it out…'
+                            target='_blank'
+                            rel='me noopener noreferrer'
+                        >
+                            Mastodon
+                        </a>
+                    </li>
                     <li ref={tweetRef}>
                         <SometimesLabel
                             identifier='tweet'
@@ -228,11 +244,11 @@ const Home = () => {
                         <a
                             id='twitter-link'
                             href='https://twitter.com/ryancoshea'
-                            title='twitter'
+                            title='…or what’s left of it'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
-                            tweet
+                            Twitter
                         </a>
                     </li>
                 </ul>

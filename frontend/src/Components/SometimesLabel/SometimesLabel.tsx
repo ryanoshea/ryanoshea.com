@@ -38,7 +38,7 @@ const SometimesLabel = (props: {
                     selected: selectedId === id,
                 })}
             >
-                sometimes I
+                You can find me on
             </span>{' '}
         </>
     );
