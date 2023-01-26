@@ -31,7 +31,7 @@ main {
 }
 
 @media only screen and (max-width: map-get($grid-breakpoints, lg) - 1) {
-    #flickr-link i {
+    #instagram-link i {
         display: none;
     }
 }

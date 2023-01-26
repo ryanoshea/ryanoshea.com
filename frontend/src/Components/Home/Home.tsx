@@ -128,7 +128,7 @@ const Home = () => {
                 }
             }
         } else {
-            const newTab = window.open('https://www.flickr.com/photos/rinoshea/', '_blank');
+            const newTab = window.open('https://www.instagram.com/ryanoshea/', '_blank');
             if (newTab) {
                 newTab.opener = null;
             }
@@ -188,7 +188,7 @@ const Home = () => {
                             dispatch={dispatch}
                         />
                         <button
-                            id='flickr-link'
+                            id='instagram-link'
                             className='link'
                             title='I shoot on a Nikon D610 or iPhone mostly nowadays.'
                             onClick={() => toggleFoldout()}
@@ -197,14 +197,16 @@ const Home = () => {
                             Instagram{' '}
                             {loadingPhotos && attemptedEarlyFoldoutOpen ? (
                                 <i className='foldout-loading-indicators fas fa-sync fa-spin' aria-hidden='true'></i>
-                            ) : ((loadingPhotos || photoData.length > 0) &&
-                                <i
-                                    className={classNames('fas', {
-                                        'fa-angle-down': !photosOpen,
-                                        'fa-angle-up': photosOpen,
-                                    })}
-                                    aria-hidden='true'
-                                ></i>
+                            ) : (
+                                (loadingPhotos || photoData.length > 0) && (
+                                    <i
+                                        className={classNames('fas', {
+                                            'fa-angle-down': !photosOpen,
+                                            'fa-angle-up': photosOpen,
+                                        })}
+                                        aria-hidden='true'
+                                    ></i>
+                                )
                             )}
                         </button>
                     </li>
@@ -261,7 +263,12 @@ const Home = () => {
                         before undergrad.
                     </p>
                     <p>
-                        <a href='https://twitter.com/djoshea' title="Dan O'Shea" target='_blank' rel='noopener noreferrer'>
+                        <a
+                            href='https://twitter.com/djoshea'
+                            title="Dan O'Shea"
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
                             This guy
                         </a>{' '}
                         is my brother. He's doing some amazing stuff in neuroscience.
