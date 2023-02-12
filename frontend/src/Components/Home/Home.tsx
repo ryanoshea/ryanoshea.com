@@ -228,7 +228,7 @@ const Home = () => {
                         />
                         <a
                             id='mastodon-link'
-                            href='https://mastodon.lol/@ryanoshea'
+                            href='https://mastodon.online/@ryanoshea'
                             title='Trying it out…'
                             target='_blank'
                             rel='me noopener noreferrer'
