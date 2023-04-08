@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useRef } from 'react';
+import { useReducer, useEffect, useRef } from 'react';
 import './Home.scss';
 import classNames from 'classnames';
 import { AppReducer, ACTIONS, AppState, Photo } from '../../State/AppState';

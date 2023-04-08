@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './PhotosFoldout.scss';
 import { ACTIONS, Photo, AppDispatchParam } from '../../State/AppState';
 

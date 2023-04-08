@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './SometimesLabel.scss';
 import classNames from 'classnames';
 import { AppDispatchParam, ACTIONS } from '../../State/AppState';
