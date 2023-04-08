@@ -10,7 +10,7 @@ const Biography = () => {
         fetch(getUrl('/api/github/resume-info'))
             .then(rs => {
                 if (!rs.ok) throw new Error(rs.statusText);
-                return rs.json()
+                return rs.json();
             })
             .then(info => setResumeInfo(info))
             .catch(e => {
@@ -35,8 +35,8 @@ const Biography = () => {
         <article className='biography'>
             <h2 className='intro-lines'>
                 <p id='line1'>I’m a full-stack software engineer based in Boston.</p>
-                <p id='line2'>I build user-facing products and core infrastructure from the ground up.</p>
-                <p id='line3'>I like designing scalable systems, writing apps, and taking photos on the side.</p>
+                <p id='line2'>I build scalable, maintainable, and well-tested systems from the ground up.</p>
+                <p id='line3'>I like learning from peers and teaching what works.</p>
                 <p id='line4'>Say hello if you’d like to chat or work together.</p>
             </h2>
 
@@ -63,10 +63,17 @@ const Biography = () => {
 
             <p>
                 Since 2020, I’ve been a tech lead, then Staff Engineer, on{' '}
-                <a href='https://www.chewy.com/b/pharmacy-2515' target='_blank' rel='noopener noreferrer'>
-                    Chewy’s Pet Health team
-                </a>
-                , shipping storefront features at scale on EKS-hosted Spring Boot microservices and React SPAs.
+                <a href='https://www.chewy.com' target='_blank' rel='noopener noreferrer'>
+                    Chewy’s
+                </a>{' '}
+                <a href='https://www.chewy.com/app/buy-from-your-vet' target='_blank' rel='noopener noreferrer'>
+                    Pet Health
+                </a>{' '}
+                and{' '}
+                <a href='https://www.chewy.com/pet-insurance' target='_blank' rel='noopener noreferrer'>
+                    Pet Insurance
+                </a>{' '}
+                teams, leading the delivery of e-commerce features at scale with EKS-hosted Spring Boot microservices and React SPAs.
             </p>
 
             <p>
@@ -78,7 +85,7 @@ const Biography = () => {
             </p>
 
             <p>
-                Previously, I spent 4 years at{' '}
+                Before that, I spent 4 years at{' '}
                 <a href='https://composableanalytics.com' target='_blank' rel='noopener noreferrer'>
                     Composable Analytics
                 </a>{' '}
