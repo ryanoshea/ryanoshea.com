@@ -20,7 +20,7 @@ const tlsConfig = {
 
 const localhostCorsMiddleware = (req, res, next) => {
     // Allow requests from local React dev server
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5173');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 };
@@ -75,12 +75,7 @@ const createServer = () => {
                     'fonts.googleapis.com',
                     'use.fontawesome.com',
                 ],
-                imgSrc: [
-                    'ryanoshea.com',
-                    '*.ryanoshea.com',
-                    'localhost',
-                    '*.staticflickr.com',
-                ],
+                imgSrc: ['ryanoshea.com', '*.ryanoshea.com', 'localhost', '*.staticflickr.com'],
                 fontSrc: ['ryanoshea.com', '*.ryanoshea.com', 'localhost', 'fonts.gstatic.com', 'use.fontawesome.com'],
                 objectSrc: ['ryanoshea.com', '*.ryanoshea.com', 'localhost'],
                 frameAncestors: ["'none'"],
