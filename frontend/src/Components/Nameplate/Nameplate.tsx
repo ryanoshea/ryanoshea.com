@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nameplate.scss';
 import headshot from '../../Static/headshot.jpg';
