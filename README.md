@@ -1,7 +1,5 @@
 # ryanoshea.com
 
-![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/ryanoshea.com?label=mozilla%20observatory&publish)
-![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Fryanoshea.com)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![GitHub](https://img.shields.io/github/license/ryanoshea/ryanoshea.com)
 
