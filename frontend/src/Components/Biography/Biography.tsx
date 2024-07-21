@@ -34,7 +34,7 @@ const Biography = () => {
     return (
         <article className='biography'>
             <h2 className='intro-lines'>
-                <p id='line1'>I’m a full-stack software engineer based in Boston.</p>
+                <p id='line1'>I’m a full-stack software engineer based in New York.</p>
                 <p id='line2'>I build scalable, maintainable, and well-tested systems from the ground up.</p>
                 <p id='line3'>I like learning from peers and teaching what works.</p>
                 <p id='line4'>Say hello if you’d like to chat or work together.</p>
