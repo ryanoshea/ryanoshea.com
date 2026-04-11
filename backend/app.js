@@ -65,15 +65,17 @@ App.get('/flickr/most-recent-photos', (req, res) => {
                     pageUrl: `https://www.flickr.com/photos/${FLICKR_USER_ID}/${photoInfo.id}`,
                 };
 
-                // Find url for 2048-px size of image
+                // Find url for largest returned photo size
                 apiPromises.push(
                     flickr.photos
                         .getSizes({
                             photo_id: photoInfo.id,
                         })
                         .then(({ body: rs }) => {
-                            let sizes = rs.sizes.size;
-                            photoDetails[i].url = sizes.find(x => x.label === 'Large 2048').source;
+                            const sizes = rs.sizes.size;
+                            const maxWidth = Math.max(...sizes.map(x => x.width));
+                            const largestSize = sizes.find(x => x.width === maxWidth);
+                            photoDetails[i].url = largestSize.source;
                         })
                 );
 
