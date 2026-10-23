@@ -20,10 +20,11 @@
   "dependencies": {
     "@octokit/core": "^3.2.4",
     "compression": "^1.8.2",
-    "express": "^4.22.3",
+    "express": "^5.0.0",
     "flickr-sdk": "^3.10.0",
     "helmet": "^3.23.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "mime-types": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^7.15.0",
