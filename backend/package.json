@@ -18,17 +18,15 @@
   },
   "homepage": "https://github.com/ryanoshea/ryanoshea.com#readme",
   "dependencies": {
-    "@octokit/core": "^3.2.4",
-    "compression": "^1.7.4",
-    "express": "^4.17.3",
-    "flickr-sdk": "^3.10.0",
-    "helmet": "^3.23.3",
-    "morgan": "^1.10.0",
-    "spdy": "^4.0.2"
+    "@octokit/core": "^7.0.8",
+    "compression": "^1.8.2",
+    "express": "^5.0.0",
+    "flickr-sdk": "^7.1.0",
+    "helmet": "^8.3.0",
+    "mime-types": "^3.0.0",
+    "morgan": "^1.12.1"
   },
   "devDependencies": {
-    "eslint": "^7.15.0",
-    "eslint-plugin-prettier": "^3.2.0",
-    "prettier": "^2.2.1"
+    "prettier": "^3.9.10"
   }
 }

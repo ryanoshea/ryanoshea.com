@@ -2,21 +2,17 @@ const express = require('express');
 const compression = require('compression');
 
 // Initialize Flickr API
-const Flickr = require('flickr-sdk');
+const { createFlickr } = require('flickr-sdk');
 const {
-    flickr: {
-        apiKey: flickrApiKey
-    },
-    github: {
-        apiKey: githubApiKey
-    }
+    flickr: { apiKey: flickrApiKey },
+    github: { apiKey: githubApiKey },
 } = require('./flickrAuth');
-const flickr = new Flickr(flickrApiKey);
+const { flickr } = createFlickr(flickrApiKey);
 const FLICKR_USER_ID = '22136543@N06';
 const FLICKR_PORTFOLIO_ALBUM_ID = '72157680776000625';
 
 // GitHub API
-const { Octokit } = require("@octokit/core");
+const { Octokit } = require('@octokit/core');
 const octokit = new Octokit({ auth: githubApiKey });
 
 // Set up Express
@@ -37,12 +33,11 @@ App.get('/flickr/most-recent-photos', (req, res) => {
     let allPhotoDataFetchedSuccessfully = true;
 
     // Get IDs of all photos in portfolio album
-    flickr.photosets
-        .getPhotos({
-            user_id: FLICKR_USER_ID,
-            photoset_id: FLICKR_PORTFOLIO_ALBUM_ID,
-        })
-        .then(({ body: rs }) => {
+    flickr('flickr.photosets.getPhotos', {
+        user_id: FLICKR_USER_ID,
+        photoset_id: FLICKR_PORTFOLIO_ALBUM_ID,
+    })
+        .then(rs => {
             let numPhotos = rs.photoset.photo.length; // for safety
             let flickrPhotos = rs.photoset.photo;
 
@@ -67,68 +62,62 @@ App.get('/flickr/most-recent-photos', (req, res) => {
 
                 // Find url for largest returned photo size
                 apiPromises.push(
-                    flickr.photos
-                        .getSizes({
-                            photo_id: photoInfo.id,
-                        })
-                        .then(({ body: rs }) => {
-                            const sizes = rs.sizes.size;
-                            const maxWidth = Math.max(...sizes.map(x => x.width));
-                            const largestSize = sizes.find(x => x.width === maxWidth);
-                            photoDetails[i].url = largestSize.source;
-                        })
+                    flickr('flickr.photos.getSizes', {
+                        photo_id: photoInfo.id,
+                    }).then(rs => {
+                        const sizes = rs.sizes.size;
+                        const maxWidth = Math.max(...sizes.map(x => x.width));
+                        const largestSize = sizes.find(x => x.width === maxWidth);
+                        photoDetails[i].url = largestSize.source;
+                    })
                 );
 
                 // Get photo's title
                 apiPromises.push(
-                    flickr.photos
-                        .getInfo({
-                            photo_id: photoInfo.id,
-                        })
-                        .then(({ body: rs }) => {
-                            if (rs.photo.title._content !== '') {
-                                photoDetails[i].title = rs.photo.title._content;
-                            } else {
-                                photoDetails[i].title = 'Untitled';
-                            }
-                        })
+                    flickr('flickr.photos.getInfo', {
+                        photo_id: photoInfo.id,
+                    }).then(rs => {
+                        if (rs.photo.title._content !== '') {
+                            photoDetails[i].title = rs.photo.title._content;
+                        } else {
+                            photoDetails[i].title = 'Untitled';
+                        }
+                    })
                 );
 
                 // Get photo's EXIF data
                 apiPromises.push(
-                    flickr.photos
-                        .getExif({
-                            photo_id: photoInfo.id,
-                        })
-                        .then(({ body: rs }) => {
-                            // Gather needed EXIF fields
-                            let exif = rs.photo.exif;
-                            const details = photoDetails[i];
-                            details.exif = {};
-                            if (exif.length > 0) {
-                                details.exif.camera = rs.photo.camera;
-                                const aperture = exif.find(x => x.tag === 'FNumber');
-                                details.exif.aperture = aperture ? aperture.raw._content : null;
-                                const shutter = exif.find(x => x.tag === 'ExposureTime');
-                                details.exif.shutter = shutter ? shutter.raw._content : null;
-                                const iso = exif.find(x => x.tag === 'ISO');
-                                details.exif.iso = iso ? iso.raw._content : null;
-                                const focalLen = exif.find(x => x.tag === 'FocalLength');
-                                details.exif.focalLength = focalLen ? focalLen.raw._content : null;
-                                const flashItem = exif.find(x => x.tag === 'Flash');
-                                if (flashItem) {
-                                    let flash = flashItem.raw._content;
-                                    details.exif.flash = flash.match(/on/i) ? 'On' : 'Off';
-                                } else {
-                                    details.exif.flash = null;
-                                }
+                    flickr('flickr.photos.getExif', {
+                        photo_id: photoInfo.id,
+                    }).then(rs => {
+                        // Gather needed EXIF fields
+                        let exif = rs.photo.exif;
+                        const details = photoDetails[i];
+                        details.exif = {};
+                        if (exif.length > 0) {
+                            details.exif.camera = rs.photo.camera;
+                            const aperture = exif.find(x => x.tag === 'FNumber');
+                            details.exif.aperture = aperture ? aperture.raw._content : null;
+                            const shutter = exif.find(x => x.tag === 'ExposureTime');
+                            details.exif.shutter = shutter ? shutter.raw._content : null;
+                            const iso = exif.find(x => x.tag === 'ISO');
+                            details.exif.iso = iso ? iso.raw._content : null;
+                            const focalLen = exif.find(x => x.tag === 'FocalLength');
+                            details.exif.focalLength = focalLen ? focalLen.raw._content : null;
+                            const flashItem = exif.find(x => x.tag === 'Flash');
+                            if (flashItem) {
+                                let flash = flashItem.raw._content;
+                                details.exif.flash = flash.match(/on/i) ? 'On' : 'Off';
                             } else {
-                                // Sometimes Flickr's API returns no EXIF results for getExif()
-                                console.error(`EXIF not returned for photo id = ${photoInfo.id}. Response data:`);
-                                console.error(JSON.stringify(rs));
-                                allPhotoDataFetchedSuccessfully = false;
+                                details.exif.flash = null;
                             }
-                        })
+                        } else {
+                            // Sometimes Flickr's API returns no EXIF results for getExif()
+                            console.error(`EXIF not returned for photo id = ${photoInfo.id}. Response data:`);
+                            console.error(JSON.stringify(rs));
+                            allPhotoDataFetchedSuccessfully = false;
+                        }
+                    })
                 );
             });
 
@@ -146,9 +135,9 @@ App.get('/flickr/most-recent-photos', (req, res) => {
                         photos: photoDetails,
                     });
                 })
-                .catch(logFlickrError);
+                .catch(e => logFlickrError(e, res));
         })
-        .catch(logFlickrError);
+        .catch(e => logFlickrError(e, res));
 });
 console.log('REST handler listening under /api/');
 
@@ -157,50 +146,53 @@ console.log('REST handler listening under /api/');
  * the same photos. If so, we return the cached copy to save time & API calls.
  * @param newPortfolioAlbum: Flickr API response for getPhotos() call on portfolio album
  */
-const photoCacheIsNotStale = (newPortfolioAlbum) => {
+const photoCacheIsNotStale = newPortfolioAlbum => {
     if (!photoCache || photoCache.length !== newPortfolioAlbum.length) {
         return false;
     }
 
     return newPortfolioAlbum.every((newPhoto, i) => newPhoto.id === photoCache[i].id);
-}
+};
 
-const logFlickrError = e => {
+const logFlickrError = (e, res) => {
     res.status(500).send({ err: 1, msg: 'Error fetching recent photos.', details: e });
     console.error('Error fetching most recent photos.');
     console.error(e);
-}
+};
 
 /**
  * Return the last modified date (and commit URL) for the resume PDF in the site's public directory. Used to display
  * a last-updated time so viewers can know how outdated the resume might be.
  */
 App.get('/github/resume-info', (req, res) => {
-    octokit.request("GET /repos/{owner}/{repo}/commits", {
-        owner: 'ryanoshea',
-        repo: 'ryanoshea.com',
-        path: 'frontend/public/contact/resume.pdf',
-        page: 1,
-        per_page: 1
-    }).then(response => {
-        if (response.data.length) {
-            const commit = response.data[0];
-            const date = commit.commit.committer.date;
-            const url = commit.html_url;
-            res.send({
-                date,
-                url
-            });
-        } else {
-            const message = 'Could not find last commit for resume.pdf.';
-            console.error(`${message} Response: ${response}`);
+    octokit
+        .request('GET /repos/{owner}/{repo}/commits', {
+            owner: 'ryanoshea',
+            repo: 'ryanoshea.com',
+            path: 'frontend/public/contact/resume.pdf',
+            page: 1,
+            per_page: 1,
+        })
+        .then(response => {
+            if (response.data.length) {
+                const commit = response.data[0];
+                const date = commit.commit.committer.date;
+                const url = commit.html_url;
+                res.send({
+                    date,
+                    url,
+                });
+            } else {
+                const message = 'Could not find last commit for resume.pdf.';
+                console.error(`${message} Response: ${response}`);
+                res.statusCode(500).send(message);
+            }
+        })
+        .catch(e => {
+            const message = 'Error fetching last commit for resume.pdf.';
+            console.error(`${message} Exception: ${e}`);
             res.statusCode(500).send(message);
-        }
-    }).catch(e => {
-        const message = 'Error fetching last commit for resume.pdf.';
-        console.error(`${message} Exception: ${e}`);
-        res.statusCode(500).send(message);
-    });
+        });
 });
 
 module.exports = App;

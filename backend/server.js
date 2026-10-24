@@ -1,5 +1,5 @@
 const http = require('http');
-const https = require('spdy');
+const https = require('node:https');
 const crypto = require('crypto');
 const express = require('express');
 const helmet = require('helmet');
@@ -20,7 +20,7 @@ const tlsConfig = {
 
 const localhostCorsMiddleware = (req, res, next) => {
     // Allow requests from local React dev server
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5173');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 };
